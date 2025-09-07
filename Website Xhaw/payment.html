@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Course Payment</title>
+  <style>
+    body { 
+      font-family: Arial, sans-serif;
+       padding: 20px; 
+      margin: 0; padding: 0;
+      background: #f4f6f9;
+      color: #333;
+      
+    }
+    body h2{
+      align-items: center;
+    margin: 20px auto;
+
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background:#FFBF00;
+      padding: 10px 20px;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #7FA75D;
+      text-decoration: none;
+      font-weight: bold;
+    }
+     .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand img {
+      height: 40px;
+      width: auto;
+    }
+    table { width: 100%;
+       border-collapse: 
+       collapse;
+        margin-bottom: 20px;
+       }
+    th, td { 
+      padding: 10px;
+       text-align: left;
+        border-bottom: 1px solid #ddd; 
+      }
+    th { background: #FFBF00; 
+      color: white; 
+    }
+    .totals { text-align: right;
+       font-weight: bold; 
+      }
+    .discount { color: red;
+     }
+    button { background: #FFBF00; 
+      color: white; 
+      padding: 10px 20px; 
+      border: none; 
+      border-radius: 6px;
+       cursor: pointer; }
+    button:hover { 
+      background:
+       #e6ac00; }
+  </style>
+</head>
+<body>
+  <nav>
+      <div class="brand">
+        <img src="Media1/Emplogo.png" alt="Empowering the nation">
+        <span>Empowering The Nation</span>
+      </div>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="Courses.html">Course</a></li>
+        <li><a href="apply.html">Apply</a></li>
+        <li><a href="about us.html">About Us</a></li>
+        <li><a href="contact us.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  <h2>COURSE PAYMENT</h2>
+  <table id="courseTable">
+    <thead>
+      <tr>
+        <th>Course Name</th>
+        <th>Duration</th>
+        <th>Pricing</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <p class="totals" id="subtotal"></p>
+  <p class="totals discount" id="discount"></p>
+  <p class="totals" id="vat"></p>
+  <p class="totals" id="total"></p>
+
+  <button>Pay Now</button>
+
+  <script>
+     document.addEventListener("DOMContentLoaded", () => {
+      const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
+      const subtotal = localStorage.getItem("subtotal");
+      const discount = localStorage.getItem("discount");
+      const discountRate = localStorage.getItem("discountRate");
+      const vat = localStorage.getItem("vat");
+      const total = localStorage.getItem("total");
+
+      const table = document.getElementById("courseTable");
+
+      courseDetails.forEach(c => {
+        let row = document.createElement("tr");
+        row.innerHTML = `<td>${c.name}</td><td>${c.duration}</td><td>R${c.price}</td>`;
+        table.appendChild(row);
+      });
+
+      document.getElementById("subtotal").textContent = `Subtotal: R${subtotal}`;
+      document.getElementById("discount").textContent = `Discount: ${discountRate} Applied (R${discount})`;
+      document.getElementById("vat").textContent = `VAT (15%): R${vat}`;
+      document.getElementById("total").textContent = `Total: R${total}`;
+    });
+  </script>
+</body>
+</html>
