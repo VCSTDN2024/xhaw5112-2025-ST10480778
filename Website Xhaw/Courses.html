@@ -1,189 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Courses</title>
-    <style>
-            body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses</title>
+  <style>
+    body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
       background: #f4f6f9;
       color: #333;
     }
-
-    
     nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background:#FFBF00;
-      padding: 10px 20px;
-      color: white;
+      display: flex; justify-content: space-between; align-items: center;
+      background:#FFBF00; padding: 10px 20px; color: white;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: #7FA75D; text-decoration: none; font-weight: bold; }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; width: auto; }
+
+    .courses { padding: 2rem; background: #f4b300; }
+    .section-title { font-size: 2rem; margin: 1.5rem 0; color: white; text-align: left; }
+    .course-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+      gap: 1.5rem;
     }
-    nav ul li a {
-      color: #7FA75D;
-      text-decoration: none;
-      font-weight: bold;
+    .course-card {
+      background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem; text-align: center;
     }
-     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .course-card img {
+      width: 100%; height: 180px; border-radius: 6px; margin-bottom: 1rem; object-fit: cover;
+    }
+    .course-card h2 { font-size: 1.3rem; color: #2f4f2f; margin-bottom: 0.5rem; }
+    .duration { font-weight: bold; color: #2f4f2f; margin: 0.5rem 0 1rem; }
+    .btn-course {
+      display: inline-block; padding: 0.7rem 1.5rem;
+      background: #a97421; color: white;
+      text-decoration: none; border-radius: 20px; transition: 0.3s;
+    }
+    .btn-course:hover { background: #8a5e1b; }
+
+   
+    .modal {
+      display: none; position: fixed; z-index: 999;
+      left: 0; top: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); justify-content: center; align-items: center;
+      padding: 20px;
+    }
+    .modal-content {
+      background: #fff; border-radius: 10px;
+      width: 100%; max-width: 650px;
+      padding: 20px; text-align: center; position: relative;
+      max-height: 90vh; overflow-y: auto;
+    }
+    .modal-content img.course-img {
+      width: 100%; max-height: 250px; object-fit: cover;
+      border-radius: 8px; margin-bottom: 15px;
+    }
+    .modal-content img.logo { width: 100px; margin: 10px auto; }
+    .modal-content h2 { margin: 10px 0; color: #333; }
+    .modal-content p { margin: 10px 0; color: #444; }
+    .modal-content ul {
+      text-align: left; margin: 15px auto; padding-left: 20px;
+    }
+    .modal-content ul li { margin-bottom: 8px; color: #333; }
+    .price {
+      font-size: 1.2rem; font-weight: bold;
+      color: #a97421; margin: 15px 0;
+    }
+    .btn-enroll {
+      display: inline-block; padding: 0.8rem 2rem;
+      background: #28a745; color: white;
+      border-radius: 25px; font-size: 1rem;
+      text-decoration: none; transition: 0.3s;
+    }
+    .btn-enroll:hover { background: #1e7e34; }
+    .close {
+      position: absolute; top: 10px; right: 15px;
+      font-size: 1.5rem; cursor: pointer; color: #555;
     }
 
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
 
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: url(Media1/lifeskills.jpg);
-      padding: 70px 5%;
-      text-align: center;
-    }
-
-    .hero-text {
-      max-width: 700px;
-    }
-
-    .hero-text h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      color: #111;
-    }
-
-    .hero-text p {
-      font-size: 1.05rem;
-      margin-bottom: 25px;
-      color: #222;
-    }
-
-    .hero-buttons a {
-      display: inline-block;
-      margin-right: 12px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
-      font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    .btn-dark {
-      background-color: #333;
-      color: #fff;
-    }
-    .btn-dark:hover {
-      background-color: #555;
-    }
-
-    .btn-light {
-      border: 2px solid #ff5e5b;
-      color: #ff5e5b;
-      background: transparent;
-    }
-    .btn-light:hover {
-      background: #ff5e5b;
-      color: #fff;
-    }
-     .footer {
-      background-color: #FFBF00;
-      border-top: 1px solid #ccc;
-      padding: 25px 5%;
-    }
-
-    
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;                 
-      flex-wrap: wrap;
-    }
-
+    .footer {
+       background-color: #FFBF00;
+        padding: 25px 5%; 
+      }
+    .footer-top { 
+      display: flex; 
+      justify-content:space-between; 
+       flex-wrap: wrap; 
+      }
     .bottom-nav a {
-      margin-right: 15px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: black;          
-      transition: color 0.3s;
+       margin-right: 15px; 
+       font-size: 0.9rem; 
+       text-decoration: none; 
+       color: black; 
+      }
+    .bottom-nav a:hover { 
+      color: #FFEA00; 
     }
-
-    .bottom-nav a:hover {
-      color: #FFEA00;
-      
+    .socials a img { width: 34px;
+       height: 34px;
+        margin-left: 12px;
+       }
+    .footer-bottom { display: flex; 
+      justify-content: space-between; 
+      margin-top: 20px; 
+      font-size: 0.8rem; 
+      flex-wrap: wrap; 
     }
-
-    .footer-top .socials a img {
-      width: 34px;
-      height: 34px;
-      margin-left: 12px;
-      transition: transform 0.3s;
-    }
-
-    .footer-top .socials a img:hover {
-      transform: scale(1.15);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      font-size: 0.8rem;      
-      flex-wrap: wrap;
-    }
-
-    .footer-bottom a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #060606;      
-      transition: color 0.3s;
-    }
-
-    .footer-bottom a:hover {
-      color: #FFEA00;
-    }
-    </style>
+  </style>
 </head>
 <body>
      
-    <nav>
-      <div class="brand">
-        <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
+  <nav>
+    <div class="brand">
+      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo">
+      <span>Empowering The Nation</span>
+    </div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="Courses.html">Course</a></li>
+      <li><a href="apply.html">Apply</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section class="courses">
+    <h1 class="section-title">6 Weeks Courses</h1>
+    <div class="course-container">
+      <div class="course-card">
+        <img src="Media1/childminding.png" alt="Child Minding">
+        <h2>Child Minding</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('childminding')">View Course Details</a>
       </div>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="Courses.html">Course</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about us.html">About Us</a></li>
-        <li><a href="contact us.html">Contact Us</a></li>
-      </ul>
-    </nav>
+      <div class="course-card">
+        <img src="Media1/gardening-skills.png" alt="Gardening">
+        <h2>Garden Maintenance</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('gardening')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/ck.png" alt="Cooking">
+        <h2>Cooking</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('cooking')">View Course Details</a>
+      </div>
+    </div>
 
+    <h1 class="section-title">6 Months Courses</h1>
+    <div class="course-container">
+      <div class="course-card">
+        <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid">
+        <h2>First Aid</h2>
+        <div class="duration">⏰ 6 Months</div>
+        <a href="#" class="btn-course" onclick="openModal('firstaid')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/lifeskills.jpg" alt="Life Skills">
+        <h2>Life Skills</h2>
+        <div class="duration">⏰ 6 Months</div>
+        <a href="#" class="btn-course" onclick="openModal('lifeskills')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/sewingimage.webp" alt="Sewing">
+        <h2>Sewing</h2>
+        <div class="duration">⏰ 6 Months</div>
+        <a href="#" class="btn-course" onclick="openModal('sewing')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/R.jpeg" alt="Landscaping">
+        <h2>Landscaping</h2>
+        <div class="duration">⏰ 6 Months</div>
+        <a href="#" class="btn-course" onclick="openModal('landscaping')">View Course Details</a>
+      </div>
+    </div>
+  </section>
 
+ 
+  <div id="courseModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo" class="logo">
+      <h2 id="modalTitle">Course Title</h2>
+      <img src="" alt="Course Image" class="course-img" id="modalImg">
+      <p id="modalDesc">Course details will appear here...</p>
+      <h3>What You'll Learn</h3>
+      <ul id="modalLearn"></ul>
+      <div class="price" id="modalPrice">Price: R0</div>
+      <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </div>
+  </div>
 
-<section>
-
-</section>
-
-
-
-
-
-
-
-
-    <footer class="footer">
+  <footer class="footer">
     <div class="footer-top">
       <span><strong>Empowering the nation</strong></span>           
       <div class="bottom-nav">
@@ -194,10 +208,10 @@
         <a href="contact us.html">Contact Us</a>
       </div>      
       <div class="socials">
-        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+        <a href="#"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+        <a href="#"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
+        <a href="#"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="#"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -209,9 +223,95 @@
       </div>
     </div>
   </footer>
-  </div>
 
+  <script>
+    function openModal(course) {
+      const modal = document.getElementById("courseModal");
+      const title = document.getElementById("modalTitle");
+      const img = document.getElementById("modalImg");
+      const desc = document.getElementById("modalDesc");
+      const learnList = document.getElementById("modalLearn");
+      const price = document.getElementById("modalPrice");
 
-    
+      const courses = {
+        childminding: {
+          title: "Child Minding",
+          img: "Media1/childminding.png",
+          desc: "Learn to provide quality childcare with safety in mind.",
+          learn: ["Child safety & first aid basics", "Nutrition for children", "Creating fun activities"],
+          price: "R750"
+        },
+        gardening: {
+          title: "Garden Maintenance",
+          img: "Media1/gardening-skills.png",
+          desc: "Essential garden care and landscaping skills.",
+          learn: ["Soil preparation", "Planting techniques", "Garden design basics"],
+          price: "R750"
+        },
+        cooking: {
+          title: "Cooking",
+          img: "Media1/ck.png",
+          desc: "Learn to prepare delicious and healthy meals.",
+          learn: ["Basic cooking techniques", "Nutrition & meal planning", "Food safety & hygiene"],
+          price: "R750"
+        },
+        firstaid: {
+          title: "First Aid",
+          img: "Media1/first-aid-training-course-instructor.png",
+          desc: "Gain lifesaving first aid knowledge and skills.",
+          learn: ["CPR techniques", "Wound treatment", "Emergency response"],
+          price: "R1500"
+        },
+        lifeskills: {
+          title: "Life Skills",
+          img: "Media1/lifeskills.jpg",
+          desc: "Develop essential personal and social skills.",
+          learn: ["Communication skills", "Financial literacy", "Time management"],
+          price: "R1500"
+        },
+        sewing: {
+          title: "Sewing",
+          img: "Media1/sewingimage.webp",
+          desc: "Learn sewing and tailoring for clothes & crafts.",
+          learn: ["Using a sewing machine", "Pattern cutting", "Garment construction"],
+          price: "R1500"
+        },
+        landscaping: {
+          title: "Landscaping",
+          img: "Media1/R.jpeg",
+          desc: "Professional landscaping and outdoor design skills.",
+          learn: ["Landscape planning", "Irrigation systems", "Hardscaping techniques"],
+          price: "R1500"
+        }
+      };
+
+      if (courses[course]) {
+        title.textContent = courses[course].title;
+        img.src = courses[course].img;
+        desc.textContent = courses[course].desc;
+        price.textContent = "Price: " + courses[course].price;
+
+        learnList.innerHTML = "";
+        courses[course].learn.forEach(item => {
+          const li = document.createElement("li");
+          li.textContent = item;
+          learnList.appendChild(li);
+        });
+      }
+
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("courseModal").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("courseModal");
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>

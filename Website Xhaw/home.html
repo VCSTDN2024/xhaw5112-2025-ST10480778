@@ -262,7 +262,21 @@ hr {
     .footer-bottom a:hover {
       color: #FFEA00;
     }
+    
+    nav ul li button {
+      background-color: #f2b705c7;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    nav ul li button:hover {
+      opacity: 0.9;
+    }
+
 </style>
+<script src="https://elfsightcdn.com/platform.js" async></script>
 <body>
   
     <nav>
@@ -276,8 +290,16 @@ hr {
         <li><a href="apply.html">Apply</a></li>
         <li><a href="about us.html">About Us</a></li>
         <li><a href="contact us.html">Contact Us</a></li>
+        <button type="submit" class="signupbtn">Sign Up</button>
       </ul>
+      
     </nav>
+    <li>
+        <div class="elfsight-app-f32428f6-4c66-4d7c-868b-712a71a4a998" data-elfsight-app-lazy></div>
+      </li>
+ 
+   
+
 
   <section class="hero">
     <div class="hero-text">
@@ -360,10 +382,11 @@ hr {
 
 
 <script>
-// Get the modal
+  
+
 var modal = document.getElementById('id01');
 
-// When the user clicks anywhere outside of the modal, close it
+
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";

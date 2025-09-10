@@ -1,184 +1,168 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Checkout</title>
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+  <meta charset="UTF-8"> 
+  <title>Checkout</title> 
   <style> 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f4f6f9;
-      color: #333;
-      background-color: #ffbf00d1;
-    }
-    body h2{
-      align-items: center;
-    margin: 20px auto;
+    body { 
+      font-family: Arial, sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      background: #f4f6f9; 
+      color: #333; 
+      background-color: #ffbf00d1; 
+    } 
+    body h2{ 
+      align-items: center; 
+      margin: 20px auto; 
+    } 
+    nav { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background:#FFBF00; 
+      padding: 10px 20px; 
+      color: white; 
+    } 
+    nav ul { 
+      list-style: none; 
+      display: flex; 
+      gap: 20px; 
+    } 
+    nav ul li a { 
+      color: #7FA75D; 
+      text-decoration: none; 
+      font-weight: bold; 
+    } 
+    .brand { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; 
+    } 
+    .brand img { 
+      height: 40px; 
+      width: auto; 
+    } 
+    form { 
+      padding: 20px; 
+      border-radius: 8px; 
+      max-width: 500px; 
+      margin: 20px auto; 
+      color: black; 
+      font-weight: bold; 
+    } 
+    form label { 
+      display: block; 
+      margin: 10px 0 5px; 
+    } 
+    form input[type="text"], 
+    form input[type="email"], 
+    form input[type="number"], 
+    form input[type="address"] { 
+      width: 100%; 
+      padding: 8px; 
+      border: none; 
+      border-radius: 4px; 
+      margin-bottom: 15px; 
+      background-color: #7FA75D; 
+    } 
+    form input[type="checkbox"] { 
+      margin-right: 8px; 
+    } 
+    form button { 
+      background: #7FA75D; 
+      border: none; 
+      padding: 10px 15px; 
+      border-radius: 6px; 
+      color: white; 
+      font-weight: bold; 
+      cursor: pointer; 
+    } 
+    form button:hover { 
+      background: #6b8e4d; 
+    } 
+  </style> 
+</head> 
+<body> 
+  <nav> 
+    <div class="brand"> 
+      <img src="Media1/Emplogo.png" alt="Empowering the nation"> 
+      <span>Empowering The Nation</span> 
+    </div> 
+    <ul> 
+      <li><a href="home.html">Home</a></li> 
+      <li><a href="Courses.html">Course</a></li> 
+      <li><a href="apply.html">Get Qoute</a></li> 
+      <li><a href="about us.html">About Us</a></li> 
+      <li><a href="contact us.html">Contact Us</a></li> 
+    </ul> 
+  </nav> 
+  <h2>Checkout Form</h2> 
+  <form onsubmit="event.preventDefault(); calculateTotal();"> 
+    <label for="name">Full Name:</label> 
+    <input type="text" name="name" required><br><br> 
 
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background:#FFBF00;
-      padding: 10px 20px;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #7FA75D;
-      text-decoration: none;
-      font-weight: bold;
-    }
-     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    <label for="number">Phone Number:</label> 
+    <input type="number" name="number" required><br><br> 
 
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
-    form {
-  
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 500px;
-  margin: 20px auto; 
-  color: black; 
-  font-weight: bold;
-}
+    <label for="email">Email:</label> 
+    <input type="email" name="email" required><br><br> 
 
-form label {
-  display: block;
-  margin: 10px 0 5px;
-}
+    <label for="address">Phyical Address:</label> 
+    <input type="address" name="address" required><br><br> 
 
-form input[type="text"],
-form input[type="email"],
-form input[type="number"],
-form input[type="address"] {
-  width: 100%;
-  padding: 8px;
-  border: none;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  background-color: #7FA75D;
-}
+    <h3>Select Courses:</h3> 
+    <h3>6months</h3> 
+    <input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="Six-Months"> First Aid (R1500) <br> 
+    <input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="Six-Months"> Sewing (R1500) <br> 
+    <input type="checkbox" class="course" value=" 1500" data-name="Landscaping" data-duration="Six-Months"> landscaping(R1500) <br> 
+    <input type="checkbox" class="course" value=" 1500" data-name="life skills" data-duration="Six-Months"> Life Skills (R1500) <br> 
 
-form input[type="checkbox"] {
-  margin-right: 8px;
-}
+    <h3>6 weeks</h3> 
+    <input type="checkbox" class="course" data-duration="six-week" value="750" data-name="Child Minding"> Child Minding (R750)<br> 
+    <input type="checkbox" class="course" data-duration="six-week" value="750" data-name="Cooking"> Cooking(R750)<br> 
+    <input type="checkbox"class="course" data-duration="six-week" value="750" data-name="Garden Maintence"> Garden Maintence (R750)<br> 
 
-form button {
-  background: #7FA75D; 
-  border: none;
-  padding: 10px 15px;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-}
+    <br> 
+    <button type="submit">Get Quotation</button> 
+    <button type="submit" onclick="calculateTotal()"> Pay Now</button> 
+  </form> 
 
-form button:hover {
-  background: #6b8e4d;
-}
+  <script> 
+    function calculateTotal() { 
+      const selectedCourses = [...document.querySelectorAll(".course:checked")]; 
+      const courseDetails = selectedCourses.map(item => ({ 
+        name: item.dataset.name, 
+        duration: item.dataset.duration, 
+        price: parseFloat(item.value) 
+      })); 
 
-</style>
-</head>
-<body>
-  <nav>
-      <div class="brand">
-        <img src="Media1/Emplogo.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
-      </div>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="Courses.html">Course</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about us.html">About Us</a></li>
-        <li><a href="contact us.html">Contact Us</a></li>
-      </ul>
-    </nav>
+      let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0); 
 
-  <h2>Checkout Form</h2>
-  <form  onsubmit="event.preventDefault(); calculateTotal();">
-    
-    <label for="name">Full Name:</label>
-    <input type="text" name="name" required><br><br>
+      let discountRate = 0; 
+      let courseCount = selectedCourses.length; 
 
-    <label for="number">Phone Number:</label>
-    <input type="number" name="number" required><br><br>
+      if (courseCount >= 4) { 
+        discountRate = 0.15; 
+      } else if (courseCount === 3) { 
+        discountRate = 0.10; 
+      } else if (courseCount === 2) { 
+        discountRate = 0.05; 
+      } 
 
-    <label for="email">Email:</label>
-    <input type="email" name="email" required><br><br>
+      let discount = subtotal * discountRate; 
+      let vat = 0.15 * (subtotal - discount); 
+      let total = subtotal - discount - vat; 
 
-     <label for="address">Phyical Address:</label>
-    <input type="address" name="address" required><br><br>
+      localStorage.setItem("courseDetails", JSON.stringify(courseDetails)); 
+      localStorage.setItem("subtotal", subtotal.toFixed(2)); 
+      localStorage.setItem("discount", discount.toFixed(2)); 
+      localStorage.setItem("discountRate", (discountRate * 100) + "%"); 
+      localStorage.setItem("vat", vat.toFixed(2)); 
+      localStorage.setItem("total", total.toFixed(2)); 
 
-
-    
-    <h3>Select Courses:</h3>
-    <h3>6months</h3>
-    <input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="Six-Months"> First Aid (R1500) <br>
-    <input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="Six-Months"> Sewing (R1500) <br>
-    <input type="checkbox" class="course" value=" 1500" data-name="Landscaping" data-duration="Six-Months"> landscaping(R1500) <br>
-    <input type="checkbox" class="course" value=" 1500" data-name="life skills" data-duration="Six-Months"> Life Skills (R1500) <br>
-    <h3>6 weeks</h3>
-    <input type="checkbox" class="course" data-duration="six-week" value="750" data-name="Child Minding"> Child Minding (R750)<br>
-    <input type="checkbox" class="course"  data-duration="six-week" value="750" data-name="Cooking"> Cooking(R750)<br>
-    <input type="checkbox"class="course"  data-duration="six-week" value="750" data-name="Garden Maintence"> Garden Maintence (R750)<br>
-
-    <br>
-    <button type="submit">Get Quotation</button>
-    <button type="submit" onclick="calculateTotal()"> Pay Now</button>
-  </form>
-  
-<script>
-function calculateTotal() {
-  const selectedCourses = [...document.querySelectorAll(".course:checked")];
-  const courseDetails = selectedCourses.map(item => ({
-    name: item.dataset.name,
-    duration: item.dataset.duration,
-    price: parseFloat(item.value)
-  }));
-
-  let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
-
-  
-  let discountRate = 0;
-  let courseCount = selectedCourses.length;
-
-  if (courseCount >= 4) {
-    discountRate = 0.15; 
-  } else if (courseCount === 3) {
-    discountRate = 0.10; 
-  } else if (courseCount === 2) {
-    discountRate = 0.05;
-  }
-
-  let discount = subtotal * discountRate;
-  let vat = 0.15 * (subtotal - discount);
-  let total = subtotal - discount + vat;
-
-  localStorage.setItem()
-  localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
-  localStorage.setItem("subtotal", subtotal.toFixed(2));
-  localStorage.setItem("discount", discount.toFixed(2));
-  localStorage.setItem("discountRate", (discountRate * 100) + "%");
-  localStorage.setItem("vat", vat.toFixed(2));
-  localStorage.setItem("total", total.toFixed(2));
-
-  
-  window.location.href = "payment.html";
-}
-
-</script>
- 
-</body>
+      window.location.href = "payment.html"; 
+    } 
+  </script> 
+</body> 
 </html>
