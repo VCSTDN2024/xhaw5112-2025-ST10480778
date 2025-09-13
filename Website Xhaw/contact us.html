@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-       <style>
-      body {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<!--<link rel="stylesheet" href="styles.css" />-->
+<style>
+   body {
       font-family: Arial, sans-serif;
       margin: 0; padding: 0;
       background: #f4f6f9;
@@ -41,180 +42,383 @@
       height: 40px;
       width: auto;
     }
-
-    .hero {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: url(Media1/lifeskills.jpg);
-      padding: 70px 5%;
+header {
+  background-color: orange;
+  display: flex; 
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px; 
+}
+ 
+body {
+  padding: 25px;
+  background-color:white;
+}
+ 
+.title {
+  color: green;
+  text-align: center;
+  justify-content: center;
+}
+.contact {
+    display: flex;
+    align-items: center;
+}
+.h5 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+    align-items: center;
+}
+ 
+h3{
+  text-align: center;
+  background-color: #00A300;
+  border-radius: 50px;
+  padding:4px;
+ 
+}
+.section {
+      width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border: 2px solid #ccc;
+      border-radius: 10px;
       text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      font-family: Arial, sans-serif;
     }
-
-    .hero-text {
-      max-width: 700px;
+ 
+    h3 {
+      margin-bottom: 20px;
+      color: #333;
     }
-
-    .hero-text h1 {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 15px;
-      color: #111;
+ 
+    details {
+      margin-bottom: 20px;
+      text-align: left;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
     }
-
-    .hero-text p {
-      font-size: 1.05rem;
-      margin-bottom: 25px;
-      color: #222;
-    }
-
-    .hero-buttons a {
-      display: inline-block;
-      margin-right: 12px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 1rem;
+ 
+    summary {
       font-weight: bold;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      font-size: 16px;
+      cursor: pointer;
+      outline: none;
     }
-
-    .btn-dark {
-      background-color: #333;
-      color: #fff;
+ 
+    dl {
+      color: #444;
+      margin-top: 10px;
+      padding-left: 15px;
     }
-    .btn-dark:hover {
-      background-color: #555;
+ 
+    dt {
+      font-weight: bold;
+      margin-top: 10px;
     }
-
-    .btn-light {
-      border: 2px solid #ff5e5b;
-      color: #ff5e5b;
-      background: transparent;
+ 
+    dd {
+      margin: 0 0 10px 20px;
     }
-    .btn-light:hover {
-      background: #ff5e5b;
-      color: #fff;
+ 
+    closed {
+      color: orange;
+      font-weight: bold;
     }
-     .footer {
-      background-color: #FFBF00;
-      border-top: 1px solid #ccc;
-      padding: 25px 5%;
-    }
-
-    
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;                 
-      flex-wrap: wrap;
-    }
-
-    .bottom-nav a {
-      margin-right: 15px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: black;          
-      transition: color 0.3s;
-    }
-
-    .bottom-nav a:hover {
-      color: #FFEA00;
-      
-    }
-
-    .footer-top .socials a img {
-      width: 34px;
-      height: 34px;
-      margin-left: 12px;
-      transition: transform 0.3s;
-    }
-
-    .footer-top .socials a img:hover {
-      transform: scale(1.15);
-    }
-
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      font-size: 0.8rem;      
-      flex-wrap: wrap;
-    }
-
-    .footer-bottom a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #060606;      
-      transition: color 0.3s;
-    }
-
-    .footer-bottom a:hover {
-      color: #FFEA00;
-    }
-    </style>
+/*---Location---*/
+map-container{
+  width: 100px;
+  height:150px;
+  font-style: bold;
+}
+ 
+/*Frequently Asked Questions---*/
+.accordion {
+  background-color: #00A300;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  margin-bottom: 5px;
+  opacity: 0.9;
+}
+ 
+.active, accordion:hover {
+  background-color:white;
+}
+ 
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0; 
+  overflow: hidden;
+  transition: max-height 0.2s ease-out; 
+}
+ 
+.panel.active {
+  max-height: 200px; 
+}
+ 
+/* --- Footer Styles --- */
+.footer {
+  background-color: orange;
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+ 
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #555;
+  padding-bottom: 20px;
+}
+ 
+.footer-top span strong {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  display: block;
+}
+ 
+.bottom-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+ 
+.bottom-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: color 0.3s;
+}
+ 
+.bottom-nav a:hover {
+  color: black;
+}
+/* --- Social Icons--- */
+.socials {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+}
+ 
+.socials img {
+  width: 30px;
+  height: 30px;
+  transition: transform 0.3s;
+}
+ 
+.socials img:hover {
+  transform: scale(1.1);
+}
+ 
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: 10px;
+}
+ 
+.footer-bottom span {
+  font-size: 0.8em;
+  margin-bottom: 10px;
+}
+ 
+.footer-bottom div a {
+  color: orange;
+  text-decoration: none;
+  font-size: 0.8em;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+ 
+.footer-bottom div a:hover {
+  color: black;
+}
+ 
+ 
+@media (min-width: 768px) {
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<!--- Top Navigation--->
+<header>
+<img src="https://uploads.onecompiler.io/43w2j45vv/43w2gyj4f/empowering-the-nation-high-resolution-logo-trans… alt="Empowering the Nation Logo" width="80px" height="100px">
+<ul >
+<nav class="navbar">
+<a href="index.html">Home</a>
+<a href="courses.html">Courses</a>
+<a href="apply.html">Apply</a>
+<a href="about.html">About Us</a>
+<a href="contact.html">Contact Us</a>
+</nav>
+</ul>
+</header>
+<!--- Empowering the Nation Centre Locations for learning--->
 <body>
-        
-    <nav>
-      <div class="brand">
-        <img src="Media1/Emplogo.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
-      </div>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-        <li><a href="Courses.html">Course</a></li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about us.html">About Us</a></li>
-        <li><a href="contact us.html">Contact Us</a></li>
-      </ul>
-    </nav>
+<h1 class="title">We Are Here For You </h1>
+<div>
+<img class="icon" src="https://uploads.onecompiler.io/43w2j45vv/43w2gyj4f/contact-mail.png" alt="Contact/Support" width="80px" height="100px" >
+<h5="contact">011-756-9345</h5>
+</div>
+<br>
+<br>
+<h3 class="hours">Operating Hours</h3>
+<!-- Weekday Toggle -->
+<details open>
+<summary>Weekday Hours</summary>
+<dl>
+<dt>Customer Service</dt>
+<dd>Monday - Friday: 08:00 - 17:00</dd>
 
-    <h1> We're here for you </h1> 
-   <h2>Our operating hours </h2>
-   <p> Monday to Friday:  06:00 am to 17:00 pm</p>
-   <p>Saturday : 09:00 am to 14:00 pm</p>
-   <p>Sunday : 09:00 am to 14:00 pm</p>
-
-
-
-<!--Parktown -->
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14322.536715408947!2d28.022641699153468!3d-26.17604087633576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c6c5f840975%3A0xc9ab519ed580f7d0!2sParktown%2C%20Johannesburg%2C%202193!5e0!3m2!1sen!2sza!4v1757260862747!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
-
-<!-- 9th 5th St, Sandown, Sandton, 2196-->
- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d895.6825748067135!2d28.05635486672175!3d-26.107721212079717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9573999438da6b%3A0x2507a93086e09abc!2sLeota%20Holdings%20Pty%20Ltd!5e0!3m2!1sen!2sza!4v1757260814406!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
-
-
-<!-- Cnr 3rd Street and, 1st Ave, Johannesburg, Alexandra, 2090-->
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.7198236431154!2d28.083600875079746!3d-26.108063060064804!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950d1ec19423cf%3A0x7b8327e2f6bf5bc4!2sAlexandra%20Plaza!5e0!3m2!1sen!2sza!4v1757260163166!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><br>
-
-    <footer class="footer">
-    <div class="footer-top">
-      <span><strong>Empowering the nation</strong></span>           
-      <div class="bottom-nav">
-        <a href="home.html">Home</a>
-        <a href="Courses.html">Course</a>
-        <a href="apply.html">Apply</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact us.html">Contact Us</a>
-      </div>      
-      <div class="socials">
-        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2022 Empowering The Nation. All rights reserved.</span>
-      <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies Settings</a>
-      </div>
-    </div>
-  </footer>
-  </div>
-    
+ 
+        <dt>Technical Support</dt>
+<dd>Monday - Friday: 08:00 - 17:00</dd>
+ 
+        <dt>Billing Department</dt>
+<dd>Monday - Friday: 08:00 - 17:00</dd>
+</dl>
+</details>
+ 
+    <!-- Weekend Toggle -->
+<details>
+<summary>Weekend Hours</summary>
+<dl>
+<dt>Customer Service</dt>
+<dd>Saturday: 09:00 - 13:00<br>Sunday: <span class="closed">Closed</span></dd>
+ 
+        <dt>Technical Support</dt>
+<dd>Saturday: 10:00 - 14:00<br>Sunday: 10:00 - 14:00</dd>
+ 
+        <dt>Billing Department</dt>
+<dd><span class="closed">Saturday & Sunday: Closed</span></dd>
+</dl>
+</details>
+</section>
+<br>
+<br>
+<!---Locations--->
+<h3> Our Venues</h3>
+<div class="map-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.163708164974!2d28.047745799999998!3d-26.… width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="address">Waterstone Drive, Benmore Rd, Sandton, 2196</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.163708164974!2d28.047745799999998!3d-26.… width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="address">Waterstone Drive, Benmore Rd, Sandton, 2196</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.163708164974!2d28.047745799999998!3d-26.… width="300" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<div class="address">Waterstone Drive, Benmore Rd, Sandton, 2196</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<!--- User Frequently Asked Questions DropDown--->
+<div>
+<h2>Frequently Asked Questions</h2>
+ 
+       <button class="accordion">Where can we find you?</button>
+<div class="panel" class="fa fa-caret-down">
+<p>Empowering The Nation is located at 3 different locations, In the South Of Johannesburg, Roodepoort and Sandton</p>
+</div>
+ 
+      <button class="accordion">How to join the Empowering The Nation Courses?</button>
+<div class="panel">
+<p>Courses can we joined via our website on ios and Android app downloading platforms. On the Website, the home screen has an button option for the user to press and sign up immediately. On the App, the user will be directed to the sign up page once they have entered the App</p>
+</div>
+ 
+       <button class="accordion">How many Courses can be selected?</button>
+<div class="panel">
+<p>There are 9 Courses available at the moment. 3 of them are lengthed at 6 weeks and 4 of them are lengthed at 6 months. Scholars can sign up for more than 1 Course at a time</p>
+</div>
+<button class="accordion">Can i Volunteer?</button>
+<div class="panel">
+<p>Yes! sign up at one of locations closest to you.</p>
+</div>
+<button class="accordion">Do you have an app for Empowering The Nation?</button>
+<div class="panel">
+<p>Yes! Empowering The Nation is available on Mobile and on our Website only</p>
+</div>
+<button class="accordion">How do i track my progress and see my scheduled classes?</button>
+<div class="panel">
+<p>A Dashboard is created for you once you have created a profile.This will have all the Courses Scheduled on a Calendar from the start period to the end of the Course, whether 6 Weeks or 6 Months.A Progress bar will also indicate where you are in the Course. </p>
+</div>
+</div>
 </body>
+<br>
+<br>
+<!--- Bottom Page Navigation--->
+<footer class="footer">
+<div class="footer-top">
+<span><strong>Empowering the Nation</strong></span>          
+<div class="bottom-nav">
+<a href="home.html">Home</a>
+<a href="Courses.html">Course</a>
+<a href="apply.html">Apply</a>
+<a href="about us.html">About Us</a>
+<a href="contact us.html">Contact Us</a>
+</div>  
+<!--- functional Social Media Accounts--->
+<div class="socials">
+<a href="https://www.tiktok.com/@empowering.the.na5?_t=ZM-8zd8Eptla2i&_r=1" target="_blank">
+<i class="fa-brands fa-tiktok"></i>
+</a>
+<a href="https://www.facebook.com/Empowering%20Nation" target="_blank">
+<i class="fa-brands fa-facebook"></i>
+</a>
+<a href="www.linkedin.com/in/empowering-the-nation-1521bb384" target="_blank">
+<i class="fa-brands fa-linkedin"></i>
+</a>
+<a href="https://www.instagram.com/empow.eringthenation?igsh=ZDRmMzRrdDMwNnV6&utm_-source=qr" target="_blank">
+<i class="fa-brands fa-instagram"></i>
+</a>
+</div>
+<!--- Privacy Setting--->  
+<div class="footer-bottom">
+<span>©️ 2022 Empowering The Nation. All rights reserved.</span>
+<div>
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+<a href="#">Cookies Settings</a>
+</div>
+</div>
+</footer>
+<script >
+var acc = document.getElementsByClassName("accordion");
+var i;
+ 
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+ 
+    var panel = this.nextElementSibling;
+    panel.classList.toggle("active");
+  });
+}
+</script>
 </html>

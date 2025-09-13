@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #f4f6f9;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background:#FFBF00;
+      padding: 10px 20px;
+      color: white;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; }
+
+    .profile-icon {
+      display: none;
+      cursor: pointer;
+    }
+    .profile-icon img {
+      width: 40px; height: 40px; border-radius: 50%;
+    }
+
+    /* Side nav */
+    #sideNav {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      right: 0;
+      background-color: #fff;
+      overflow-x: hidden;
+      transition: 0.3s;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      padding-top: 60px;
+    }
+    #sideNav a {
+      display: block;
+      padding: 12px 24px;
+      font-size: 18px;
+      text-decoration: none;
+      color: #333;
+      transition: 0.3s;
+    }
+    #sideNav a:hover { background: #f1f1f1; }
+    #sideNav .closebtn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 36px;
+      text-decoration: none;
+    }
+
+    /* Settings content */
+    .settings-container {
+      max-width: 600px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .settings-container h2 {
+      margin-top: 0;
+      color: #007bff;
+    }
+    .settings-container p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+    .settings-container strong {
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="brand">
+      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo">
+      <h1>Empowering The Nation</h1>
+    </div>
+    <div class="profile-icon" id="profileIcon" onclick="openNav()">
+      <img src="Media1/user.png" alt="Profile">
+    </div>
+  </nav>
+
+  <!-- Side Nav -->
+  <div id="sideNav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="settings.html">Settings</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+
+  <!-- Settings Content -->
+  <div class="settings-container">
+    <h2>👤 User Details</h2>
+    <p><strong>Username:</strong> <span id="settingsUsername"></span></p>
+    <p><strong>Email:</strong> <span id="settingsEmail"></span></p>
+  </div>
+
+  <script>
+    // Side nav functions
+    function openNav() { document.getElementById("sideNav").style.width = "250px"; }
+    function closeNav() { document.getElementById("sideNav").style.width = "0"; }
+
+    // Show profile icon if logged in
+    window.onload = function() {
+      if(localStorage.getItem("username")) {
+        document.getElementById("profileIcon").style.display = "block";
+      }
+      // Load stored user details
+      document.getElementById("settingsUsername").textContent = localStorage.getItem("username") || "Not set";
+      document.getElementById("settingsEmail").textContent = localStorage.getItem("email") || "Not set";
+    }
+
+    // Logout
+    function logout() {
+      localStorage.removeItem("username");
+      localStorage.removeItem("email");
+      document.getElementById("profileIcon").style.display = "none";
+      alert("Logged out!");
+      window.location.href = "home.html"; // redirect to home
+    }
+  </script>
+</body>
+</html>

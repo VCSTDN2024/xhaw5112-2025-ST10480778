@@ -41,6 +41,48 @@
       height: 40px;
       width: auto;
     }
+    .profile-icon {
+  display: none;
+  cursor: pointer;
+}
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Side nav */
+#sideNav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: 0.3s;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  padding-top: 60px;
+}
+#sideNav a {
+  display: block;
+  padding: 12px 24px;
+  font-size: 18px;
+  text-decoration: none;
+  color: #333;
+  transition: 0.3s;
+}
+#sideNav a:hover {
+  background: #f1f1f1;
+}
+#sideNav .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 36px;
+  text-decoration: none;
+}
 
 
     .banner {
@@ -228,12 +270,18 @@
       <li><a href="#">Contact</a></li>
     </ul>
   </nav>
+  <div id="sideNav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="#">Settings</a>
+  <a href="#" onclick="logout()">Logout</a>
+</div>
 
   
   <section class="banner">
-    <h1>Welcome Back, <strong>Sarah Jones</strong></h1>
-    <p>You’ve completed <span>50%</span> of your courses.</p>
-  </section>
+  <h1>Welcome Back, <strong id="userName"></strong></h1>
+  <p>You’ve completed <span>50%</span> of your courses.</p>
+</section>
 
   
   <div class="dashboard-main">
@@ -309,6 +357,38 @@
 
   
   <script>
+
+     document.getElementById("userName").textContent = localStorage.getItem("username") || "Guest";
+
+     function openNav() { document.getElementById("sideNav").style.width = "250px"; }
+function closeNav() { document.getElementById("sideNav").style.width = "0"; }
+
+
+function signup(e) {
+  e.preventDefault();
+  let username = document.getElementById("username").value;
+  localStorage.setItem("username", username);
+  document.getElementById("id01").style.display = "none";
+  document.getElementById("profileIcon").style.display = "block";
+  alert("Welcome " + username + "!");
+}
+
+
+function logout() {
+  localStorage.removeItem("username");
+  document.getElementById("profileIcon").style.display = "none";
+  alert("Logged out!");
+}
+
+
+window.onload = function() {
+  if(localStorage.getItem("username")) {
+    document.getElementById("profileIcon").style.display = "block";
+  }
+}
+
+
+
     const classes = [
       { title: "Child Minding", date: "2025-09-05" },
       { title: "Cooking Workshop", date: "2025-09-07" },
