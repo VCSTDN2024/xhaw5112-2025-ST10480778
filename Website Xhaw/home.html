@@ -234,32 +234,32 @@ button.signupbtn, button.cancelbtn {width: 48%;padding: 12px;border-radius: 8px;
     <span>Empowering The Nation</span>
   </div>
   <ul>
-    <li><a href="home.html">Home</a></li>
+    <li><a href="home.html"target="_blank">Home</a></li>
     <li class="dropdown">
       <a href="Courses.html">Courses</a>
       <ul class="dropdown-content">
         <li class="sub-dropdown">
           <a href="#">6 Weeks</a>
           <ul class="sub-dropdown-content">
-            <li><a href="Courses.html">Childminding</a></li>
-            <li><a href="Courses.html">Cooking</a></li>
-            <li><a href="Courses.html">Garden Maintenance</a></li>
+            <li><a href="Courses.html" value="section1">Childminding</a></li>
+            <li><a href="Courses.html" value="section2">Cooking</a></li>
+            <li><a href="Courses.html" value="section3">Garden Maintenance</a></li>
           </ul>
         </li>
         <li class="sub-dropdown">
           <a href="#">6 Months</a>
           <ul class="sub-dropdown-content">
-            <li><a href="Courses.html">Landscaping</a></li>
-            <li><a href="Courses.html">First Aid</a></li>
-            <li><a href="Courses.html">Life Skills</a></li>
-            <li><a href="Courses.html">Sewing</a></li>
+            <li><a href="Courses.html" value="section4">Landscaping</a></li>
+            <li><a href="Courses.html" value="section5">First Aid</a></li>
+            <li><a href="Courses.html" value="section6">Life Skills</a></li>
+            <li><a href="Courses.html" value="section7">Sewing</a></li>
           </ul>
         </li>
       </ul>
     </li>
-    <li><a href="getqoute.html">Apply</a></li>
-    <li><a href="about us.html">About Us</a></li>
-    <li><a href="contact us.html">Contact Us</a></li>
+    <li><a href="getqoute.html"target="_blank">Apply</a></li>
+    <li><a href="about us.html"target="_blank">About Us</a></li>
+    <li><a href="contact us.html"target="_blank">Contact Us</a></li>
   </ul>
  
   <div class="profile-icon" id="profileIcon" onclick="openNav()">
@@ -349,7 +349,7 @@ button.signupbtn, button.cancelbtn {width: 48%;padding: 12px;border-radius: 8px;
       <a href="contact us.html">Contact Us</a>
     </div>
     <div class="socials">
-      <a href="#"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+      <a href="https://www.instagram.com/empow.eringthenation?igsh=ZDRmMzRrdDMwNnV6&utm_source=qr"s><img src="Media1/facebook-icon.png" alt="Facebook"></a>
       <a href="#"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
       <a href="#"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
       <a href="#"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
@@ -399,6 +399,14 @@ window.onload = function() {
     document.getElementById("profileIcon").style.display = "block";
   }
 }
+
+document.getElementById("dropdown").addEventListener("change", function() {
+    const sectionId = this.value;
+    if (sectionId) {
+     
+      window.location.href = "detailed Course.html" + sectionId;
+    }
+  });
 </script>
 
 </body>

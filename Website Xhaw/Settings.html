@@ -30,7 +30,7 @@
       width: 40px; height: 40px; border-radius: 50%;
     }
 
-    /* Side nav */
+   
     #sideNav {
       height: 100%;
       width: 0;
@@ -61,7 +61,7 @@
       text-decoration: none;
     }
 
-    /* Settings content */
+   
     .settings-container {
       max-width: 600px;
       margin: 40px auto;
@@ -95,15 +95,15 @@
     </div>
   </nav>
 
-  <!-- Side Nav -->
+  
   <div id="sideNav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="settings.html">Settings</a>
+    <a href="dashboard.html"target="_blank">Dashboard</a>
+    <a href="settings.html" target="_blank">Settings</a>
     <a href="#" onclick="logout()">Logout</a>
   </div>
 
-  <!-- Settings Content -->
+ 
   <div class="settings-container">
     <h2>👤 User Details</h2>
     <p><strong>Username:</strong> <span id="settingsUsername"></span></p>
@@ -111,27 +111,27 @@
   </div>
 
   <script>
-    // Side nav functions
+   
     function openNav() { document.getElementById("sideNav").style.width = "250px"; }
     function closeNav() { document.getElementById("sideNav").style.width = "0"; }
 
-    // Show profile icon if logged in
+   
     window.onload = function() {
       if(localStorage.getItem("username")) {
         document.getElementById("profileIcon").style.display = "block";
       }
-      // Load stored user details
+      
       document.getElementById("settingsUsername").textContent = localStorage.getItem("username") || "Not set";
       document.getElementById("settingsEmail").textContent = localStorage.getItem("email") || "Not set";
     }
 
-    // Logout
+    
     function logout() {
       localStorage.removeItem("username");
       localStorage.removeItem("email");
       document.getElementById("profileIcon").style.display = "none";
       alert("Logged out!");
-      window.location.href = "home.html"; // redirect to home
+      window.location.href = "home.html"; 
     }
   </script>
 </body>
