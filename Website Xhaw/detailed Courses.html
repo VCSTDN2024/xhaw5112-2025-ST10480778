@@ -5,84 +5,429 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-       section {
+      /* ===== General Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: #f9f9f9;
+}
+
+/* ===== Hero / Navbar ===== */
+.hero {
+  background-size: cover;
+  background-position: center;
+  min-height: 50vh;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffbf00;
+  padding: 15px 30px;
+}
+
+nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+nav .brand img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ffbf00;
+}
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 99;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content li {
+  position: relative;
+}
+.dropdown-content a {
+  color: #333;
+  padding: 10px 16px;
+  background: #fff;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+.sub-dropdown .sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.sub-dropdown:hover .sub-dropdown-content {
+  display: block;
+}
+
+/* ===== Headings ===== */
+h1 {
+  text-align: center;
+  margin: 30px 0 10px;
+  font-size: 2.5rem;
+  color: #222;
+}
+
+h2 {
+  margin: 20px 0 15px;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 50px;
+  border-bottom: 1px solid #ddd;
+  background: #fff;
+}
+
+section img {
+  max-width: 300px;
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+section ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+section ul li {
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+/* ===== Buttons ===== */
+.btn-enroll {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #ffbf00;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-enroll:hover {
+  background: #e0a800;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: #F4BB44;
+  color: #ddd;
+  padding: 30px 20px;
+  margin-top: 40px;
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.footer-top span {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.bottom-nav a {
+  color: #ddd;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.bottom-nav a:hover {
+  color: #ffbf00;
+}
+
+.socials a img {
+  width: 25px;
+  margin: 0 8px;
+  filter: brightness(0) invert(1);
+  transition: 0.3s;
+}
+
+.socials a img:hover {
+  filter: brightness(0) invert(0.6);
+}
+
+.footer-bottom {
+  border-top: 1px solid #444;
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-bottom a {
+  color: #bbb;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.footer-bottom a:hover {
+  color: #ffbf00;
+}
+
+      section {
+      padding: 50px;
+      border-bottom: 1px solid #ccc;
       height: 100vh; 
-      padding: 20px;
     }
-    #section1 { background: lightblue; }
-    #section2 { background: lightgreen; }
-    #section3 { background: lightcoral; }
-    #section4 { background: lightblue; }
-    #section5 { background: lightgreen; }
-    #section6 { background: lightcoral; }
-    #section7 { background: lightgreen; }
+    section img {
+      max-width: 300px;
+      display: block;
+      margin-bottom: 15px;
+    }
+    h2 {
+      margin-top: 0;
+    }
+    .btn-enroll {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .btn-enroll:hover {
+      background: #555;
+    }
+    
+    
+    #section1 { background: #F4BB44; }
+    #section2 { background: #C9CC3F; }
+    #section3 { background: #F4BB44; }
+    #section4 { background: #C9CC3F; }
+    #section5 { background: #F4BB44; }
+    #section6 { background: #C9CC3F; }
+    #section7 { background: #F4BB44; }
     </style>
 </head>
 <body>
         <div class="hero" style="background-image: url(Media1/);">
     <nav>
       <div class="brand">
-        <img src="Media1/" alt="Empowering the nation">
+        <img src="Media1/Emplogo.png" alt="Empowering the nation">
         <span>Empowering The Nation</span>
       </div>
       <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="Courses.html">Course</a></li>
+       <li class="dropdown">
+      <a href="Courses.html">Courses</a>
+      <ul class="dropdown-content">
+        <li class="sub-dropdown">
+          <a href="Courses.html">6 Weeks</a>
+          <ul class="sub-dropdown-content">
+            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
+            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
+          </ul>
+        </li>
+        <li class="sub-dropdown">
+          <a href="Courses.html">6 Months</a>
+          <ul class="sub-dropdown-content">
+            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
         <li><a href="apply.html">Apply</a></li>
         <li><a href="about us.html">About Us</a></li>
         <li><a href="contact us.html">Contact Us</a></li>
       </ul>
     </nav>
 
-<h1> 6weeks</h1>
-<section id="section1">
-  <img src="Media1/childminding.png"/>
-  <h2>Child Minding</h2>
-  <p>Details of section 1...</p>
-  <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-</section>
+ <h1>Courses Page</h1>
+<h2> 6 Week Courses </h2>
+  <section id="section1">
+    <img src="Media1/childminding.png" alt="Childminding">
+    <h2>Childminding</h2>
+    <p>This course equips you with the knowledge and confidence to provide safe, nurturing, and developmentally appropriate care for children of different ages. Perfect for aspiring childminders, au pairs, and caregivers.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Child safety, supervision, and first aid basics</li>
+      <li>Age-appropriate nutrition and healthy meal preparation</li>
+      <li>Creating fun, educational, and stimulating activities</li>
+      <li>Understanding child development stages and needs</li>
+      <li>Building positive relationships with children and parents</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Parents, babysitters, nannies, au pairs, and anyone interested in starting a child care service.</p>
+    <p><strong>Career opportunities:</strong> Work as a nanny, au pair, daycare assistant, or start your own childminding business.</p>
+    <p><strong>Price:</strong> R750</p>
+    
+    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+  </section>
+  
+
   <section id="section2">
-    <img src="Media1/ck.png"/>
-    <h2>Section 2</h2>
-    <p>Details of section 2...</p>
+    <h2>Cooking</h2>
+    <img src="Media1/ck.png" alt="Cooking">
+    <p>Master the art of preparing healthy, tasty meals for yourself, your family, or as a stepping stone into the food industry. This hands-on course builds confidence in the kitchen.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Basic cooking techniques (boiling, frying, baking, grilling)</li>
+      <li>Nutrition and balanced meal planning</li>
+      <li>Food safety, hygiene, and kitchen organization</li>
+      <li>Cooking on a budget and reducing food waste</li>
+      <li>Introduction to traditional and modern recipes</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Beginners, parents, domestic workers, and those passionate about cooking.</p>
+    <p><strong>Career opportunities:</strong> Work in restaurants, catering, or start a food business from home.</p>
+    <p><strong>Price:</strong> R750</p>
     <a href="checkout.html" class="btn-enroll">Enroll Now</a>
   </section>
+
   <section id="section3">
-    <img src="Media1/gardening-skills.png"/>
-    <h2>Garden Maintence</h2>
-    <p>Details of section 3...</p>
+    <h2>Garden Maintenance</h2>
+    <img src="Media1/gardening-skills.png" alt="Garden Maintenance">
+    <p>Learn essential garden maintenance and landscaping techniques to keep outdoor spaces beautiful and sustainable. This course covers practical skills for both home gardens and small-scale landscaping jobs.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Soil preparation and composting techniques</li>
+      <li>Planting, watering, and seasonal care routines</li>
+      <li>Pruning, trimming, and pest management</li>
+      <li>Basics of garden design and layout</li>
+      <li>Sustainable gardening practices for long-term growth</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Homeowners, hobby gardeners, or anyone wanting to start a garden services business.</p>
+    <p><strong>Career opportunities:</strong> Garden maintenance worker, landscaper assistant, or small business owner in garden care.</p>
+    <p><strong>Price:</strong> R750</p>
     <a href="checkout.html" class="btn-enroll">Enroll Now</a>
   </section>
-<h1> 6 Months Coures</h1>
-<section id="section4">
-  <h2>Section 1</h2>
-  <p>Details of section 1...</p>
-  <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-</section>
+
+<h2> 6 Months Courses</h2>
+  <section id="section4">
+    <h2>Landscaping</h2>
+    <img src="Media1/R.jpeg" alt="Landscaping">
+    <p>Learn how to transform outdoor spaces into functional and visually appealing environments. This course is ideal for aspiring landscapers, garden designers, or homeowners looking to upgrade their space.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Landscape planning, sketching, and design concepts</li>
+      <li>Irrigation systems and water-efficient planting</li>
+      <li>Hardscaping techniques (pathways, patios, edging)</li>
+      <li>Soil management and plant selection for different climates</li>
+      <li>Sustainable and eco-friendly landscaping solutions</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Homeowners, small business owners, or those interested in outdoor design.</p>
+    <p><strong>Career opportunities:</strong> Landscape assistant, garden designer, or run your own landscaping business.</p>
+    <p><strong>Price:</strong> R1500</p>
+    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+  </section>
+
   <section id="section5">
-    <img src="Media1/R.jpeg"/>
-    <h2>landscaping</h2>
-    <p>Details of section 2...</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-  <section id="section6">
-    <img src="Media1/first-aid-training-course-instructor.png"/>
     <h2>First Aid</h2>
-    <p>Details of section 3...</p>
+    <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid Training">
+    <p>Gain the knowledge and practical skills to respond confidently to medical emergencies at home, work, or in the community. This accredited course is ideal for parents, caregivers, and professionals.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>CPR techniques for adults, children, and infants</li>
+      <li>Wound treatment and bleeding control</li>
+      <li>Emergency response to burns, fractures, and choking</li>
+      <li>Recognizing and managing common medical conditions (asthma, seizures, allergic reactions)</li>
+      <li>How to stay calm and provide assistance until professional help arrives</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Teachers, security staff, caregivers, parents, and community leaders.</p>
+    <p><strong>Career opportunities:</strong> Health & safety officer, first aid volunteer, workplace first aid provider.</p>
+    <p><strong>Price:</strong> R1500</p>
     <a href="checkout.html" class="btn-enroll">Enroll Now</a>
   </section>
+
+  <section id="section6">
+   <h2>Life Skills</h2>
+    <img src="Media1/lifeskills.jpg" alt="Life Skills">
+    <p>Build personal, social, and practical skills to thrive in everyday life. This course is designed to empower learners with tools for better decision-making, relationships, and productivity.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Effective communication and interpersonal skills</li>
+      <li>Financial literacy, budgeting, and saving strategies</li>
+      <li>Time management and goal-setting techniques</li>
+      <li>Problem-solving and decision-making skills</li>
+      <li>Building self-confidence and resilience</li>
+    </ul>
+    <p><strong>Ideal for:</strong> School leavers, job seekers, or anyone wanting to improve personal development.</p>
+    <p><strong>Career opportunities:</strong> Helps prepare for any job by developing essential soft skills employers look for.</p>
+    <p><strong>Price:</strong> R1500</p>
+    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+  </section>
+
   <section id="section7">
-    <img src="Media1/lifeskills.jpg"/>
-    <h2>Life Skills</h2>
-    <p>Details of section 3...</p>
+    <h2>Sewing</h2>
+    <img src="Media1/sewingimage.webp" alt="Sewing">
+    <p>Unlock your creativity with sewing and tailoring skills. Whether for personal use, fashion design, or small business, this course provides the foundation to turn fabric into finished garments and crafts.</p>
+    <p><strong>What you will learn:</strong></p>
+    <ul>
+      <li>Using and maintaining a sewing machine</li>
+      <li>Pattern drafting, measuring, and fabric cutting</li>
+      <li>Garment construction and finishing techniques</li>
+      <li>Repairing and altering clothes</li>
+      <li>Creative sewing projects and accessories</li>
+    </ul>
+    <p><strong>Ideal for:</strong> Beginners, aspiring designers, or anyone looking to start a sewing business.</p>
+    <p><strong>Career opportunities:</strong> Tailor, fashion designer, alterations specialist, or craft entrepreneur.</p>
+    <p><strong>Price:</strong> R1500</p>
     <a href="checkout.html" class="btn-enroll">Enroll Now</a>
   </section>
-  <section id="section7">
-    <img src="Media1/sewingimage.webp"/>
-    <h2>Life Skills</h2>
-    <p>Details of section 3...</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
+
 
     <footer class="footer">
     <div class="footer-top">
@@ -95,10 +440,14 @@
         <a href="contact us.html">Contact Us</a>
       </div>      
       <div class="socials">
-        <a href="https://www.facebook.com/"><img src="Media/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/"><img src="Media/Insta-icon.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/"><img src="Media/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.tiktok.com/explore"><img src="Media/tiktok-icon.png" alt="TikTok"></a>
+        <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
+</a>
+<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
+</a>
+<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
+</a>
+<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
+</a>
       </div>
     </div>
     <div class="footer-bottom">

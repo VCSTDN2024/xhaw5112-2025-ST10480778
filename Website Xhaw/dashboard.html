@@ -84,6 +84,45 @@
   text-decoration: none;
 }
 
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 99;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content li {
+  position: relative;
+}
+.dropdown-content a {
+  color: #333;
+  padding: 10px 16px;
+  background: #fff;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  background-color: #f2f2f2;
+}
+.sub-dropdown .sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.sub-dropdown:hover 
+.sub-dropdown-content {
+  display: block;
+}
 
     .banner {
        background: linear-gradient(to top right, #33ccff 0%, #ffcc00 100%);
@@ -263,8 +302,30 @@
      <h1>Empowering The Nation</h1>
     </div>
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Courses</a></li>
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+      <a href="Courses.html">Courses</a>
+      <ul class="dropdown-content">
+        <li class="sub-dropdown">
+          <a href="Courses.html">6 Weeks</a>
+          <ul class="sub-dropdown-content">
+            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
+            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
+          </ul>
+        </li>
+        <li class="sub-dropdown">
+          <a href="Courses.html">6 Months</a>
+          <ul class="sub-dropdown-content">
+            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
+             <li><a href="faq.html" target="blank">FAQ</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
       <li><a href="#">Apply</a></li>
       <li><a href="#">About Us</a></li>
       <li><a href="#">Contact</a></li>
@@ -339,10 +400,14 @@
         <a href="contact us.html"target="_blank">Contact Us</a>
       </div>      
       <div class="socials">
-        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+        <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
+</a>
+<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
+</a>
+<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
+</a>
+<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
+</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -450,6 +515,31 @@ window.onload = function() {
     });
 
     renderCalendar(currentDate);
+
+    window.addEventListener("DOMContentLoaded", () => {
+  const purchasedCourses = JSON.parse(localStorage.getItem("purchasedCourses")) || [];
+
+  const progressContainer = document.querySelector(".progress-container");
+  progressContainer.innerHTML = "<h2>📊 My Courses Progress</h2>";
+
+  purchasedCourses.forEach(c => {
+    const courseName = document.createElement("p");
+    courseName.textContent = c.name;
+
+    const progressBar = document.createElement("div");
+    progressBar.classList.add("progress-bar");
+
+    const progressFill = document.createElement("div");
+    progressFill.classList.add("progress-fill","green");
+    progressFill.style.width = c.progress + "%";
+    progressFill.textContent = c.progress + "%";
+
+    progressBar.appendChild(progressFill);
+    progressContainer.appendChild(courseName);
+    progressContainer.appendChild(progressBar);
+  });
+});
+
   </script>
 </body>
 </html>
