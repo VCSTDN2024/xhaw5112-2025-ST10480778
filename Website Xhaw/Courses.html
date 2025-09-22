@@ -202,7 +202,7 @@
         <img src="Media1/childminding.png" alt="Child Minding">
         <h2>Child Minding</h2>
         <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('childminding')">View Course Details</a>
+        <a href="#" id="btn-course"  class="course-link" data-section="section4">View Course Details</a>
       </div>
       <div class="course-card">
         <img src="Media1/gardening-skills.png" alt="Gardening">
@@ -248,7 +248,7 @@
   </section>
 
  
-  <div id="courseModal" class="modal">
+ <!--<div id="courseModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo" class="logo">
@@ -260,7 +260,7 @@
       <div class="price" id="modalPrice">Price: R0</div>
       <a href="checkout.html" class="btn-enroll">Enroll Now</a>
     </div>
-  </div>
+  </div>-->
 
   <footer class="footer">
     <div class="footer-top">
@@ -294,7 +294,7 @@
   </footer>
 
   <script>
-    function openModal(course) {
+   /* function openModal(course) {
       const modal = document.getElementById("courseModal");
       const title = document.getElementById("modalTitle");
       const img = document.getElementById("modalImg");
@@ -380,7 +380,18 @@
       if (event.target === modal) {
         modal.style.display = "none";
       }
-    }
+    }*/
+
+    //for the course link
+    document.querySelectorAll(".course-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault(); 
+        const sectionId = this.getAttribute("data-section");
+        if (sectionId) {
+          window.location.href = "detailed Courses.html#" + sectionId; 
+        }
+      });
+    });
   </script>
 </body>
 </html>

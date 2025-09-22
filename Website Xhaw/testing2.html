@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quotation | Empowering the Nation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+    .quotation {
+      background: #fff;
+      max-width: 900px;
+      margin: auto;
+      padding: 30px;
+      border: 2px solid #004d00;
+    }
+    .letterhead {
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid #004d00;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+    }
+    .letterhead img {
+      height: 80px;
+      margin-right: 20px;
+    }
+    .letterhead div {
+      text-align: left;
+    }
+    .letterhead h1 {
+      margin: 0;
+      font-size: 26px;
+      color: #004d00;
+    }
+    .letterhead p {
+      margin: 2px 0;
+      font-size: 14px;
+      color: #333;
+    }
+    .client-details, .footer {
+      margin: 20px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #004d00;
+    }
+    th {
+      background: #e6ffe6;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    .footer {
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 30px;
+    }
+    .download-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #004d00;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .download-btn:hover {
+      background: #006600;
+    }
+    .signatures {
+      margin-top: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .sign-box {
+      width: 40%;
+      text-align: center;
+      border-top: 1px solid #333;
+      padding-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="quotation" id="quotation">
+    <div class="letterhead">
+      <img src="Media1/Emplogo.png" alt="Empowering the Nation Logo">
+      <div>
+        <h1>Empowering the Nation</h1>
+        <p>123 Community Centre, Johannesburg, South Africa</p>
+        <p>Email: info@empoweringthenation.org | Tel: +27 12 345 6789</p>
+      </div>
+    </div>
+
+    <div class="client-details">
+      <p><strong>Client:</strong> <span id="clientName">________</span></p>
+      <p><strong>Phone:</strong> <span id="clientPhone">________</span></p>
+      <p><strong>Email:</strong> <span id="clientEmail">________</span></p>
+      <p><strong>Address:</strong> <span id="clientAddress">________</span></p>
+      <p><strong>Date:</strong> <span id="quotationDate"></span></p>
+      <p><strong>Quotation No:</strong> <span id="quotationNo">QTN-001</span></p>
+    </div>
+
+    <table id="quotationTable">
+      <thead>
+        <tr>
+          <th>Course</th>
+          <th>Duration</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody id="quotationBody">
+      </tbody>
+    </table>
+
+    <h3>Subtotal: R<span id="subtotal">0.00</span></h3>
+    <h3>Discount (<span id="discountRate">0%</span>): R<span id="discount">0.00</span></h3>
+    <h3>VAT (15%): R<span id="vat">0.00</span></h3>
+    <h2>Total: R<span id="total">0.00</span></h2>
+
+    <div class="signatures">
+      <div class="sign-box">
+        <p>__________________________</p>
+        <p>Client Signature</p>
+      </div>
+      <div class="sign-box">
+        <p>__________________________</p>
+        <p>For Empowering the Nation</p>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Thank you for choosing Empowering the Nation. We look forward to working with you!</p>
+    </div>
+  </div>
+
+  <button class="download-btn" onclick="downloadPDF()">Download Quotation</button>
+
+  <script>
+     // Load saved client data
+  const clientName = localStorage.getItem("name");
+  const clientPhone = localStorage.getItem("number");
+  const clientEmail = localStorage.getItem("email");
+  const clientAddress = localStorage.getItem("address");
+  const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
+  const subtotal = localStorage.getItem("subtotal");
+  const discount = localStorage.getItem("discount");
+  const discountRate = localStorage.getItem("discountRate");
+  const vat = localStorage.getItem("vat");
+  const total = localStorage.getItem("total");
+
+  // ✅ Quotation Number Auto-Increment
+  let lastQuoteNo = localStorage.getItem("lastQuoteNo") || 0;
+  let newQuoteNo = parseInt(lastQuoteNo) + 1;
+  localStorage.setItem("lastQuoteNo", newQuoteNo);
+
+  // Format as QTN-001, QTN-002, ...
+  let formattedQuoteNo = "QTN-" + String(newQuoteNo).padStart(3, "0");
+
+  // Fill client details
+  document.getElementById("clientName").innerText = clientName || "________";
+  document.getElementById("clientPhone").innerText = clientPhone || "________";
+  document.getElementById("clientEmail").innerText = clientEmail || "________";
+  document.getElementById("clientAddress").innerText = clientAddress || "________";
+  document.getElementById("quotationDate").innerText = new Date().toLocaleDateString();
+  document.getElementById("quotationNo").innerText = formattedQuoteNo;
+
+  // Fill table with courses
+  const tbody = document.getElementById("quotationBody");
+  courseDetails.forEach(course => {
+    const row = `<tr>
+        <td>${course.name}</td>
+        <td>${course.duration}</td>
+        <td>R${course.price.toFixed(2)}</td>
+      </tr>`;
+    tbody.innerHTML += row;
+  });
+
+  // Fill totals
+  document.getElementById("subtotal").innerText = subtotal || "0.00";
+  document.getElementById("discount").innerText = discount || "0.00";
+  document.getElementById("discountRate").innerText = discountRate || "0%";
+  document.getElementById("vat").innerText = vat || "0.00";
+  document.getElementById("total").innerText = total || "0.00";
+
+  // ✅ PDF download
+  function downloadPDF() {
+    const element = document.getElementById("quotation");
+    html2pdf().from(element).save(`Quotation-${formattedQuoteNo}.pdf`);
+  }
+  </script>
+
+</body>
+</html>

@@ -1,47 +1,39 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const modal = document.getElementById("myModal");
-  const openModalBtn = document.getElementById("btn-dark"); // "Join Us"
-  const closeModalBtn = document.getElementById("closeModal");
-  const form = document.getElementById("modalForm");
-  const responseDiv = document.getElementById("formResponse");
+//Home Page Js
+var modal = document.getElementById('id01');
+window.onclick = function(event) {
+  if (event.target == modal) { modal.style.display = "none"; }
+}
 
-  // Open modal
-  openModalBtn.addEventListener("click", (e) => {
-    e.preventDefault(); // Prevent navigation
-    modal.style.display = "block";
-  });
+function openNav() { document.getElementById("sideNav").style.width = "250px"; }
+function closeNav() { document.getElementById("sideNav").style.width = "0"; }
 
-  // Close modal
-  closeModalBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+function signup(e) {
+  e.preventDefault();
+  let username = document.getElementById("username").value;
+  localStorage.setItem("username", username);
+  document.getElementById("id01").style.display = "none";
+  document.getElementById("profileIcon").style.display = "block";
+  alert("Welcome " + username + "!");
+}
 
-  // Close if clicked outside modal
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
-  });
+function logout() {
+  localStorage.removeItem("username");
+  document.getElementById("profileIcon").style.display = "none";
+  alert("Logged out!");
+}
 
-  // AJAX form submission
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
+window.onload = function() {
+  if(localStorage.getItem("username")) {
+    document.getElementById("profileIcon").style.display = "block";
+  }
+}
 
-    const formData = new FormData(form);
-
-    fetch("form-handler.php", {
-      method: "POST",
-      body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-      responseDiv.innerHTML = data;  // show success message
-      form.reset(); // clear form fields
-      setTimeout(() => { modal.style.display = "none"; }, 2000); // auto-close modal
-    })
-    .catch(err => {
-      responseDiv.innerHTML = "<p style='color:red;'>Error submitting form.</p>";
-      console.error(err);
+document.querySelectorAll(".course-link").forEach(link => {
+      link.addEventListener("click", function(e) {
+        e.preventDefault(); 
+        const sectionId = this.getAttribute("data-section");
+        if (sectionId) {
+          window.location.href = "detailed Courses.html#" + sectionId; 
+        }
+      });
     });
-  });
-});

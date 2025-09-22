@@ -1,234 +1,328 @@
-<!DOCTYPE html> 
-<html lang="en"> 
-<head> 
-  <meta charset="UTF-8"> 
-  <title>Checkout</title> 
-  <style> 
-    body { 
-      font-family: Arial, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      background: #f4f6f9; 
-      color: #333; 
-      background-color: #ffbf00d1; 
-    } 
-    body h2{ 
-      align-items: center; 
-      margin: 20px auto; 
-    } 
-    nav { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      background:#FFBF00; 
-      padding: 10px 20px; 
-      color: white; 
-    } 
-    nav ul { 
-      list-style: none; 
-      display: flex; 
-      gap: 20px; 
-    } 
-    nav ul li a { 
-      color: #7FA75D; 
-      text-decoration: none; 
-      font-weight: bold; 
-    } 
-    nav ul li a:hover{
-  
-  background-color: red;
-}
-    .brand { 
-      display: flex; 
-      align-items: center; 
-      gap: 10px; 
-    } 
-    .brand img { 
-      height: 40px; 
-      width: auto; 
-    } 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8e4b2;
+      color: #333;
+    }
 
-    .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-}
+    /* ===== Navigation Bar ===== */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFBF00;
+      padding: 10px 20px;
+      color: white;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul li a:hover {
+      color: red;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: bold;
+      color: #333;
+    }
+    .brand img {
+      height: 40px;
+      width: auto;
+    }
 
-    form { 
-      padding: 20px; 
-      border-radius: 8px; 
-      max-width: 500px; 
-      margin: 20px auto; 
-      color: black; 
-      font-weight: bold; 
-    } 
-    form label { 
-      display: block; 
-      margin: 10px 0 5px; 
-    } 
-    form input[type="text"], 
-    form input[type="email"], 
-    form input[type="number"], 
-    form input[type="address"] { 
-      width: 100%; 
-      padding: 8px; 
-      border: none; 
-      border-radius: 4px; 
-      margin-bottom: 15px; 
-      background-color: #7FA75D; 
-    } 
-    form input[type="checkbox"] { 
-      margin-right: 8px; 
-    } 
-    form button { 
-      background: #7FA75D; 
-      border: none; 
-      padding: 10px 15px; 
-      border-radius: 6px; 
-      color: white; 
-      font-weight: bold; 
-      cursor: pointer; 
-    } 
-    form button:hover { 
-      background: #6b8e4d; 
-    } 
-  </style> 
-</head> 
-<body> 
-  <nav> 
-    <div class="brand"> 
-      <img src="Media1/Emplogo.png" alt="Empowering the nation"> 
-      <span>Empowering The Nation</span> 
-    </div> 
-    <ul> 
-      <li><a href="home.html"target="_blank">Home</a></li> 
-      <li class="dropdown">
-      <a href="Courses.html"target="_blank">Courses</a>
-      <ul class="dropdown-content">
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
-          </ul>
-        </li>
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-      <li><a href="getqoute.html"target="_blank">Get Qoute</a></li> 
-      <li><a href="about us.html"target="_blank">About Us</a></li> 
-      <li><a href="contact us.html" target="_blank">Contact Us</a></li> 
-       <li><a href="faq.html" target="blank">FAQ</a></li>
-    </ul> 
-  </nav> 
-  <h2>Checkout Form</h2> 
-  <form onsubmit="event.preventDefault(); calculateTotal();"> 
-    <label for="name">Full Name:</label> 
-    <input type="text" name="name" required><br><br> 
+    /* ===== Form Container ===== */
+    .form-container {
+      background: #fff;
+      max-width: 400px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      font-size: 14px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 15px;
+    }
 
-    <label for="number">Phone Number:</label> 
-    <input type="number" name="number" required><br><br> 
+    /* ===== Course Section ===== */
+    .course-section {
+      margin: 15px 0;
+    }
+    .course-section h3 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .courses {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .courses label {
+      font-weight: normal;
+      font-size: 14px;
+    }
 
-    <label for="email">Email:</label> 
-    <input type="email" name="email" required><br><br> 
+    /* ===== Buttons ===== */
+    button {
+      background: #7FA75D;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      width: 48%;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+    }
+    button:hover {
+      background: #6b8e4d;
+    }
 
-    <label for="address">Phyical Address:</label> 
-    <input type="address" name="address" required><br><br> 
+    /* ===== Floating Icon Button ===== */
+    .icon-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: url(Media1/faqicon.png);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      
+    }
+    .icon-btn:hover {
+      background: white;
+      
+    }
 
-    <h3>Select Courses:</h3> 
-    <h3>6months</h3> 
-    <input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="Six-Months"> First Aid (R1500) <br> 
-    <input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="Six-Months"> Sewing (R1500) <br> 
-    <input type="checkbox" class="course" value=" 1500" data-name="Landscaping" data-duration="Six-Months"> landscaping(R1500) <br> 
-    <input type="checkbox" class="course" value=" 1500" data-name="life skills" data-duration="Six-Months"> Life Skills (R1500) <br> 
+    /* ===== Modal ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+    .modal-content {
+      background: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 500px;
+      position: relative;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      cursor: pointer;
+      color: red;
+    }
 
-    <h3>6 weeks</h3> 
-    <input type="checkbox" class="course" data-duration="six-week" value="750" data-name="Child Minding"> Child Minding (R750)<br> 
-    <input type="checkbox" class="course" data-duration="six-week" value="750" data-name="Cooking"> Cooking(R750)<br> 
-    <input type="checkbox"class="course" data-duration="six-week" value="750" data-name="Garden Maintence"> Garden Maintence (R750)<br> 
+    /* ===== Accordion ===== */
+    .accordion {
+      margin: 15px 0;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .accordion-item {
+      border-bottom: 1px solid #ddd;
+    }
+    .accordion-header {
+      padding: 12px;
+      background: #f1f1f1;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .accordion-content {
+      display: none;
+      padding: 12px;
+      background: #fff;
+    }
+    .accordion-header.active {
+      background: #e0e0e0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">
+      <img src="Media1/Emplogo.png" alt="Empowering the nation">
+      <span>Empowering The Nation</span>
+    </div>
+    <ul>
+      <li><a href="home.html" target="_blank">Home</a></li>
+      <li><a href="Courses.html" target="_blank">Courses</a></li>
+      <li><a href="getqoute.html" target="_blank">Get Quote</a></li>
+      <li><a href="about us.html" target="_blank">About Us</a></li>
+      <li><a href="contact us.html" target="_blank">Contact Us</a></li>
+      <li><a href="faq.html" target="_blank">FAQ</a></li>
+    </ul>
+  </nav>
 
-    <br> 
-    <button type="submit">Get Quotation</button> 
-    <button type="submit" onclick="calculateTotal()"> Pay Now</button> 
-  </form> 
+  <div class="form-container">
+    <h2>Checkout Form</h2>
+    <form onsubmit="event.preventDefault(); calculateTotal();">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required>
 
-  <script> 
-    function calculateTotal() { 
-      const selectedCourses = [...document.querySelectorAll(".course:checked")]; 
-      const courseDetails = selectedCourses.map(item => ({ 
+      <label for="email">Email:</label>
+      <input type="email" name="email" required>
+
+      <label for="number">Phone Number:</label>
+      <input type="number" name="number" required>
+
+      <div class="course-section">
+        <h3>Select Courses:</h3>
+        <div class="courses">
+          <label><input type="checkbox" class="course" value="750" data-name="Child-minding"data-duration="6 Weeks"> Child-minding [R750]</label>
+          <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
+          <label><input type="checkbox" class="course" value="750" data-name="Cooking"data-duration="6 Weeks"> Cooking [R750]</label>
+          <label><input type="checkbox" class="course" value="1500" data-name="Sewing"data-duration="6 Months"> Sewing [R1500]</label>
+          <label><input type="checkbox" class="course" value="750" data-name="Gardening"data-duration="6 Weeks"> Gardening [R750]</label>
+          <label><input type="checkbox" class="course" value="1500" data-name="Landscaping"data-duration="6 Months"> Landscaping [R1500]</label>
+          <label><input type="checkbox" class="course" value="1500" data-name="Life Skills"data-duration="6 Months"> Life Skills [R1500]</label>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="submit">Get Quotation</button>
+        <button type="button" onclick="calculateTotal()">Pay Now</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Floating Icon Button -->
+  <button class="icon-btn" id="openModal"></button>
+
+  <!-- Modal -->
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeModal">&times;</span>
+      <h3>Course Information</h3>
+
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">Discount Policy</div>
+          <div class="accordion-content">
+            <p>2 Courses = 5% discount<br>
+               3 Courses = 10% discount<br>
+               4 or more = 15% discount</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Payment Info</div>
+          <div class="accordion-content">
+            <p>You can pay online or at our offices. VAT is added at checkout.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Course Duration</div>
+          <div class="accordion-content">
+            <p>6 weeks: Child-minding, Cooking, Gardening<br>
+               6 months: First Aid, Sewing, Landscaping, Life Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function calculateTotal() {
+      const selectedCourses = [...document.querySelectorAll(".course:checked")];
+       const courseDetails = selectedCourses.map(item => ({ 
         name: item.dataset.name, 
         duration: item.dataset.duration, 
         price: parseFloat(item.value) 
       })); 
 
-      let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0); 
+      let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
 
-      let discountRate = 0; 
-      let courseCount = selectedCourses.length; 
+      let discountRate = 0;
+      let courseCount = selectedCourses.length;
 
-      if (courseCount >= 4) { 
-        discountRate = 0.15; 
-      } else if (courseCount === 3) { 
-        discountRate = 0.10; 
-      } else if (courseCount === 2) { 
-        discountRate = 0.05; 
-      } 
+      if (courseCount >= 4) {
+        discountRate = 0.15;
+      } else if (courseCount === 3) {
+        discountRate = 0.10;
+      } else if (courseCount === 2) {
+        discountRate = 0.05;
+      }
 
-      let discount = subtotal * discountRate; 
-      let vat = 0.15 * (subtotal - discount); 
-      let total = subtotal - discount - vat; 
+      let discount = subtotal * discountRate;
+      let vat = 0.15 * (subtotal - discount);
+      let total = subtotal - discount + vat;
 
-      localStorage.setItem("courseDetails", JSON.stringify(courseDetails)); 
-      localStorage.setItem("subtotal", subtotal.toFixed(2)); 
-      localStorage.setItem("discount", discount.toFixed(2)); 
-      localStorage.setItem("discountRate", (discountRate * 100) + "%"); 
-      localStorage.setItem("vat", vat.toFixed(2)); 
-      localStorage.setItem("total", total.toFixed(2)); 
+      localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
+      localStorage.setItem("subtotal", subtotal.toFixed(2));
+      localStorage.setItem("discount", discount.toFixed(2));
+      localStorage.setItem("discountRate", (discountRate * 100) + "%");
+      localStorage.setItem("vat", vat.toFixed(2));
+      localStorage.setItem("total", total.toFixed(2));
 
-      window.location.href = "payment.html"; 
-    } 
-  </script> 
-</body> 
+      window.location.href = "payment.html";
+    }
+
+    // Modal Logic
+    const modal = document.getElementById("infoModal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.getElementById("closeModal");
+
+    openModal.onclick = () => modal.style.display = "block";
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+    // Accordion Logic
+    const headers = document.querySelectorAll(".accordion-header");
+    headers.forEach(header => {
+      header.addEventListener("click", () => {
+        header.classList.toggle("active");
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
 </html>
