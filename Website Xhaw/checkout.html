@@ -213,13 +213,16 @@
 
       <label for="number">Phone Number:</label>
       <input type="number" name="number" required>
+      
+      <label for="address"> Address:</label>
+      <input type="text" name="address">
 
       <div class="course-section">
         <h3>Select Courses:</h3>
         <div class="courses">
-          <label><input type="checkbox" class="course" value="750" data-name="Child-minding" data-duration="6 Weeks"> Child-minding [R750]</label>
-          <label><input type="checkbox" class="course" value="1500" data-name="First Aid"data-duration="6 Months"> First Aid [R1500]</label>
-          <label><input type="checkbox" class="course" value="750" data-name="Cooking" data-duration="6 Weeks"> Cooking [R750]</label>
+          <label><input type="checkbox" class="course" value="750" data-name="Child-minding"data-duration="6 Weeks"> Child-minding [R750]</label>
+          <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
+          <label><input type="checkbox" class="course" value="750" data-name="Cooking"data-duration="6 Weeks"> Cooking [R750]</label>
           <label><input type="checkbox" class="course" value="1500" data-name="Sewing"data-duration="6 Months"> Sewing [R1500]</label>
           <label><input type="checkbox" class="course" value="750" data-name="Gardening"data-duration="6 Weeks"> Gardening [R750]</label>
           <label><input type="checkbox" class="course" value="1500" data-name="Landscaping"data-duration="6 Months"> Landscaping [R1500]</label>
@@ -228,9 +231,9 @@
       </div>
 
       <div class="btn-group">
-        <button type="submit">Get Quotation</button>
-        <button type="button" onclick="calculateTotal()">Pay Now</button>
-      </div>
+  <button type="button" onclick="calculateTotal(true)">Get Quotation</button>
+  <button type="button" onclick="calculateTotal(false)">Pay Now</button>
+</div>
     </form>
   </div>
 
@@ -269,42 +272,74 @@
     </div>
   </div>
 
-  <script> 
-    function calculateTotal() { 
-      const selectedCourses = [...document.querySelectorAll(".course:checked")]; 
-      const courseDetails = selectedCourses.map(item => ({ 
-        name: item.dataset.name, 
-        duration: item.dataset.duration, 
-        price: parseFloat(item.value) 
-      })); 
+  <script>
+ function calculateTotal(isQuote = false) {
+    const name = document.querySelector("input[name='name']").value;
+    const email = document.querySelector("input[name='email']").value;
+    const phone = document.querySelector("input[name='number']").value;
+    const address = document.querySelector("input[name='address']").value; 
 
-      let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0); 
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("number", phone);
+    localStorage.setItem("address", address);
 
-      let discountRate = 0; 
-      let courseCount = selectedCourses.length; 
+    const selectedCourses = [...document.querySelectorAll(".course:checked")];
+    const courseDetails = selectedCourses.map(item => ({ 
+      name: item.dataset.name, 
+      duration: item.dataset.duration, 
+      price: parseFloat(item.value) 
+    })); 
 
-      if (courseCount >= 4) { 
-        discountRate = 0.15; 
-      } else if (courseCount === 3) { 
-        discountRate = 0.10; 
-      } else if (courseCount === 2) { 
-        discountRate = 0.05; 
-      } 
+    let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
 
-      let discount = subtotal * discountRate; 
-      let vat = 0.15 * (subtotal - discount); 
-      let total = subtotal - discount - vat; 
+    let discountRate = 0;
+    let courseCount = selectedCourses.length;
 
-      localStorage.setItem("courseDetails", JSON.stringify(courseDetails)); 
-      localStorage.setItem("subtotal", subtotal.toFixed(2)); 
-      localStorage.setItem("discount", discount.toFixed(2)); 
-      localStorage.setItem("discountRate", (discountRate * 100) + "%"); 
-      localStorage.setItem("vat", vat.toFixed(2)); 
-      localStorage.setItem("total", total.toFixed(2)); 
+    if (courseCount >= 4) {
+      discountRate = 0.15;
+    } else if (courseCount === 3) {
+      discountRate = 0.10;
+    } else if (courseCount === 2) {
+      discountRate = 0.05;
+    }
 
-      window.location.href = "payment.html"; 
-    } 
+    let discount = subtotal * discountRate;
+    let vat = 0.15 * (subtotal - discount);
+    let total = subtotal - discount + vat;
 
-  </script> 
-</body> 
+    localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
+    localStorage.setItem("subtotal", subtotal.toFixed(2));
+    localStorage.setItem("discount", discount.toFixed(2));
+    localStorage.setItem("discountRate", (discountRate * 100) + "%");
+    localStorage.setItem("vat", vat.toFixed(2));
+    localStorage.setItem("total", total.toFixed(2));
+
+    if (isQuote) {
+      window.location.href = "quotationLink.html"; // ⬅ Go to quotation page
+    } else {
+      window.location.href = "payment.html"; // ⬅ Go to payment page
+    }
+  }
+
+    // Modal Logic
+    const modal = document.getElementById("infoModal");
+    const openModal = document.getElementById("openModal");
+    const closeModal = document.getElementById("closeModal");
+
+    openModal.onclick = () => modal.style.display = "block";
+    closeModal.onclick = () => modal.style.display = "none";
+    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+
+    // Accordion Logic
+    const headers = document.querySelectorAll(".accordion-header");
+    headers.forEach(header => {
+      header.addEventListener("click", () => {
+        header.classList.toggle("active");
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+  </script>
+</body>
 </html>

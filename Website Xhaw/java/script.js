@@ -1,9 +1,25 @@
 //Home Page Js
-var modal = document.getElementById('id01');
-window.onclick = function(event) {
-  if (event.target == modal) { modal.style.display = "none"; }
+function closeModal() {
+  document.getElementById('authModal').style.display = 'none';
 }
 
+function showForm(form) {
+  if (form === 'login') {
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('loginForm').style.display = 'block';
+  } else {
+    document.getElementById('signupForm').style.display = 'block';
+    document.getElementById('loginForm').style.display = 'none';
+  }
+}
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+  const modal = document.getElementById('authModal');
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
 function openNav() { document.getElementById("sideNav").style.width = "250px"; }
 function closeNav() { document.getElementById("sideNav").style.width = "0"; }
 
@@ -11,7 +27,7 @@ function signup(e) {
   e.preventDefault();
   let username = document.getElementById("username").value;
   localStorage.setItem("username", username);
-  document.getElementById("id01").style.display = "none";
+  document.getElementById("authModal").style.display = "none";
   document.getElementById("profileIcon").style.display = "block";
   alert("Welcome " + username + "!");
 }

@@ -3,27 +3,355 @@
 <head>
 <meta charset="UTF-8">
 <title>Empowering The Nation</title>
-<link rel="stylesheet" href="css/stylesheet.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+* {box-sizing: border-box;}
+
+/* ===== Navigation ===== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:#FFBF00;
+  padding: 10px 20px;
+  color: white;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li { position: relative; }
+nav ul li a {
+  color: #7FA75D;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 15px;
+  display: block;
+}
+nav ul li a:hover { background-color: red; }
+
+.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 99;
+}
+.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content li { position: relative; }
+.dropdown-content a { color: #333; padding: 10px 16px; background: #fff; text-decoration: none; }
+.dropdown-content a:hover { background-color: #f2f2f2; }
+
+.sub-dropdown .sub-dropdown-content {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+.sub-dropdown:hover .sub-dropdown-content { display: block; }
+
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { height: 40px; }
+
+.profile-icon { display: none; cursor: pointer; }
+.profile-icon img { width: 40px; height: 40px; border-radius: 50%; }
+
+/* ===== Side Nav ===== */
+#sideNav { height: 100%; width: 0; position: fixed; z-index: 100; top: 0; right: 0; background-color: #fff; overflow-x: hidden; transition: 0.3s; box-shadow: -2px 0 8px rgba(0,0,0,0.2); padding-top: 60px; }
+#sideNav a { display: block; padding: 12px 24px; font-size: 18px; text-decoration: none; color: #333; transition: 0.3s; }
+#sideNav a:hover { background: #f1f1f1; }
+#sideNav .closebtn { position: absolute; top: 15px; right: 20px; font-size: 36px; text-decoration: none; }
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("Media1/lifeskills.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 40px 5%;
+  color: #fff;
+  position: relative;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: rgba(0,0,0,0.55);
+}
+.hero-text { position: relative; z-index: 2; max-width: 700px; }
+.hero-text h1 { font-size: 3rem; font-weight: 800; margin-bottom: 15px; }
+.hero-text p { font-size: 1.2rem; margin-bottom: 25px; }
+
+.hero-buttons a, .hero-buttons button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.btn-light {
+  border: 2px solid #FFBF00;
+  color: #FFBF00;
+  background: transparent;
+}
+.btn-light:hover {
+  background: #FFBF00;
+  color: #fff;
+}
+.hero-buttons button {
+  background:#f2b705c7;
+  color:#fff;
+}
+.hero-buttons button:hover {
+  background:#e0a800;
+  transform: scale(1.05);
+}
+
+/* ===== Courses ===== */
+.courses { padding: 60px 10%; text-align: center; }
+.courses h2 { font-size: 2rem; margin-bottom: 20px; }
+.course-cards { display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap; }
+.course-card { flex: 1; max-width: 300px; background: #fff; border-radius: 12px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; text-align: center; transition: transform 0.3s ease; }
+.course-card:hover { transform: translateY(-5px); }
+.course-card img { width: 100%; height: 180px; object-fit: cover; }
+.course-card h3 { margin: 15px 0 10px; font-size: 1.3rem; color: #333; }
+.course-card p { padding: 0 15px 20px; font-size: 0.95rem; color: #555; }
+
+/* ===== Campus ===== */
+.campus { padding: 60px 10%; text-align: center; background: #fff; }
+.campus h2 { font-size: 2rem; margin-bottom: 20px; }
+.campus-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 30px; }
+.campus-card { border-radius: 12px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.campus-card img { width: 100%; height: 200px; object-fit: cover; }
+.campus-card h3 { padding: 15px; background: #FFBF00; margin: 0; color: #fff; }
+  /* ================= CHATBOT STYLES ================= */
+    /* Chat button */
+    #chatbotBtn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 22px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      z-index: 1000;
+    }
+
+    /* Modal container */
+    .modal-chat {
+      display: none;
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+      flex-direction: column;
+      z-index: 1000;
+    }
+
+    .modal-content-chat {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    /* Header */
+    .chat-header {
+      background: #4CAF50;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 12px 12px 0 0;
+      position: relative;
+    }
+
+    #closeModal {
+      position: absolute;
+      right: 15px;
+      top: 8px;
+      font-size: 20px;
+      cursor: pointer;
+      color: white;
+    }
+
+    /* Chat window */
+    #chat-window {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+    }
+
+    #chat-log div {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .user {
+      text-align: right;
+      color: #333;
+      margin-left: auto;
+      background: #e0f7fa;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    .bot {
+      text-align: left;
+      color: #444;
+      background: #f1f8e9;
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    /* Input area */
+    #chat-input {
+      display: flex;
+      padding: 10px;
+      border-top: 1px solid #eee;
+    }
+
+    #user-input {
+      flex-grow: 1;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      margin-right: 10px;
+    }
+
+    #send-btn {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    /* Accordion FAQ */
+    .accordion {
+      margin-top: 8px;
+    }
+
+    details summary {
+      cursor: pointer;
+      padding: 6px;
+      font-weight: bold;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      margin-bottom: 5px;
+      background: #f9f9f9;
+    }
+
+    details p {
+      padding: 6px;
+      margin: 0;
+    }
+
+    /* FAQ buttons */
+    .faq-btn {
+      margin: 4px;
+      padding: 6px 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+/* ===== Footer ===== */
+.footer { background-color: #FFBF00; border-top: 1px solid #ccc; padding: 25px 5%; }
+.footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.bottom-nav a { margin-right: 15px; font-size: 0.9rem; text-decoration: none; color: black; transition: color 0.3s; }
+.bottom-nav a:hover { color: var(--light-text-color); }
+.footer-top .socials a img { width: 34px; height: 34px; margin-left: 12px; transition: transform 0.3s; }
+.footer-top .socials a img:hover { transform: scale(1.15); }
+.footer-bottom { display: flex; justify-content: space-between; margin-top: 20px; font-size: 0.8rem; flex-wrap: wrap; }
+.footer-bottom a { margin-left: 15px; text-decoration: none; color: #060606; transition: color 0.3s; }
+.footer-bottom a:hover { color: var(--light-text-color); }
+
+/* ===== Modal ===== */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); }
+.modal-content { background-color: #fff; margin: 5% auto; border-radius: 12px; display: flex; max-width: 800px; overflow: hidden; animation: fadeIn 0.4s; flex-wrap: wrap; }
+.modal-left, .modal-right { flex: 1; padding: 20px; }
+.modal-left { display: flex; flex-direction: column; justify-content: center; }
+.modal-left input { width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #ccc; }
+.modal-left button { padding: 10px; border: none; background: #0073e6; color: white; border-radius: 6px; margin-top: 10px; cursor: pointer; transition: 0.3s; }
+.modal-left button:hover { background: #005bb5; transform: scale(1.03); }
+.toggle-link { display: block; margin-top: 10px; cursor: pointer; color: #0073e6; }
+.toggle-link:hover { text-decoration: underline; }
+
+.modal-right { background: #f4f4f4; text-align: center; position: relative; }
+.modal-right img.bg { width: 100%; border-bottom: 2px solid #ccc; }
+.modal-right img.top { position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 120px; }
+
+.close { color: #aaa; font-size: 28px; font-weight: bold; position: absolute; right: 20px; top: 10px; cursor: pointer; }
+.close:hover { color: #000; }
+
+@keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+
+/* ===== Responsive ===== */
+@media(max-width: 768px){
+  .modal-content { flex-direction: column; }
+  .modal-right { height: 200px; }
+  .modal-right img.top { position: relative; top: auto; left: auto; transform: none; margin: 10px auto; display: block; }
+}
+</style>
 </head>
 <body>
-  <!-- Navigation Bar to make the other pages accessible-->
+
 <nav>
   <div class="brand">
     <img src="Media1/Emplogo.png" alt="Empowering the nation">
     <span>Empowering The Nation</span>
   </div>
   <ul>
-    <li><a href="home.html"target="_blank">Home</a></li>
-
-    <!--===Drop down Menu For the courses Page-->
+    <li><a href="home.html" target="_blank">Home</a></li>
     <li class="dropdown">
       <a href="Courses.html">Courses</a>
       <ul class="dropdown-content">
         <li class="sub-dropdown">
           <a href="Courses.html">6 Weeks</a>
           <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section1">Childminding</a></li>
+            <li><a href="Courses.html" class="course-link" data-section="section2">Cooking</a></li>
             <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
           </ul>
         </li>
@@ -38,20 +366,14 @@
         </li>
       </ul>
     </li>
-    <li><a href="getqoute.html"target="_blank">Get Qoute</a></li>
-    <li><a href="about us.html"target="_blank">About Us</a></li>
-    <li><a href="contact us.html"target="_blank">Contact Us</a></li>
- 
+    <li><a href="getquote.html" target="_blank">Get Quote</a></li>
+    <li><a href="about-us.html" target="_blank">About Us</a></li>
+    <li><a href="contact-us.html" target="_blank">Contact Us</a></li>
   </ul>
-  <!--This is a profile icon that funtion as a cta after user has sign up / sign in to access
-   the dasborad details of the application and the settings of the web platform -->
- 
   <div class="profile-icon" id="profileIcon" onclick="openNav()">
     <img src="Media1/User.gif" alt="Profile">
   </div>
 </nav>
-<!-- Side Navigation -->
-
 <div id="sideNav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="dashboard.html">Dashboard</a>
@@ -59,28 +381,72 @@
   <a href="#" onclick="logout()">Logout</a>
 </div>
 
+<!-- ===== Modal ===== -->
+<div id="authModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <div class="modal-left">
+      <div id="signupForm">
+        <h2>Create Account</h2>
+        <form onsubmit="signup(event)">
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <span class="toggle-link" onclick="showForm('login')">Already have an account?</span>
+      </div>
+      <div id="loginForm" style="display:none;">
+        <h2>Log In</h2>
+        <form onsubmit="login(event)">
+          <input type="text" id="loginUsername" placeholder="Username" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button type="submit">Log In</button>
+        </form>
+        <span class="toggle-link" onclick="showForm('signup')">Create an account?</span>
+      </div>
+    </div>
+    <div class="modal-right">
+      <img src="Media1/Empowering people.webp" alt="Empowering Image" class="bg">
+      <img src="Media1/Emplogo.png" alt="Logo" class="top">
+    </div>
+  </div>
+</div>
+
+
 <section class="hero">
   <div class="hero-text">
-    <h1>A World Of Learning, AWAITING</h1>
-    <p>Expand your knowledge with courses designed to empower your future.</p>
+    <h1>Empowering Skills, Changing Lives</h1>
+    <p>Expand your knowledge with courses designed to empower your future. We provide six-month and six-week training programmes that help domestic workers and gardeners gain skills like First Aid, Sewing, Cooking and many more.</p>
     <div class="hero-buttons">
       <a href="Courses.html" class="btn-light">Discover More</a>
-      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up/Login</button>
+      <button onclick="openModal()">Sign Up/Login</button>
     </div>
   </div>
 </section>
 
-
 <section class="courses">
-  <h2>Courses We Offer</h2>
+  <h2>Featured Courses</h2>
   <p>Choose from a variety of programs designed for every stage of learning.</p>
   <div class="course-cards">
-    <div class="course-card"><h3>Introduction</h3><p>Learn the fundamentals with our beginner-friendly courses.</p></div>
-    <div class="course-card"><h3>Occapational Skills</h3><p>Pursue advanced studies with our accredited degree programs.</p></div>
-    <div class="course-card"><h3>Work intergartion</h3><p>Take your education further with professional postgraduate training.</p></div>
+    <div class="course-card">
+      <img src="Media1/sewingimage.webp">
+      <h3>Sewing</h3>
+      <p>Learn how to create, mend, and design garments with professional sewing techniques.</p>
+    </div>
+    <div class="course-card">
+      <img src="Media1/first-aid-training-course-instructor.png">
+      <h3>First Aid</h3>
+      <p>Learn lifesaving techniques, CPR, and emergency response skills to handle accidents and health emergencies.</p>
+    </div>
+    <div class="course-card">
+      <img src="Media1/ck.png">
+      <h3>Cooking</h3>
+      <p>Learn practical cooking techniques, nutrition, and how to prepare affordable meals for families.</p>
+    </div>
   </div>
+  <button><a href="Courses.html">View More</a></button>
 </section>
-
 
 <section class="campus">
   <h2>Our Local Campuses</h2>
@@ -92,35 +458,53 @@
   </div>
 </section>
 
-
-<div id="id01" class="modal">
-  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-  <form class="modal-content" onsubmit="signup(event)">
-    <h1>Sign Up</h1>
-    <p>Please fill in this form to create an account.</p>
-
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="username" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" id="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" id="psw-repeat" required>
-    
-    <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-
-    <div class="clearfix">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <button type="submit" class="signupbtn">Sign Up</button>
+<div id="authModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <div class="modal-left">
+      <div id="signupForm">
+        <h2>Create Account</h2>
+        <form onsubmit="signup(event)">
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <span class="toggle-link" onclick="showForm('login')">Already have an account?</span>
+      </div>
+      <div id="loginForm" style="display:none;">
+        <h2>Log In</h2>
+        <form onsubmit="login(event)">
+          <input type="text" id="loginUsername" placeholder="Username" required>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+          <button type="submit">Log In</button>
+        </form>
+        <span class="toggle-link" onclick="showForm('signup')">Create an account?</span>
+      </div>
     </div>
-  </form>
+    <div class="modal-right">
+      <div class="image-container">
+        <img src="Media1/Empowering people.webp" alt="Empowering Image" class="bg">
+        <img src="Media1/Emplogo.png" alt="Empowering the nation logo" class="top">
+      </div>
+    </div>
+  </div>
 </div>
-
+<!-- Chatbot -->
+  <button id="chatbotBtn">💬</button>
+  <div id="chatbotModal" class="modal-chat">
+    <div class="modal-content-chat">
+      <div class="chat-header">
+        Empowering The Nation Bot
+        <span id="closeModal">&times;</span>
+      </div>
+      <div id="chat-window"><div id="chat-log"></div></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
 
 <footer class="footer">
   <div class="footer-top">
@@ -129,18 +513,14 @@
       <a href="home.html">Home</a>
       <a href="Courses.html">Courses</a>
       <a href="apply.html">Apply</a>
-      <a href="about us.html">About Us</a>
-      <a href="contact us.html">Contact Us</a>
+      <a href="about-us.html">About Us</a>
+      <a href="contact-us.html">Contact Us</a>
     </div>
     <div class="socials">
-      <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
-</a>
-<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
-</a>
-<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
-</a>
-<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
-</a>
+      <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+      <a href="https://www.facebook.com/EmpoweringNation" target="_blank"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+      <a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+      <a href="https://www.instagram.com/empow.eringthenation" target="_blank"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -152,8 +532,176 @@
     </div>
   </div>
 </footer>
-<link rel="script" href="java/script.js">
+<script>
+// ===== Modal Functions =====
+function openModal(defaultForm = 'signup') {
+  document.getElementById('authModal').style.display = 'block';
+  showForm(defaultForm);
+}
 
+function closeModal() {
+  document.getElementById('authModal').style.display = 'none';
+}
+
+function showForm(form) {
+  document.getElementById('signupForm').style.display = (form === 'signup') ? 'block' : 'none';
+  document.getElementById('loginForm').style.display = (form === 'login') ? 'block' : 'none';
+}
+
+// ===== Signup & Login =====
+function signup(e) {
+  e.preventDefault();
+  let username = document.getElementById("username").value.trim();
+  if (username) {
+    localStorage.setItem("username", username);
+    closeModal();
+    document.getElementById("profileIcon").style.display = "block";
+    alert("Welcome " + username + "!");
+  }
+}
+
+function login(e) {
+  e.preventDefault();
+  let username = document.getElementById("loginUsername").value.trim();
+  if (username) {
+    localStorage.setItem("username", username);
+    closeModal();
+    document.getElementById("profileIcon").style.display = "block";
+    alert("Welcome back " + username + "!");
+  } else {
+    alert("Please enter your username.");
+  }
+}
+
+// ===== Side Navigation =====
+function openNav() {
+  document.getElementById("sideNav").style.width = "250px";
+}
+function closeNav() {
+  document.getElementById("sideNav").style.width = "0";
+}
+
+function logout() {
+  localStorage.removeItem("username");
+  document.getElementById("profileIcon").style.display = "none";
+  alert("You have been logged out.");
+}
+
+// ===== Close Modal on Outside Click =====
+window.onclick = function(event) {
+  const modal = document.getElementById('authModal');
+  if (event.target === modal) {
+    closeModal();
+  }
+}
+
+// ===== Keep Profile Icon After Refresh =====
+window.onload = function() {
+  if (localStorage.getItem("username")) {
+    document.getElementById("profileIcon").style.display = "block";
+  }
+}
+
+// ===== Course Links Redirect =====
+document.querySelectorAll(".course-link").forEach(link => {
+  link.addEventListener("click", function(e) {
+    e.preventDefault();
+    const sectionId = this.getAttribute("data-section");
+    if (sectionId) {
+      window.location.href = "detailed Courses.html#" + sectionId;
+    }
+  });
+});
+
+    // ChatBot Modal open/close
+    document.getElementById("chatbotBtn").onclick = () => {
+      document.getElementById("chatbotModal").style.display = "flex";
+      addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
+    };
+
+    document.getElementById("closeModal").onclick = () => {
+      document.getElementById("chatbotModal").style.display = "none";
+    };
+
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
+
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const message = input.value.trim();
+      if (!message) return;
+      addMessage("user", message);
+      input.value = "";
+      setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+
+    function addMessage(sender, text) {
+      const log = document.getElementById("chat-log");
+      const div = document.createElement("div");
+      div.className = sender;
+      div.innerHTML = text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleBotResponse(userMessage) {
+      if (userMessage.includes("hi") || userMessage.includes("hello")) {
+        addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+      } else if (userMessage.includes("faq")) {
+        addMessage("bot", `
+          Please select a category:<br>
+          <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+          <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+          <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+          <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+        `);
+      } else {
+        addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq'.");
+      }
+    }
+
+    function showFAQ(category) {
+      let faqs = {
+        locations: `
+          <div class="accordion">
+            <details>
+              <summary>Where are your locations?</summary>
+              <p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br>
+              <a href='/contact'>📍 View on map</a></p>
+            </details>
+          </div>
+        `,
+        payments: `
+          <div class="accordion">
+            <details>
+              <summary>How do I pay?</summary>
+              <p>You can pay online via EFT or card. <a href='/payment'>💳 Go to payment page</a></p>
+            </details>
+          </div>
+        `,
+        contact: `
+          <div class="accordion">
+            <details>
+              <summary>How can I contact you?</summary>
+              <p>You can reach us via <a href='/contact'>Contact Page</a> or call 011-123-4567.</p>
+            </details>
+          </div>
+        `,
+        courses: `
+          <div class="accordion">
+            <details>
+              <summary>What courses do you offer?</summary>
+              <p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br>
+              <a href='/courses'>📚 View all courses</a></p>
+            </details>
+          </div>
+        `
+      };
+      addMessage("bot", faqs[category]);
+    }
+</script>
 
 </body>
 </html>

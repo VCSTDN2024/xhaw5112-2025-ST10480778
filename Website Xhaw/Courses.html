@@ -62,21 +62,63 @@
   display: block;
 }
 
-    .courses { padding: 2rem; background: #f4b30068; }
-    .section-title { font-size: 2rem; margin: 1.5rem 0; color: black; text-align: left; }
-    .course-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 1.5rem;
-    }
-    .course-card {
-      background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      padding: 1rem; text-align: center;
-    }
+    * { box-sizing: border-box; }
+
+header {
+  background: #FFBF00;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+header h1 { margin: 0; }
+
+.courses-section {
+  padding: 50px 10%;
+}
+.section-title{
+  text-align: center;
+  
+}
+.courses-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #FFBF00;
+  text-align: center;
+}
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.course-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.course-card:hover { transform: translateY(-5px); }
+.course-card h3 {
+  margin-top: 0;
+  color: #FFBF00;
+}
+.course-card p { font-size: 0.95rem; }
+.course-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  border-radius: 25px;
+  background: #FFBF00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.course-card a:hover { background: #e0aa00; }
+
     .course-card img {
       width: 100%; height: 180px; border-radius: 6px; margin-bottom: 1rem; object-fit: cover;
     }
-    .course-card h2 { font-size: 1.3rem; color: #2f4f2f; margin-bottom: 0.5rem; }
+    
     .duration { font-weight: bold; color: #2f4f2f; margin: 0.5rem 0 1rem; }
     .btn-course {
       display: inline-block; padding: 0.7rem 1.5rem;
@@ -195,31 +237,14 @@
     </ul>
   </nav>
 
-  <section class="courses">
-    <h1 class="section-title">6 Weeks Courses</h1>
-    <div class="course-container">
-      <div class="course-card">
-        <img src="Media1/childminding.png" alt="Child Minding">
-        <h2>Child Minding</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" id="btn-course"  class="course-link" data-section="section4">View Course Details</a>
-      </div>
-      <div class="course-card">
-        <img src="Media1/gardening-skills.png" alt="Gardening">
-        <h2>Garden Maintenance</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('gardening')">View Course Details</a>
-      </div>
-      <div class="course-card">
-        <img src="Media1/ck.png" alt="Cooking">
-        <h2>Cooking</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('cooking')">View Course Details</a>
-      </div>
-    </div>
+  <header>
+  <h1>Our Courses</h1>
+  <p>Explore our Six-Month and Six-Week Skills Programmes</p>
+</header>
 
+  <section class="courses-section" id="six-month">
     <h1 class="section-title">6 Months Courses</h1>
-    <div class="course-container">
+    <div class="course-list">
       <div class="course-card">
         <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid">
         <h2>First Aid</h2>
@@ -245,10 +270,32 @@
         <a href="#" class="btn-course" onclick="openModal('landscaping')">View Course Details</a>
       </div>
     </div>
+
+    <h1 class="section-title">6 Weeks Courses</h1>
+    <div class="course-list">
+      <div class="course-card">
+        <img src="Media1/childminding.png" alt="Child Minding">
+        <h2>Child Minding</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('childminding')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/gardening-skills.png" alt="Gardening">
+        <h2>Garden Maintenance</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('gardening')">View Course Details</a>
+      </div>
+      <div class="course-card">
+        <img src="Media1/ck.png" alt="Cooking">
+        <h2>Cooking</h2>
+        <div class="duration">⏰ 6 Weeks</div>
+        <a href="#" class="btn-course" onclick="openModal('cooking')">View Course Details</a>
+      </div>
+    </div>
   </section>
 
  
- <!--<div id="courseModal" class="modal">
+ <div id="courseModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
       <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo" class="logo">
@@ -260,7 +307,7 @@
       <div class="price" id="modalPrice">Price: R0</div>
       <a href="checkout.html" class="btn-enroll">Enroll Now</a>
     </div>
-  </div>-->
+  </div>
 
   <footer class="footer">
     <div class="footer-top">
@@ -294,7 +341,7 @@
   </footer>
 
   <script>
-   /* function openModal(course) {
+   function openModal(course) {
       const modal = document.getElementById("courseModal");
       const title = document.getElementById("modalTitle");
       const img = document.getElementById("modalImg");
@@ -380,7 +427,7 @@
       if (event.target === modal) {
         modal.style.display = "none";
       }
-    }*/
+    }
 
     //for the course link
     document.querySelectorAll(".course-link").forEach(link => {

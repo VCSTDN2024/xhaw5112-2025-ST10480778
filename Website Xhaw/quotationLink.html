@@ -178,6 +178,7 @@
   document.getElementById("quotationDate").innerText = new Date().toLocaleDateString();
   document.getElementById("quotationNo").innerText = formattedQuoteNo;
 
+
   // Fill table with courses
   const tbody = document.getElementById("quotationBody");
   courseDetails.forEach(course => {
@@ -189,12 +190,15 @@
     tbody.innerHTML += row;
   });
 
+
+
   // Fill totals
   document.getElementById("subtotal").innerText = subtotal || "0.00";
   document.getElementById("discount").innerText = discount || "0.00";
   document.getElementById("discountRate").innerText = discountRate || "0%";
   document.getElementById("vat").innerText = vat || "0.00";
   document.getElementById("total").innerText = total || "0.00";
+
 
   // ✅ PDF download
   function downloadPDF() {
