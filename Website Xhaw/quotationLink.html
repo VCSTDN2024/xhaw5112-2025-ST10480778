@@ -148,7 +148,20 @@
   </div>
 
   <button class="download-btn" onclick="downloadPDF()">Download Quotation</button>
-
+  <button id="chatbotBtn">💬</button>
+  <div id="chatbotModal" class="modal-chat">
+    <div class="modal-content-chat">
+      <div class="chat-header">
+        Empowering The Nation Bot
+        <span id="closeModal">&times;</span>
+      </div>
+      <div id="chat-window"><div id="chat-log"></div></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
   <script>
      // Load saved client data
   const clientName = localStorage.getItem("name");

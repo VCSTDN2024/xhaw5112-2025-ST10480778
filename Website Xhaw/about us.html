@@ -11,8 +11,8 @@
       background: #f4f6f9;
       color: #333;
     }
- 
-   
+
+    /* Navbar */
     nav {
       display: flex;
       justify-content: space-between;
@@ -31,327 +31,194 @@
       text-decoration: none;
       font-weight: bold;
     }
-     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
- 
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
- 
-   
-   .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-}
- 
-   
-   .about-heading {
-  background-color: #f2f3f4;
-  text-align: center;
-  padding: 40px 20px;
-  border-radius: 10px;
-  margin: 30px auto 0 auto;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  max-width: 900px;
-}
- 
-    .about-heading h1 {
-      font-size: 2.8em;
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand img { height: 40px; width: auto; }
+
+    /* About Heading */
+    .about-heading {
+      background-color: #f2f3f4;
       text-align: center;
-      padding: 20px;
+      padding: 40px 20px;
+      border-radius: 10px;
+      margin: 30px auto 0 auto;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      max-width: 900px;
+    }
+    .about-heading h1 {
+      font-size: 2.5em;
       margin: 0;
     }
- 
-    .about-content {
-      text-align: center;
-      padding: 20px;
-      max-width: 900px;
-      margin: 30px auto;
+    .about-heading p {
       font-size: 1.1em;
+      margin-top: 15px;
       line-height: 1.6;
     }
- 
-    .divider {
-      width: 70%;
-      height: 2px;
-      background-color: #407026;
-      margin: 30px auto;
-    }
- 
-   
- 
-    .testimonials {
+
+    /* Our Story Section */
+    .our-story {
       display: flex;
-      gap: 30px;
-    }
- 
-    .flip-card {
-      background: transparent;
-      width: 250px;
-      height: 250px;
-      perspective: 1000px;
-    }
- 
-    .flip-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-    }
- 
-    .flip-card:hover .flip-card-inner {
-      transform: rotateY(180deg);
-    }
- 
-    .flip-card-front, .flip-card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
- 
-    .flip-card-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
- 
-    .flip-card-back {
-      background: #fff;
-      color: #333;
-      transform: rotateY(180deg);
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 20px;
+      flex-wrap: wrap;
     }
- 
-    .flip-card-back h3 {
-      margin: 10px 0 5px;
-      font-size: 18px;
+    .our-story-text {
+      flex: 1;
     }
- 
-    .flip-card-back p {
-      font-size: 14px;
-      line-height: 1.5;
-      color: #555;
+    .our-story-text h2 {
+      color: #FFBF00;
+      margin-bottom: 15px;
     }
- 
- 
- 
-   .footer {
+    .our-story-text p {
+      line-height: 1.6;
+    }
+    .our-story img {
+      flex: 1;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: #fff;
+      padding: 50px 10%;
+    }
+    .testimonials h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+    .testimonial-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .testimonial {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .testimonial p {
+      font-style: italic;
+      font-size: 0.95rem;
+    }
+    .testimonial h4 {
+      margin-top: 15px;
+      color: #FFBF00;
+    }
+
+    /* Footer */
+    .footer {
       background-color: #FFBF00;
       border-top: 1px solid #ccc;
       padding: 25px 5%;
     }
- 
-   
     .footer-top {
       display: flex;
       justify-content: space-between;
-      align-items: center;                
+      align-items: center;
       flex-wrap: wrap;
     }
- 
     .bottom-nav a {
       margin-right: 15px;
       font-size: 0.9rem;
       text-decoration: none;
-      color: black;          
+      color: black;
       transition: color 0.3s;
     }
- 
-    .bottom-nav a:hover {
-      color: #FFEA00;
-     
-    }
- 
+    .bottom-nav a:hover { color: #FFEA00; }
     .footer-top .socials a img {
       width: 34px;
       height: 34px;
       margin-left: 12px;
       transition: transform 0.3s;
     }
- 
-    .footer-top .socials a img:hover {
-      transform: scale(1.15);
-    }
- 
+    .footer-top .socials a img:hover { transform: scale(1.15); }
     .footer-bottom {
       display: flex;
       justify-content: space-between;
       margin-top: 20px;
-      font-size: 0.8rem;      
+      font-size: 0.8rem;
       flex-wrap: wrap;
     }
- 
     .footer-bottom a {
       margin-left: 15px;
       text-decoration: none;
-      color: #060606;      
+      color: #060606;
       transition: color 0.3s;
     }
- 
-    .footer-bottom a:hover {
-      color: #FFEA00;
-    }
+    .footer-bottom a:hover { color: #FFEA00; }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
   <nav>
-      <div class="brand">
-        <img src="Media1/Emplogo.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
-      </div>
-      <ul>
-        <li><a href="home.html"target="_blank">Home</a></li>
-        <li class="dropdown">
-      <a href="Courses.html" target="_blank">Courses</a>
-      <ul class="dropdown-content">
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
-          </ul>
-        </li>
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-        <li><a href="getqoute.html"target="_blank">Apply</a></li>
-        <li><a href="about us.html"target="_blank">About Us</a></li>
-        <li><a href="contact us.html"target="_blank">Contact Us</a></li>
-      </ul>
-    </nav>
- 
- 
+    <div class="brand">
+      <img src="Media1/Emplogo.png" alt="Empowering the nation">
+      <span>Empowering The Nation</span>
+    </div>
+    <ul>
+      <li><a href="home.html" target="_blank">Home</a></li>
+      <li><a href="Courses.html" target="_blank">Courses</a></li>
+      <li><a href="getquote.html" target="_blank">Apply</a></li>
+      <li><a href="about-us.html" target="_blank">About Us</a></li>
+      <li><a href="contact-us.html" target="_blank">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- About Heading -->
   <section class="about-heading">
     <h1>About Us</h1>
-  </section>
- 
-  <section class="about-content">
-    <p>
-      Empowering the Nation was established in 2022 and offers courses in Johannesburg.
-      Hundreds of domestic workers and gardeners have been trained on both the six-month
-      Learnerships and six-week Short Skills Training Programmes to empower themselves
-      and provide more marketable skills.
-    </p>
-    <div class="divider"></div>
+    <p>At Empowering The Nation, we believe that knowledge is the key to opportunity. 
+       Founded in 2022 by Precious Radebe, we empower domestic workers, gardeners, and members of our community 
+       with practical skills that improve employability, increase earning potential, and open doors to entrepreneurship.</p>
   </section>
 
- <h2>TESTIMONIALS</h2>
- 
+  <!-- Our Story -->
+  <section class="our-story">
+    <div class="our-story-text">
+      <h2>OUR STORY</h2>
+      <p>Established in 2022 by Precious Radebe, Empowering the Nation began with a simple belief: 
+      knowledge creates opportunity. We design courses with the realities of learners in mind — short, 
+      affordable and practical pathways into paid work or self-employment.</p>
+    </div>
+    <img src="Media1/User.gif" alt="Founder Precious Radebe">
+  </section>
+
+  <!-- Testimonials -->
   <section class="testimonials">
- 
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="Media1/Yenzi.jpg" alt="Member 1" style="width: 250px; height: 250px;">
-        </div>
-        <div class="flip-card-back">
-          <h3>Rebecca Marapeng</h3>
-         
-          <p>"This program helped me grow professionally and gave me the confidence to lead."</p>
-        </div>
+    <h2>What Our Learners Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"The cooking course gave me the confidence to start a small catering business. I am now earning extra income for my family."</p>
+        <h4>– Thandi, Cooking Course Graduate</h4>
       </div>
-    </div>
- 
-   
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="Media1/Yenzi.jpg" alt="Member 2" style="width: 250px; height: 250px;">
-        </div>
-        <div class="flip-card-back">
-          <h3>Ronald Smith</h3>
-         
-          <p>"I’ve learned valuable skills that transformed my career and perspective."</p>
-        </div>
+      <div class="testimonial">
+        <p>"I learnt so much in the landscaping course. Now I manage gardens in my neighbourhood, and I’m proud of my new career."</p>
+        <h4>– Sipho, Landscaping Course Graduate</h4>
       </div>
-    </div>
- 
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img src="Media1/Yenzi.jpg" alt="Member 3" style="width: 250px; height: 250px;">
-        </div>
-        <div class="flip-card-back">
-          <h3>Mbali Johnson</h3>
-         
-          <p>"The mentorship and guidance I received were beyond my expectations."</p>
-        </div>
+      <div class="testimonial">
+        <p>"The life skills programme helped me grow personally and professionally. I can communicate better and feel more confident."</p>
+        <h4>– Lerato, Life Skills Graduate</h4>
       </div>
     </div>
   </section>
- 
- 
- 
- 
-   <footer class="footer">
+
+  <!-- Footer -->
+  <footer class="footer">
     <div class="footer-top">
       <span><strong>Empowering The Nation</strong></span>          
       <div class="bottom-nav">
         <a href="home.html">Home</a>
-        <a href="Courses.html">Course</a>
-        <a href="getqoute.html">Apply</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact us.html">Contact Us</a>
+        <a href="Courses.html">Courses</a>
+        <a href="getquote.html">Apply</a>
+        <a href="about-us.html">About Us</a>
+        <a href="contact-us.html">Contact Us</a>
       </div>      
- 
       <div class="socials">
         <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
         <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
@@ -370,3 +237,76 @@
   </footer>
 </body>
 </html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empowering The Nation Website</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .button {
+            background-color: #008000;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: inline-block;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,128,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-3xl font-bold text-[#008000] mb-4">Empowering The Nation</h1>
+        <p class="text-lg mb-8">
+            This is a simple static website page. Click the button below to open our app and continue your experience.
+        </p>
+        <p class="text-sm text-gray-500 mb-8">
+            Note: This link uses a custom URL scheme (`empoweringnation://`) and may show a browser warning.
+        </p>
+
+        <!-- 
+            This link attempts to open the app via a custom URL scheme.
+            If the app is not installed, the browser will likely show an error.
+            In a real-world scenario, you would add a JavaScript fallback
+            to redirect to the App Store or Google Play Store if the app doesn't open.
+        --
+        <a href="empoweringnation://" class="button">Open Our App</a>
+
+        <div class="mt-8">
+            <h2 class="text-2xl font-semibold text-[#F2AE1C] mb-2">How it works:</h2>
+            <p class="text-base text-gray-700">
+                The link above uses a custom URL scheme `empoweringnation://` which is registered to our mobile app. When you click the link, the operating system checks if an app is registered to handle that scheme. If so, it launches the app.
+            </p>
+        </div>
+    </div>
+</body>
+</html>-->
