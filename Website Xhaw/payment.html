@@ -2,276 +2,163 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Course Payment</title>
-  <style>
-    body { 
-      font-family: Arial, sans-serif;
-       padding: 20px; 
-      margin: 0; padding: 0;
-      background: #f4f6f9;
-      color: #333;
-      
-    }
-    body h2{
-      align-items: center;
-    margin: 20px auto;
-
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background:#FFBF00;
-      padding: 10px 20px;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #7FA75D;
-      text-decoration: none;
-      font-weight: bold;
-    }
-     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
-    .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-}
-    table { width: 100%;
-       border-collapse: 
-       collapse;
-        margin-bottom: 20px;
-       }
-    th, td { 
-      padding: 10px;
-       text-align: left;
-        border-bottom: 1px solid #ddd; 
-      }
-    th { background: #FFBF00; 
-      color: white; 
-    }
-    .totals { text-align: right;
-       font-weight: bold; 
-      }
-    .discount { color: red;
-     }
-    button { background: #FFBF00; 
-      color: white; 
-      padding: 10px 20px; 
-      border: none; 
-      border-radius: 6px;
-       cursor: pointer; }
-    button:hover { 
-      background:
-       #e6ac00; }
-  </style>
-</head>
-<body>
-  <nav>
-      <div class="brand">
-        <img src="Media1/Emplogo.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
-      </div>
-      <ul>
-        <li><a href="home.html"target="_blank">Home</a></li>
-        <li class="dropdown">
-      <a href="Courses.html">Courses</a>
-      <ul class="dropdown-content">
-  <li class="sub-dropdown">
-    <a href="#">6 Weeks ▸</a>
-    <ul class="sub-dropdown-content">
-      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
-      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
-      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
-    </ul>
-  </li>
-  <li class="sub-dropdown">
-    <a href="#">6 Months ▸</a>
-    <ul class="sub-dropdown-content">
-      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
-      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
-      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
-      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
-    </ul><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Get Quote & Apply - Empowering The Nation</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <title>Course Payment | Empowering The Nation</title>
   <style>
     /* ------------------- */
     /* Global Styles & Variables */
     /* ------------------- */
     :root {
-      --primary-color: #FFBF00;
-      --secondary-color: #7FA75D;
-      --accent-color: #4CAF50;
-      --button-color: #a97421;
-      --button-hover-color: #8a5e1b;
+      --primary-color: #FFBF00; /* Yellow */
+      --secondary-color: #7FA75D; 
+      --brand-dark-green: #006600;
+      --accent-color: #4CAF50; /* Green for success/buttons */
       --text-dark: #333;
       --text-light-gray: #555;
       --bg-white: #fff;
       --bg-light-gray: #f4f6f9;
     }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { 
+      font-family: Arial, sans-serif;
       background: var(--bg-light-gray);
       color: var(--text-dark);
+      min-height: 100vh;
       line-height: 1.6;
     }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
+    a { text-decoration: none; color: var(--brand-dark-green); }
 
     /* ------------------- */
-    /* Navigation (Consistent with other pages) */
+    /* Navigation Styles */
     /* ------------------- */
-    nav { display: flex; justify-content: space-between; align-items: center; background: var(--primary-color); padding: 10px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    nav .brand { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.1rem; }
-    nav .brand img { height: 40px; }
+    nav { display: flex; justify-content: space-between; align-items: center; background: var(--primary-color); padding: 10px 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: bold; }
+    .brand img { height: 40px; width: auto; }
     nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li a { color: var(--secondary-color); text-decoration: none; font-weight: bold; }
+    nav ul li a { color: var(--brand-dark-green); text-decoration: none; font-weight: bold; }
+    .dropdown { position: relative; }
+    .dropdown .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-white); min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 99; }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { color: var(--text-dark); padding: 10px 16px; display: block; }
+    .dropdown-content a:hover { background-color: #f2f2f2; }
+    .sub-dropdown .sub-dropdown-content { display: none; position: absolute; left: 100%; top: 0; background-color: var(--bg-white); min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 100; }
+    .sub-dropdown:hover .sub-dropdown-content { display: block; }
     
     /* ------------------- */
-    /* Page Header */
+    /* Card Container Styling (Medium & Pleasing) */
     /* ------------------- */
-    .page-header { background-color: var(--bg-white); text-align: center; padding: 50px 20px; border-bottom: 1px solid #e0e0e0; }
-    .page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
-    .page-header p { font-size: 1.2rem; color: var(--text-light-gray); max-width: 600px; margin: 0 auto; }
-    
-    /* ------------------- */
-    /* Form Container & Elements */
-    /* ------------------- */
-    .form-container {
-      background: var(--bg-white);
-      max-width: 600px;
-      margin: 0 auto; /* Centered inside .container */
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-      border: 1px solid #e0e0e0;
+    .container {
+      max-width: 650px; /* Medium width */
+      margin: 50px auto;
+      padding: 0 20px;
     }
-    .form-container h2 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
-    label { font-weight: 600; display: block; margin-bottom: 8px; }
-    input[type="text"], input[type="email"], input[type="number"] {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 1rem;
-      font-family: 'Inter', sans-serif;
-      transition: border-color 0.3s, box-shadow 0.3s;
+    .card {
+        background: var(--bg-white);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* Soft, pleasing shadow */
+        border: 1px solid #e0e0e0;
     }
-    input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.3); outline: none; }
     
-    .course-section h3 { font-size: 1.2rem; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 20px;}
-    .courses { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .courses label { font-weight: normal; display: flex; align-items: center; gap: 8px; padding: 5px; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
-    .courses label:hover { background-color: #f9f9f9; }
-    .courses input[type="checkbox"] { width: auto; margin-bottom: 0; }
-    
-    .btn-group { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
-    .btn { border: none; padding: 12px 15px; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; width: 100%; font-size: 1rem; transition: all 0.3s ease; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
-    .btn-primary { background: var(--accent-color); }
-    .btn-primary:hover { background: #3e8e41; }
-    .btn-secondary { background: var(--button-color); }
-    .btn-secondary:hover { background: var(--button-hover-color); }
+    h2 {
+        text-align: center;
+        font-size: 1.8rem;
+        color: var(--brand-dark-green);
+        margin-bottom: 25px;
+    }
 
     /* ------------------- */
-    /* Info Modal & Floating Button */
+    /* Table Styling */
     /* ------------------- */
-    .icon-btn {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: var(--primary-color);
-      color: var(--text-dark);
-      border: none;
-      border-radius: 50%;
-      width: 60px;
-      height: 60px;
-      font-size: 24px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin-bottom: 25px;
+        border: 1px solid #e0e0e0; 
+        border-radius: 8px; 
+        overflow: hidden; 
+    }
+    th, td { 
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #eee; 
+    }
+    th { 
+      background: var(--brand-dark-green); /* Better color for header */
+      color: white; 
+      font-weight: 600;
+    }
+    table tbody tr:last-child td { border-bottom: none; }
+    table tbody tr:nth-child(even) { background-color: #f9f9f9; } /* Subtle stripe */
+    
+    /* ------------------- */
+    /* Totals Styling */
+    /* ------------------- */
+    .totals-container {
+        padding-top: 15px;
+        margin-top: 20px;
+        border-top: 2px solid var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .totals { 
+        display: flex;
+        justify-content: space-between;
+        font-size: 1rem;
+        padding: 3px 0;
+    }
+    .totals strong {
+        font-weight: 700;
+        color: var(--text-dark);
+    }
+    .discount { 
+        color: #e74c3c; /* Red for discount */
+    }
+    #total-amount {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--accent-color);
+        padding-top: 10px;
+        border-top: 1px dashed #ccc;
+        margin-top: 10px;
     }
     
-    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
-    .modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 500px; position: relative; box-shadow: 0 5px 25px rgba(0,0,0,0.2); }
-    .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #888; }
-    .close-btn:hover { color: #000; }
-    .accordion { margin-top: 20px; }
-    .accordion-item { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
-    .accordion-header { padding: 15px; background: #f7f7f7; cursor: pointer; font-weight: bold; }
-    .accordion-content { display: none; padding: 15px; background: #fff; border-top: 1px solid #eee; }
-    .accordion-header.active { background: #e9e9e9; }
-    
     /* ------------------- */
-    /* Chatbot & Footer (Consistent with other pages) */
+    /* Button Group */
+    /* ------------------- */
+    .btn-group {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+    .btn { 
+        flex: 1;
+        background: var(--accent-color); 
+        color: white; 
+        padding: 12px 25px; 
+        border: none; 
+        border-radius: 8px;
+        cursor: pointer; 
+        font-weight: 700;
+        font-size: 1rem;
+        transition: background-color 0.2s, transform 0.2s;
+        text-align: center;
+    }
+    .btn:hover { 
+        background: #3e8e41; 
+        transform: translateY(-1px);
+    }
+    .btn-secondary {
+        background: var(--primary-color);
+        color: var(--text-dark);
+    }
+    .btn-secondary:hover {
+        background: #e6ac00;
+    }
+
+    /* ------------------- */
+    /* Chatbot Styles (kept from original) */
     /* ------------------- */
     #chatbotBtn { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
     .modal-chat { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); flex-direction: column; z-index: 1000; }
@@ -286,128 +173,75 @@
     #user-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #ccc; border-radius: 20px; margin-right: 10px; }
     #send-btn { background: var(--accent-color); color: white; border: none; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
     .faq-btn { margin: 4px; padding: 8px 12px; background: var(--accent-color); color: white; border: none; border-radius: 6px; cursor: pointer; }
-    
-    .footer { background-color: var(--primary-color); border-top: 1px solid #e0e0e0; padding: 30px 5%; margin-top: 60px; }
-    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-    .footer-top span strong { font-size: 1.1rem; }
-    .bottom-nav a { margin: 0 10px; font-size: 0.9rem; text-decoration: none; color: black; transition: color 0.3s; font-weight: 600; }
-    .bottom-nav a:hover { color: var(--bg-white); }
-    .footer-top .socials a img { width: 34px; height: 34px; margin-left: 12px; transition: transform 0.3s; }
-    .footer-top .socials a img:hover { transform: scale(1.15); }
-    .footer-bottom { display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; flex-wrap: wrap; gap: 15px; }
-    .footer-bottom a { margin-left: 15px; text-decoration: none; color: #060606; transition: color 0.3s; }
-    .footer-bottom a:hover { color: var(--bg-white); }
+    @media (max-width: 600px) {
+        .btn-group { flex-direction: column; }
+    }
   </style>
 </head>
 <body>
   <nav>
-    <div class="brand">
-      <img src="Media1/Emplogo.png" alt="Empowering the nation logo">
-      <span>Empowering The Nation</span>
-    </div>
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li class="dropdown">
-      <a href="Courses.html">Courses</a>
-      <ul class="dropdown-content">
-  <li class="sub-dropdown">
-    <a href="#">6 Weeks ▸</a>
-    <ul class="sub-dropdown-content">
-      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
-      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
-      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
-    </ul>
-  </li>
-  <li class="sub-dropdown">
-    <a href="#">6 Months ▸</a>
-    <ul class="sub-dropdown-content">
-      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
-      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
-      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
-      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
-    </ul>
-  </li>
-</ul>
-    </li>
-      <li><a href="getqoute.html">Get Quote</a></li>
-      <li><a href="about us.html">About Us</a></li>
-      <li><a href="contact us.html">Contact Us</a></li>
-    </ul>
+      <div class="brand">
+        <img src="Media1/Emplogo.png" alt="Empowering the nation">
+        <span>Empowering The Nation</span>
+      </div>
+      <ul>
+        <li><a href="home.html"target="_blank">Home</a></li>
+        <li class="dropdown">
+          <a href="Courses.html">Courses</a>
+          <ul class="dropdown-content">
+            <li class="sub-dropdown">
+              <a href="#">6 Weeks ▸</a>
+              <ul class="sub-dropdown-content">
+                <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
+                <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
+                <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
+              </ul>
+            </li>
+            <li class="sub-dropdown">
+              <a href="#">6 Months ▸</a>
+              <ul class="sub-dropdown-content">
+                <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
+                <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
+                <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
+                <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="getqoute.html"target="_blank">Get Quote</a></li>
+        <li><a href="about us.html"target="_blank">About Us</a></li>
+        <li><a href="contact us.html"target="_blank">Contact Us</a></li>
+      </ul>
   </nav>
 
-  <header class="page-header">
-    <h1>Checkout</h1>
-    <p>Complete your details below to get a quote or proceed to payment.</p>
-  </header>
-
   <main class="container">
-    <div class="form-container">
-      <h2>Your Details</h2>
-      <form onsubmit="event.preventDefault();">
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
+    <div class="card">
+      <h2>Order Summary</h2>
+      
+      <table id="courseTable">
+        <thead>
+          <tr>
+            <th>Course Name</th>
+            <th>Duration</th>
+            <th>Pricing (R)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required>
+      <div class="totals-container">
+        <p class="totals" id="subtotal">Subtotal: <strong>R0.00</strong></p>
+        <p class="totals discount" id="discount">Discount: 0% Applied (<strong>- R0.00</strong>)</p>
+        <p class="totals" id="vat">VAT (15%): <strong>R0.00</strong></p>
+        <p class="totals" id="total-amount">Total Payable: <strong>R0.00</strong></p>
+      </div>
 
-        <label for="number">Phone Number:</label>
-        <input type="number" id="number" name="number" required>
-        
-        <label for="address">Residential Address:</label>
-        <input type="text" id="address" name="address">
-
-        <div class="course-section">
-          <h3>Select Your Courses:</h3>
-          <div class="courses">
-            <label><input type="checkbox" class="course" value="750" data-name="Child-minding" data-duration="6 Weeks"> Child-minding [R750]</label>
-            <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
-            <label><input type="checkbox" class="course" value="750" data-name="Cooking" data-duration="6 Weeks"> Cooking [R750]</label>
-            <label><input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="6 Months"> Sewing [R1500]</label>
-            <label><input type="checkbox" class="course" value="750" data-name="Gardening" data-duration="6 Weeks"> Gardening [R750]</label>
-            <label><input type="checkbox" class="course" value="1500" data-name="Landscaping" data-duration="6 Months"> Landscaping [R1500]</label>
-            <label><input type="checkbox" class="course" value="1500" data-name="Life Skills" data-duration="6 Months"> Life Skills [R1500]</label>
-          </div>
-        </div>
-
-        <div class="btn-group">
-            <button type="button" class="btn btn-secondary" onclick="calculateTotal(true)">Get Quotation</button>
-            <button type="button" class="btn btn-primary" onclick="calculateTotal(false)">Pay Now</button>
-        </div>
-      </form>
-    </div>
-  </main>
-  
-  <button class="icon-btn" id="openInfoModal">?</button>
-  
-  <div class="modal" id="infoModal">
-    <div class="modal-content">
-      <span class="close-btn" id="closeInfoModal">&times;</span>
-      <h3>Important Information</h3>
-      <div class="accordion">
-        <div class="accordion-item">
-          <div class="accordion-header">Discount Policy</div>
-          <div class="accordion-content">
-            <p><strong>5% discount</strong> for 2 courses.<br>
-               <strong>10% discount</strong> for 3 courses.<br>
-               <strong>15% discount</strong> for 4 or more courses.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Payment Info</div>
-          <div class="accordion-content">
-            <p>You can pay securely online or visit us to pay in person. A standard VAT of 15% is added at checkout.</p>
-          </div>
-        </div>
-        <div class="accordion-item">
-          <div class="accordion-header">Course Durations</div>
-          <div class="accordion-content">
-            <p><strong>6 Weeks:</strong> Child-minding, Cooking, Gardening<br>
-               <strong>6 Months:</strong> First Aid, Sewing, Landscaping, Life Skills</p>
-          </div>
-        </div>
+      <div class="btn-group">
+        <button class="btn" onclick="alert('Simulated: Proceeding to secure payment portal.')">Pay Now</button>
+        <button class="btn btn-secondary" id="goDashboard">Go to Dashboard</button>
       </div>
     </div>
-  </div>
+  </main>
 
   <button id="chatbotBtn">💬</button>
   <div id="chatbotModal" class="modal-chat">
@@ -423,115 +257,64 @@
       </div>
     </div>
   </div>
+  
+  <script>
+    // -------------------
+    // Order Summary Logic
+    // -------------------
+     document.addEventListener("DOMContentLoaded", () => {
+      // Retrieve data from localStorage (set on the getqoute/checkout page)
+      const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
+      const subtotal = localStorage.getItem("subtotal") || "0.00";
+      const discount = localStorage.getItem("discount") || "0.00";
+      const discountRate = localStorage.getItem("discountRate") || "0%";
+      const vat = localStorage.getItem("vat") || "0.00";
+      const total = localStorage.getItem("total") || "0.00";
 
-  <footer class="footer">
-    <div class="footer-top">
-      <span><strong>Empowering The Nation</strong></span>           
-      <div class="bottom-nav">
-        <a href="home.html">Home</a>
-        <a href="Courses.html">Courses</a>
-        <a href="getqoute.html">Get Quote</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact us.html">Contact Us</a>
-      </div>      
-      <div class="socials">
-        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
-        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
-        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
-        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2022 Empowering The Nation. All rights reserved.</span>
-      <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies Settings</a>
-      </div>
-    </div>
-  </footer>
+      const tableBody = document.querySelector("#courseTable tbody");
+      
+      // Populate the table rows
+      if (courseDetails.length === 0) {
+        let row = document.createElement("tr");
+        row.innerHTML = `<td colspan="3" style="text-align: center; color: var(--text-light-gray); padding: 20px;">No courses added to your order.</td>`;
+        tableBody.appendChild(row);
+      } else {
+        courseDetails.forEach(c => {
+          let row = document.createElement("tr");
+          row.innerHTML = `<td>${c.name}</td><td>${c.duration}</td><td>R${parseFloat(c.price).toFixed(2)}</td>`;
+          tableBody.appendChild(row);
+        });
+      }
 
- <script>
-  function calculateTotal(isQuote = false) {
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const phone = document.getElementById("number").value;
-    const address = document.getElementById("address").value; 
+      // Populate the total summary details
+      document.getElementById("subtotal").innerHTML = `Subtotal: <strong>R${parseFloat(subtotal).toFixed(2)}</strong>`;
+      document.getElementById("discount").innerHTML = `Discount: ${discountRate} Applied (<strong>- R${parseFloat(discount).toFixed(2)}</strong>)`;
+      document.getElementById("vat").innerHTML = `VAT (15%): <strong>R${parseFloat(vat).toFixed(2)}</strong>`;
+      document.getElementById("total-amount").innerHTML = `Total Payable: <strong>R${parseFloat(total).toFixed(2)}</strong>`;
+    });
+    
+    // -------------------
+    // Dashboard Redirection Logic
+    // -------------------
+    document.getElementById("goDashboard").addEventListener("click", () => {
+      const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
 
-    if (!name || !email || !phone) {
-        alert("Please fill in your Name, Email, and Phone Number.");
-        return;
-    }
-
-    localStorage.setItem("name", name);
-    localStorage.setItem("email", email);
-    localStorage.setItem("number", phone);
-    localStorage.setItem("address", address);
-
-    const selectedCourses = [...document.querySelectorAll(".course:checked")];
-    if (selectedCourses.length === 0) {
-        alert("Please select at least one course.");
-        return;
-    }
-
-    const courseDetails = selectedCourses.map(item => ({ 
-      name: item.dataset.name, 
-      duration: item.dataset.duration, 
-      price: parseFloat(item.value) 
-    })); 
-
-    let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
-
-    let discountRate = 0;
-    const courseCount = selectedCourses.length;
-
-    if (courseCount >= 4) discountRate = 0.15;
-    else if (courseCount === 3) discountRate = 0.10;
-    else if (courseCount === 2) discountRate = 0.05;
-
-    const discount = subtotal * discountRate;
-    const vat = 0.15 * (subtotal - discount);
-    const total = subtotal - discount + vat;
-
-    localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
-    localStorage.setItem("subtotal", subtotal.toFixed(2));
-    localStorage.setItem("discount", discount.toFixed(2));
-    localStorage.setItem("discountRate", (discountRate * 100) + "%");
-    localStorage.setItem("vat", vat.toFixed(2));
-    localStorage.setItem("total", total.toFixed(2));
-
-    if (isQuote) {
-      window.location.href = "quotationLink.html"; // Placeholder
-    } else {
-      window.location.href = "payment.html"; // Placeholder
-    }
-  }
-
-    // Info Modal Logic
-    const infoModal = document.getElementById("infoModal");
-    const openInfoModalBtn = document.getElementById("openInfoModal");
-    const closeInfoModalBtn = document.getElementById("closeInfoModal");
-
-    openInfoModalBtn.onclick = () => infoModal.style.display = "flex";
-    closeInfoModalBtn.onclick = () => infoModal.style.display = "none";
-    window.addEventListener('click', (e) => { if (e.target === infoModal) infoModal.style.display = "none"; });
-
-    // Accordion Logic
-    document.querySelectorAll(".accordion-header").forEach(header => {
-      header.addEventListener("click", () => {
-        const currentlyActive = document.querySelector(".accordion-header.active");
-        if(currentlyActive && currentlyActive !== header) {
-            currentlyActive.classList.remove("active");
-            currentlyActive.nextElementSibling.style.display = "none";
-        }
-
-        header.classList.toggle("active");
-        const content = header.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+      // Assign random initial progress for purchased courses
+      courseDetails.forEach(c => {
+        // Sets progress between 2% and 7%
+        c.progress = Math.floor(Math.random() * 6) + 2; 
       });
+
+      // Save purchased courses + progress in localStorage for dashboard to read
+      localStorage.setItem("purchasedCourses", JSON.stringify(courseDetails));
+
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
     });
 
+    // -------------------
     // ChatBot Functions
+    // -------------------
     document.getElementById("chatbotBtn").onclick = () => {
         const modal = document.getElementById("chatbotModal");
         if (modal.style.display !== "flex") {
@@ -544,6 +327,7 @@
     document.getElementById("closeChatModal").onclick = () => { document.getElementById("chatbotModal").style.display = "none"; };
     document.getElementById("send-btn").onclick = sendMessage;
     document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+    
     function sendMessage() {
         const input = document.getElementById("user-input");
         const message = input.value.trim();
@@ -552,6 +336,7 @@
         input.value = "";
         setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
     }
+    
     function addMessage(sender, text) {
         const log = document.getElementById("chat-log");
         const div = document.createElement("div");
@@ -560,6 +345,7 @@
         log.appendChild(div);
         log.scrollTop = log.scrollHeight;
     }
+    
     function handleBotResponse(userMessage) {
         if (userMessage.includes("hi") || userMessage.includes("hello")) {
             addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
@@ -575,6 +361,7 @@
             addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq' for options.");
         }
     }
+    
     function showFAQ(category) {
         let faqs = {
             locations: `<div class="accordion"><details open><summary>Where are your locations?</summary><p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br><a href='contact-us.html'>📍 View on map</a></p></details></div>`,
@@ -584,88 +371,6 @@
         };
         addMessage("bot", faqs[category]);
     }
-  </script>
-</body>
-</html>
-  </li>
-</ul>
-    </li>
-        <li><a href="apply.html"target="_blank">Apply</a></li>
-        <li><a href="about us.html"target="_blank">About Us</a></li>
-        <li><a href="contact us.html"target="_blank">Contact Us</a></li>
-      </ul>
-    </nav>
-  <h2>Order Summary</h2>
-  <table id="courseTable">
-    <thead>
-      <tr>
-        <th>Course Name</th>
-        <th>Duration</th>
-        <th>Pricing</th>
-      </tr>
-    </thead>
-    <tbody></tbody>
-  </table>
-
-  <p class="totals" id="subtotal"></p>
-  <p class="totals discount" id="discount"></p>
-  <p class="totals" id="vat"></p>
-  <p class="totals" id="total"></p>
-
-  <button>Pay Now</button>
-  <button id="goDashboard">Go to Dashboard</button>
-
-  <button id="chatbotBtn">💬</button>
-  <div id="chatbotModal" class="modal-chat">
-    <div class="modal-content-chat">
-      <div class="chat-header">
-        Empowering The Nation Bot
-        <span id="closeModal">&times;</span>
-      </div>
-      <div id="chat-window"><div id="chat-log"></div></div>
-      <div id="chat-input">
-        <input type="text" id="user-input" placeholder="Type a message...">
-        <button id="send-btn">Send</button>
-      </div>
-    </div>
-  </div>
-  <script>
-     document.addEventListener("DOMContentLoaded", () => {
-      const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
-      const subtotal = localStorage.getItem("subtotal");
-      const discount = localStorage.getItem("discount");
-      const discountRate = localStorage.getItem("discountRate");
-      const vat = localStorage.getItem("vat");
-      const total = localStorage.getItem("total");
-
-      const table = document.getElementById("courseTable");
-
-      courseDetails.forEach(c => {
-        let row = document.createElement("tr");
-        row.innerHTML = `<td>${c.name}</td><td>${c.duration}</td><td>R${c.price}</td>`;
-        table.appendChild(row);
-      });
-
-      document.getElementById("subtotal").textContent = `Subtotal: R${subtotal}`;
-      document.getElementById("discount").textContent = `Discount: ${discountRate} Applied (R${discount})`;
-      document.getElementById("vat").textContent = `VAT (15%): R${vat}`;
-      document.getElementById("total").textContent = `Total: R${total}`;
-    });
-    document.getElementById("goDashboard").addEventListener("click", () => {
-  const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
-
-  // Assign random initial progress to each course (between 2% and 7%)
-  courseDetails.forEach(c => {
-    c.progress = Math.floor(Math.random() * 6) + 2; // 2% to 7%
-  });
-
-  // Save purchased courses + progress in localStorage for dashboard
-  localStorage.setItem("purchasedCourses", JSON.stringify(courseDetails));
-
-  // Redirect to dashboard
-  window.location.href = "dashboard.html";
-});
-
   </script>
 </body>
 </html>
