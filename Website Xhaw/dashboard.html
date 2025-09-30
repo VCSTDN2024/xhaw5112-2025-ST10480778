@@ -1,558 +1,591 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f4f6f9;
-      color: #333;
-    }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | Empowering The Nation</title>
     
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background:#FFBF00;
-      padding: 10px 20px;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #7FA75D;
-      text-decoration: none;
-      font-weight: bold;
-    }
-     .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
-    .profile-icon {
-  display: none;
-  cursor: pointer;
-}
-.profile-icon img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-/* Side nav */
-#sideNav {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 100;
-  top: 0;
-  right: 0;
-  background-color: #fff;
-  overflow-x: hidden;
-  transition: 0.3s;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-  padding-top: 60px;
-}
-#sideNav a {
-  display: block;
-  padding: 12px 24px;
-  font-size: 18px;
-  text-decoration: none;
-  color: #333;
-  transition: 0.3s;
-}
-#sideNav a:hover {
-  background: #f1f1f1;
-}
-#sideNav .closebtn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 36px;
-  text-decoration: none;
-}
-
-.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover 
-.sub-dropdown-content {
-  display: block;
-}
-
-    .banner {
-       background: linear-gradient(to top right, #33ccff 0%, #ffcc00 100%);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .banner h1 { margin: 0; }
-
-  
-    .dashboard-main {
-      display: flex;
-      gap: 20px;
-      padding: 20px;
-    }
-    .progress-container, .calendar {
-      flex: 1;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .progress-container h2,
-    .calendar h2 {
-      margin-top: 0;
-    }
-
-   
-    .progress-bar {
-      background: #e0e0e0;
-      border-radius: 6px;
-      overflow: hidden;
-      margin: 10px 0;
-    }
-    .progress-fill {
-      height: 25px;
-      color: white;
-      text-align: center;
-      line-height: 25px;
-    }
-    .green { background: #28a745; }
-    .red { background: #dc3545; }
-    .blue { background: #007bff; }
-
-   
-    .calendar-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    .calendar-header button {
-      background: #007bff;
-      color: white;
-      border: none;
-      padding: 5px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 5px;
-    }
-    .day {
-      border: 1px solid #ddd;
-      padding: 6px;
-      min-height: 80px;
-      border-radius: 6px;
-      background: #fafafa;
-    }
-    .date { font-weight: bold; font-size: 12px; }
-    .event {
-      background: #007bff;
-      color: white;
-      font-size: 11px;
-      margin-top: 4px;
-      padding: 2px 4px;
-      border-radius: 4px;
-    }
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    .course-card {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    .course-card h3 { margin-top: 0; color: #007bff; }
-    .course-card p { margin: 5px 0; }
-    .course-card a{ 
-      display: inline-block;
-      padding: 10px 20px;
-      background: #FCF55F;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .course-card a:hover {
-      background: #e14d4b;
-    
-    }
+    <style>
+        /* ------------------- */
+        /* Global Styles & Variables (Matching Brand) */
+        /* ------------------- */
+        :root {
+            --primary-color: #FFBF00; /* Yellow */
+            --secondary-color: #7FA75D; /* Greenish-gray for links */
+            --accent-color: #4CAF50; /* Green for success/buttons */
+            --text-dark: #333;
+            --bg-white: #fff;
+            --bg-light-gray: #f4f6f9;
+        }
 
-    
-     .footer {
-      background-color: #FFBF00;
-      border-top: 1px solid #ccc;
-      padding: 25px 5%;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;                 
-      flex-wrap: wrap;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* ------------------- */
+        /* Navigation & Profile */
+        /* ------------------- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-color);
+            padding: 10px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .brand img { height: 40px; }
 
-    .bottom-nav a {
-      margin-right: 15px;
-      font-size: 0.9rem;
-      text-decoration: none;
-      color: black;          
-      transition: color 0.3s;
-    }
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 20px;
+        }
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover { 
+            background-color: rgba(255, 255, 255, 0.2); 
+            color: var(--text-dark);
+        }
 
-    .bottom-nav a:hover {
-      color: #FFEA00;
-      
-    }
+        .profile-menu {
+            position: relative;
+        }
 
-    .footer-top .socials a img {
-      width: 34px;
-      height: 34px;
-      margin-left: 12px;
-      transition: transform 0.3s;
-    }
+        .profile-icon {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--text-dark);
+            transition: transform 0.2s;
+        }
+        .profile-icon:hover {
+            transform: scale(1.05);
+        }
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .footer-top .socials a img:hover {
-      transform: scale(1.15);
-    }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-white);
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 150px;
+            z-index: 99;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
 
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 20px;
-      font-size: 0.8rem;      
-      flex-wrap: wrap;
-    }
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: background-color 0.2s;
+            font-weight: 400;
+        }
+        .dropdown-menu a:hover {
+            background-color: var(--bg-light-gray);
+            color: var(--accent-color);
+        }
 
-    .footer-bottom a {
-      margin-left: 15px;
-      text-decoration: none;
-      color: #060606;      
-      transition: color 0.3s;
-    }
+        /* ------------------- */
+        /* Dashboard Layout & Cards */
+        /* ------------------- */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Smaller left column for calendar/summary */
+            gap: 30px;
+        }
 
-    .footer-bottom a:hover {
-      color: #FFEA00;
-    }
+        .card {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
 
-  </style>
+        .main-content {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar {
+            grid-column: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        /* ------------------- */
+        /* Progress Bar (Interactive) */
+        /* ------------------- */
+        .course-progress-item {
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer; /* Suggests clickability */
+            transition: background-color 0.2s;
+        }
+        .course-progress-item:hover {
+            background-color: var(--bg-light-gray);
+        }
+        .course-progress-item:last-child {
+            border-bottom: none;
+        }
+        
+        .course-progress-item p {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            line-height: 20px;
+            text-align: center;
+            color: var(--bg-white);
+            font-weight: 700;
+            transition: width 0.8s ease-out; /* Smooth animation on load/update */
+        }
+
+        .green { background: var(--accent-color); }
+        .yellow { background: var(--primary-color); }
+        .red { background: #E74C3C; }
+
+        /* ------------------- */
+        /* Calendar (Interactive) */
+        /* ------------------- */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-header button {
+            background: var(--secondary-color);
+            color: var(--bg-white);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        .calendar-header button:hover {
+            background: #6a904e;
+        }
+        
+        #month-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        #calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day-name, .day-cell {
+            text-align: center;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+
+        .day-name {
+            font-weight: 700;
+            color: var(--brand-dark-green);
+        }
+
+        .day-cell {
+            background: var(--bg-light-gray);
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .day-cell:hover:not(.empty) {
+            background: #e0e0e0;
+        }
+
+        .empty {
+            background: transparent;
+            cursor: default;
+        }
+
+        .today {
+            background: var(--primary-color);
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .event-day {
+            border: 2px solid var(--accent-color);
+        }
+
+        .event {
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 80%;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* ------------------- */
+        /* Announcements */
+        /* ------------------- */
+        .announcement-item {
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fffdf2;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .announcement-item h4 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .announcement-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        /* ------------------- */
+        /* Responsive Design */
+        /* ------------------- */
+        @media (max-width: 900px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            .main-content, .sidebar {
+                grid-column: 1 / 2;
+            }
+            nav ul {
+                display: none; /* Hide main navigation on mobile */
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <nav>
-    <div class="brand">
-      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png">
-     <h1>Empowering The Nation</h1>
+    <nav>
+        <div class="brand">
+            <img src="Media1/Emplogo.png" alt="Empowering the nation logo">
+            <span>Empowering The Nation</span>
+        </div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="Courses.html">Courses</a></li>
+            <li><a href="getquote.html">Get Quote</a></li>
+            <li><a href="about us.html">About Us</a></li>
+            <li><a href="contact us.html">Contact Us</a></li>
+        </ul>
+        <div class="profile-menu">
+            <div class="profile-icon" id="profileIcon">
+                <img src="Media1/default_profile.png" alt="Profile Icon">
+            </div>
+            <div class="dropdown-menu" id="profileDropdown">
+                <a href="#">View Profile</a>
+                <a href="#">Settings</a>
+                <a href="login.html" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        
+        <div class="sidebar">
+            
+            <div class="card" id="welcome-card">
+                <h2>👋 Welcome Back!</h2>
+                <p>Hello, <strong id="userName">Student</strong>! Your next class starts soon. Keep up the great work!</p>
+            </div>
+            
+            <div class="card calendar-container">
+                <h2>🗓️ Calendar & Events</h2>
+                <div class="calendar-header">
+                    <button id="prev">Previous</button>
+                    <span id="month-year"></span>
+                    <button id="next">Next</button>
+                </div>
+                <div id="calendar">
+                    </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            
+            <div class="card progress-container">
+                <h2>📊 My Courses Progress</h2>
+                </div>
+            
+            <div class="card announcements-card">
+                <h2>📢 Announcements</h2>
+                <div class="announcement-list">
+                    <div class="announcement-item">
+                        <h4>Mandatory First Aid Refresher</h4>
+                        <p>All students enrolled in 6-month courses must attend a 2-hour refresher on <strong>Oct 15th</strong>. Check the calendar for details.</p>
+                    </div>
+                     <div class="announcement-item">
+                        <h4>New Digital Certificate System</h4>
+                        <p>Completed courses will now issue certificates digitally within 48 hours of final assessment. Check your email!</p>
+                    </div>
+                     <div class="announcement-item">
+                        <h4>Holiday Closure Notice</h4>
+                        <p>Our training centers will be closed from Dec 24th to Jan 2nd.</p>
+                    </div>
+                    </div>
+            </div>
+        </div>
     </div>
-    <ul>
-      <li><a href="home.html">Home</a></li>
-      <li class="dropdown">
-      <a href="Courses.html">Courses</a>
-      <ul class="dropdown-content">
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
-          </ul>
-        </li>
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
-             <li><a href="faq.html" target="blank">FAQ</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-      <li><a href="#">Apply</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-  <div id="sideNav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="dashboard.html">Dashboard</a>
-  <a href="#">Settings</a>
-  <a href="#" onclick="logout()">Logout</a>
-</div>
-
-  
-  <section class="banner">
-  <h1>Welcome Back, <strong id="userName"></strong></h1>
-  <p>You’ve completed <span>50%</span> of your courses.</p>
-</section>
-
-  
-  <div class="dashboard-main">
-    <div class="progress-container">
-      <h2>📊 Progress</h2>
-      <p>Child Minding Course</p>
-      <div class="progress-bar"><div class="progress-fill green" style="width:25%">25%</div></div>
-      <p>First Aid Course</p>
-      <div class="progress-bar"><div class="progress-fill red" style="width:50%">50%</div></div>
-      <p>Cooking Course</p>
-      <div class="progress-bar"><div class="progress-fill blue" style="width:75%">75%</div></div>
-    </div>
-
-    <div class="calendar">
-      <div class="calendar-header">
-        <button id="prev">◀</button>
-        <h2 id="monthYear"></h2>
-        <button id="next">▶</button>
-      </div>
-      <div class="calendar-grid" id="calendar"></div>
-    </div>
-  </div>
-
-  
-  <section class="courses-grid">
-    <div class="course-card">
-      <h3>Gardening</h3>
-      <p><strong>Venue:</strong> Classroom A1</p>
-      <p>Learn to grow and manage plants effectively.</p>
-      <a href="Courses.html">View Learning Material</a>
-    </div>
-    <div class="course-card">
-      <h3>Cooking</h3>
-      <p><strong>Venue:</strong> Kitchen Lab B</p>
-      <p>Hands-on training in food preparation.</p>
-      <a href="Courses.html">View Learning Material</a>
-    </div>
-    <div class="course-card">
-      <h3>Child Minding</h3>
-      <p><strong>Venue:</strong> Online (Zoom)</p>
-      <p>Develop essential childcare skills.</p>
-      <a href="Courses.html">View Learning Material</a>
-    </div>
-  </section>
-  <button id="chatbotBtn">💬</button>
-  <div id="chatbotModal" class="modal-chat">
-    <div class="modal-content-chat">
-      <div class="chat-header">
-        Empowering The Nation Bot
-        <span id="closeModal">&times;</span>
-      </div>
-      <div id="chat-window"><div id="chat-log"></div></div>
-      <div id="chat-input">
-        <input type="text" id="user-input" placeholder="Type a message...">
-        <button id="send-btn">Send</button>
-      </div>
-    </div>
-  </div>
- 
-  <footer class="footer">
-    <div class="footer-top">
-      <span><strong>Empowering the nation</strong></span>           
-      <div class="bottom-nav">
-        <a href="home.html" target="_blank">Home</a>
-        <a href="Courses.html"target="_blank">Course</a>
-        <a href="apply.html"target="_blank">Apply</a>
-        <a href="about us.html" target="_blank">About Us</a>
-        <a href="contact us.html"target="_blank">Contact Us</a>
-      </div>      
-      <div class="socials">
-        <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
-</a>
-<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
-</a>
-<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
-</a>
-<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
-</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span>© 2022 Empowering The Nation. All rights reserved.</span>
-      <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies Settings</a>
-      </div>
-    </div>
-  </footer>
-
-  
-  <script>
-
-     document.getElementById("userName").textContent = localStorage.getItem("username") || "Guest";
-
-     function openNav() { document.getElementById("sideNav").style.width = "250px"; }
-function closeNav() { document.getElementById("sideNav").style.width = "0"; }
 
 
-function signup(e) {
-  e.preventDefault();
-  let username = document.getElementById("username").value;
-  localStorage.setItem("username", username);
-  document.getElementById("id01").style.display = "none";
-  document.getElementById("profileIcon").style.display = "block";
-  alert("Welcome " + username + "!");
-}
+    <script>
+        // --- CALENDAR DATA (Schedule Events) ---
+        const events = [
+            { date: new Date().getDate() + 1, month: new Date().getMonth(), title: "Cooking Class 3" },
+            { date: 15, month: new Date().getMonth(), title: "First Aid Exam" },
+            { date: 28, month: new Date().getMonth(), title: "Project Deadline" },
+            { date: 5, month: new Date().getMonth() + 1, title: "Next Month Workshop" }
+        ];
+
+        let currentDate = new Date();
+        const calendar = document.getElementById("calendar");
+        const monthYearDisplay = document.getElementById("month-year");
+        const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+        // --- CALENDAR LOGIC ---
+        function renderCalendar(date) {
+            calendar.innerHTML = '';
+            
+            // Render Day Names
+            dayNames.forEach(day => {
+                const dayNameEl = document.createElement("div");
+                dayNameEl.classList.add("day-name");
+                dayNameEl.textContent = day;
+                calendar.appendChild(dayNameEl);
+            });
+
+            const year = date.getFullYear();
+            const month = date.getMonth();
+            
+            monthYearDisplay.textContent = date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+            const todayDate = new Date().getDate();
+            const currentMonth = new Date().getMonth();
+            const currentYear = new Date().getFullYear();
 
 
-function logout() {
-  localStorage.removeItem("username");
-  document.getElementById("profileIcon").style.display = "none";
-  alert("Logged out!");
-}
+            // Empty cells for padding
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement("div");
+                emptyCell.classList.add("day-cell", "empty");
+                calendar.appendChild(emptyCell);
+            }
 
+            // Day cells
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement("div");
+                dayCell.classList.add("day-cell");
+                dayCell.textContent = day;
 
-window.onload = function() {
-  if(localStorage.getItem("username")) {
-    document.getElementById("profileIcon").style.display = "block";
-  }
-}
+                // Check for today's date
+                if (day === todayDate && month === currentMonth && year === currentYear) {
+                    dayCell.classList.add("today");
+                }
+                
+                // Check for events
+                const dayEvents = events.filter(e => e.date === day && e.month === month);
+                if (dayEvents.length > 0) {
+                    dayCell.classList.add("event-day");
+                    
+                    // Simple event indicator dot
+                    const eventIndicator = document.createElement("div");
+                    eventIndicator.classList.add("event");
+                    dayCell.appendChild(eventIndicator);
 
+                    // Add click handler to show event details (Interactive)
+                    dayCell.addEventListener('click', () => {
+                        const eventTitles = dayEvents.map(e => e.title).join('\n- ');
+                        alert(`Events on ${day}: \n- ${eventTitles}`);
+                    });
+                }
 
+                calendar.appendChild(dayCell);
+            }
+        }
 
-    const classes = [
-      { title: "Child Minding", date: "2025-09-05" },
-      { title: "Cooking Workshop", date: "2025-09-07" },
-      { title: "Gardening Class", date: "2025-09-10" },
-      {title: "landscaping", date: "2025-09-23"}
-    ];
-
-    const calendar = document.getElementById("calendar");
-    const monthYear = document.getElementById("monthYear");
-    let currentDate = new Date();
-
-    function renderCalendar(date) {
-      calendar.innerHTML = "";
-      const year = date.getFullYear();
-      const month = date.getMonth();
-
-      const firstDay = new Date(year, month, 1);
-      const lastDay = new Date(year, month + 1, 0);
-      const daysInMonth = lastDay.getDate();
-      const startDay = firstDay.getDay();
-      
-      
-      const monthNames = ["January","February","March","April","May","June",
-        "July","August","September","October","November","December"];
-      monthYear.textContent = `${monthNames[month]} ${year}`;
-
-      for (let i = 0; i < startDay; i++) {
-        calendar.appendChild(document.createElement("div"));
-      }
-
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateStr = `${year}-${String(month + 1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
-        const dayCell = document.createElement("div");
-        dayCell.classList.add("day");
-
-        const dateEl = document.createElement("div");
-        dateEl.classList.add("date");
-        dateEl.textContent = day;
-        dayCell.appendChild(dateEl);
-
-        classes.filter(event => event.date === dateStr).forEach(event => {
-          const eventEl = document.createElement("div");
-          eventEl.classList.add("event");
-          eventEl.textContent = event.title;
-          dayCell.appendChild(eventEl);
+        document.getElementById("prev").addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
+        });
+        document.getElementById("next").addEventListener("click", () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
         });
 
-        calendar.appendChild(dayCell);
-      }
-    }
+        // --- DASHBOARD DATA & PROGRESS LOGIC ---
+        window.addEventListener("DOMContentLoaded", () => {
+            // Placeholder: Fetching user name (e.g., from localStorage or a server)
+            const storedUserName = localStorage.getItem("name") || "Student";
+            document.getElementById("userName").textContent = storedUserName;
+            
+            // Initialize Calendar
+            renderCalendar(currentDate);
 
-    document.getElementById("prev").addEventListener("click", () => {
-      currentDate.setMonth(currentDate.getMonth() - 1);
-      renderCalendar(currentDate);
-    });
-    document.getElementById("next").addEventListener("click", () => {
-      currentDate.setMonth(currentDate.getMonth() + 1);
-      renderCalendar(currentDate);
-    });
+            // Fetch course data (using placeholder data for demonstration)
+            const purchasedCourses = JSON.parse(localStorage.getItem("purchasedCourses")) || [
+                { name: "Childminding", progress: 85, duration: "6 Weeks" },
+                { name: "Landscaping", progress: 40, duration: "6 Months" },
+                { name: "First Aid", progress: 10, duration: "6 Months" },
+            ];
 
-    renderCalendar(currentDate);
+            const progressContainer = document.querySelector(".progress-container");
+            // Clear the static H2 tag to prevent duplication
+            progressContainer.innerHTML = '<h2>📊 My Courses Progress</h2>'; 
 
-    window.addEventListener("DOMContentLoaded", () => {
-  const purchasedCourses = JSON.parse(localStorage.getItem("purchasedCourses")) || [];
+            purchasedCourses.forEach(c => {
+                const item = document.createElement("div");
+                item.classList.add("course-progress-item");
+                
+                const courseName = document.createElement("p");
+                courseName.textContent = `${c.name} (${c.duration}) - ${c.progress}% Complete`;
 
-  const progressContainer = document.querySelector(".progress-container");
-  progressContainer.innerHTML = "<h2>📊 My Courses Progress</h2>";
+                const progressBar = document.createElement("div");
+                progressBar.classList.add("progress-bar");
 
-  purchasedCourses.forEach(c => {
-    const courseName = document.createElement("p");
-    courseName.textContent = c.name;
+                const progressFill = document.createElement("div");
+                progressFill.classList.add("progress-fill");
+                progressFill.style.width = c.progress + "%";
+                progressFill.textContent = c.progress + "%";
 
-    const progressBar = document.createElement("div");
-    progressBar.classList.add("progress-bar");
+                // Dynamic color based on progress (Interactive Feedback)
+                if (c.progress >= 75) {
+                    progressFill.classList.add("green");
+                } else if (c.progress >= 25) {
+                    progressFill.classList.add("yellow");
+                } else {
+                    progressFill.classList.add("red");
+                }
 
-    const progressFill = document.createElement("div");
-    progressFill.classList.add("progress-fill","green");
-    progressFill.style.width = c.progress + "%";
-    progressFill.textContent = c.progress + "%";
+                progressBar.appendChild(progressFill);
+                item.appendChild(courseName);
+                item.appendChild(progressBar);
+                
+                // Add click listener for interaction
+                item.addEventListener('click', () => {
+                    alert(`Navigating to study materials for: ${c.name}`);
+                    // In a real app, this would be: window.location.href = `course-details.html?id=${c.name}`;
+                });
+                
+                progressContainer.appendChild(item);
+            });
+        });
+        
+        // --- PROFILE DROPDOWN LOGIC ---
+        const profileIcon = document.getElementById('profileIcon');
+        const profileDropdown = document.getElementById('profileDropdown');
 
-    progressBar.appendChild(progressFill);
-    progressContainer.appendChild(courseName);
-    progressContainer.appendChild(progressBar);
-  });
-});
+        profileIcon.addEventListener('click', () => {
+            // Toggle the display property
+            if (profileDropdown.style.display === 'block') {
+                profileDropdown.style.display = 'none';
+            } else {
+                profileDropdown.style.display = 'block';
+            }
+        });
 
-  </script>
+        // Close the dropdown if the user clicks outside of it
+        document.addEventListener('click', (event) => {
+            if (!profileIcon.contains(event.target) && !profileDropdown.contains(event.target)) {
+                profileDropdown.style.display = 'none';
+            }
+        });
+
+        // Simple logout function
+        function logout() {
+            localStorage.clear(); // Clear local data on logout
+            // Redirect to login page
+            window.location.href = 'home.html'; 
+        }
+
+    </script>
 </body>
 </html>

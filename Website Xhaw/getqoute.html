@@ -2,281 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Checkout</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f8e4b2;
-      color: #333;
-    }
-
-    /* ===== Navigation Bar ===== */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #FFBF00;
-      padding: 10px 20px;
-      color: white;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #333;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav ul li a:hover {
-      color: red;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: bold;
-      color: #333;
-    }
-    .brand img {
-      height: 40px;
-      width: auto;
-    }
-
-    /* ===== Form Container ===== */
-    .form-container {
-      background: #fff;
-      max-width: 400px;
-      margin: 40px auto;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .form-container h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    label {
-      font-size: 14px;
-      display: block;
-      margin-bottom: 6px;
-    }
-    input[type="text"],
-    input[type="email"],
-    input[type="number"] {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      margin-bottom: 15px;
-    }
-
-    /* ===== Course Section ===== */
-    .course-section {
-      margin: 15px 0;
-    }
-    .course-section h3 {
-      font-size: 16px;
-      margin-bottom: 10px;
-    }
-    .courses {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-    }
-    .courses label {
-      font-weight: normal;
-      font-size: 14px;
-    }
-
-    /* ===== Buttons ===== */
-    button {
-      background: #7FA75D;
-      border: none;
-      padding: 10px 15px;
-      border-radius: 6px;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      width: 48%;
-    }
-    .btn-group {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 15px;
-    }
-    button:hover {
-      background: #6b8e4d;
-    }
-
-    /* ===== Floating Icon Button ===== */
-    .icon-btn {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: url(Media1/faqicon.png);
-      color: white;
-      border: none;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      font-size: 22px;
-      cursor: pointer;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-      
-    }
-    .icon-btn:hover {
-      background: white;
-      
-    }
-
-    /* ===== Modal ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 1000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.6);
-    }
-    .modal-content {
-      background: white;
-      margin: 10% auto;
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 500px;
-      position: relative;
-    }
-    .close-btn {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 20px;
-      cursor: pointer;
-      color: red;
-    }
-
-    /* ===== Accordion ===== */
-    .accordion {
-      margin: 15px 0;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-    }
-    .accordion-item {
-      border-bottom: 1px solid #ddd;
-    }
-    .accordion-header {
-      padding: 12px;
-      background: #f1f1f1;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .accordion-content {
-      display: none;
-      padding: 12px;
-      background: #fff;
-    }
-    .accordion-header.active {
-      background: #e0e0e0;
-    }
-  </style>
+  <title>Get Quote & Apply - Empowering The Nation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/getquote.css"
 </head>
 <body>
-  <nav>
-    <div class="brand">
-      <img src="Media1/Emplogo.png" alt="Empowering the nation">
-      <span>Empowering The Nation</span>
-    </div>
-    <ul>
-      <li><a href="home.html" target="_blank">Home</a></li>
-      <li><a href="Courses.html" target="_blank">Courses</a></li>
-      <li><a href="getqoute.html" target="_blank">Get Quote</a></li>
-      <li><a href="about us.html" target="_blank">About Us</a></li>
-      <li><a href="contact us.html" target="_blank">Contact Us</a></li>
-      <li><a href="faq.html" target="_blank">FAQ</a></li>
-    </ul>
-  </nav>
-
-  <div class="form-container">
-    <h2>Checkout Form</h2>
-    <form onsubmit="event.preventDefault(); calculateTotal();">
-      <label for="name">Name:</label>
-      <input type="text" name="name" required>
-
-      <label for="email">Email:</label>
-      <input type="email" name="email" required>
-
-      <label for="number">Phone Number:</label>
-      <input type="number" name="number" required>
-      
-      <label for="address"> Address:</label>
-      <input type="text" name="address">
-
-      <div class="course-section">
-        <h3>Select Courses:</h3>
-        <div class="courses">
-          <label><input type="checkbox" class="course" value="750" data-name="Child-minding"data-duration="6 Weeks"> Child-minding [R750]</label>
-          <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
-          <label><input type="checkbox" class="course" value="750" data-name="Cooking"data-duration="6 Weeks"> Cooking [R750]</label>
-          <label><input type="checkbox" class="course" value="1500" data-name="Sewing"data-duration="6 Months"> Sewing [R1500]</label>
-          <label><input type="checkbox" class="course" value="750" data-name="Gardening"data-duration="6 Weeks"> Gardening [R750]</label>
-          <label><input type="checkbox" class="course" value="1500" data-name="Landscaping"data-duration="6 Months"> Landscaping [R1500]</label>
-          <label><input type="checkbox" class="course" value="1500" data-name="Life Skills"data-duration="6 Months"> Life Skills [R1500]</label>
-        </div>
-      </div>
-
-      <div class="btn-group">
-  <button type="button" onclick="calculateTotal(true)">Get Quotation</button>
-  <button type="button" onclick="calculateTotal(false)">Pay Now</button>
-</div>
-    </form>
+<nav>
+  <div class="brand">
+    <img src="Media1/Emplogo.png" alt="Empowering the nation logo">
+    <span>Empowering The Nation</span>
   </div>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li class="dropdown">
+      <a href="Courses.html">Courses</a>
+      <ul class="dropdown-content">
+  <li class="sub-dropdown">
+    <a href="#">6 Weeks ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
+      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
+      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Mainteance</a></li>
+    </ul>
+  </li>
+  <li class="sub-dropdown">
+    <a href="#">6 Months ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
+      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
+      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
+      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
+    </ul>
+  </li>
+</ul>
+    </li>
+    <li><a href="getquote.html">Get Quote</a></li>
+    <li><a href="about us.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+  <div class="profile-icon" id="profileIcon" onclick="openNav()">
+    <img src="Media1/User.gif" alt="Profile">
+  </div>
+</nav>
 
-  <!-- Floating Icon Button -->
-  <button class="icon-btn" id="openModal"></button>
+  <header class="page-header">
+    <h1>Apply & Checkout</h1>
+    <p>Complete your details below to get a quote or proceed to payment.</p>
+  </header>
 
-  <!-- Modal -->
+  <main class="container">
+    <div class="form-container">
+      <h2>Your Details</h2>
+      <form onsubmit="event.preventDefault();">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="number">Phone Number:</label>
+        <input type="number" id="number" name="number" required>
+        
+        <label for="address">Residential Address:</label>
+        <input type="text" id="address" name="address">
+
+        <div class="course-section">
+          <h3>Select Your Courses:</h3>
+          <div class="courses">
+            <label><input type="checkbox" class="course" value="750" data-name="Child-minding" data-duration="6 Weeks"> Child-minding [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
+            <label><input type="checkbox" class="course" value="750" data-name="Cooking" data-duration="6 Weeks"> Cooking [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="6 Months"> Sewing [R1500]</label>
+            <label><input type="checkbox" class="course" value="750" data-name="Gardening" data-duration="6 Weeks"> Gardening [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Landscaping" data-duration="6 Months"> Landscaping [R1500]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Life Skills" data-duration="6 Months"> Life Skills [R1500]</label>
+          </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary" onclick="calculateTotal(true)">Get Quotation</button>
+            <button type="button" class="btn btn-primary" onclick="calculateTotal(false)">Pay Now</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <button class="icon-btn" id="openInfoModal">?</button>
+  
   <div class="modal" id="infoModal">
     <div class="modal-content">
-      <span class="close-btn" id="closeModal">&times;</span>
-      <h3>Course Information</h3>
-
+      <span class="close-btn" id="closeInfoModal">&times;</span>
+      <h3>Important Information</h3>
       <div class="accordion">
         <div class="accordion-item">
           <div class="accordion-header">Discount Policy</div>
           <div class="accordion-content">
-            <p>2 Courses = 5% discount<br>
-               3 Courses = 10% discount<br>
-               4 or more = 15% discount</p>
+            <p><strong>5% discount</strong> for 2 courses.<br>
+               <strong>10% discount</strong> for 3 courses.<br>
+               <strong>15% discount</strong> for 4 or more courses.</p>
           </div>
         </div>
         <div class="accordion-item">
           <div class="accordion-header">Payment Info</div>
           <div class="accordion-content">
-            <p>You can pay online or at our offices. VAT is added at checkout.</p>
+            <p>You can pay securely online or visit us to pay in person. A standard VAT of 15% is added at checkout.</p>
           </div>
         </div>
         <div class="accordion-item">
-          <div class="accordion-header">Course Duration</div>
+          <div class="accordion-header">Course Durations</div>
           <div class="accordion-content">
-            <p>6 weeks: Child-minding, Cooking, Gardening<br>
-               6 months: First Aid, Sewing, Landscaping, Life Skills</p>
+            <p><strong>6 Weeks:</strong> Child-minding, Cooking, Gardening<br>
+               <strong>6 Months:</strong> First Aid, Sewing, Landscaping, Life Skills</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
- function calculateTotal(isQuote = false) {
-    const name = document.querySelector("input[name='name']").value;
-    const email = document.querySelector("input[name='email']").value;
-    const phone = document.querySelector("input[name='number']").value;
-    const address = document.querySelector("input[name='address']").value; 
+
+  <button id="chatbotBtn">💬</button>
+  <div id="chatbotModal" class="modal-chat">
+    <div class="modal-content-chat">
+      <div class="chat-header">
+        Empowering The Nation Bot
+        <span id="closeChatModal">&times;</span>
+      </div>
+      <div id="chat-window"><div id="chat-log"></div></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <span><strong>Empowering The Nation</strong></span>           
+      <div class="bottom-nav">
+        <a href="home.html">Home</a>
+        <a href="Courses.html">Courses</a>
+        <a href="getqoute.html">Get Quote</a>
+        <a href="about us.html">About Us</a>
+        <a href="contact us.html">Contact Us</a>
+      </div>      
+      <div class="socials">
+        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2022 Empowering The Nation. All rights reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies Settings</a>
+      </div>
+    </div>
+  </footer>
+
+ <script>
+  function calculateTotal(isQuote = false) {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("number").value;
+    const address = document.getElementById("address").value; 
+
+    if (!name || !email || !phone) {
+        alert("Please fill in your Name, Email, and Phone Number.");
+        return;
+    }
 
     localStorage.setItem("name", name);
     localStorage.setItem("email", email);
@@ -284,6 +181,11 @@
     localStorage.setItem("address", address);
 
     const selectedCourses = [...document.querySelectorAll(".course:checked")];
+    if (selectedCourses.length === 0) {
+        alert("Please select at least one course.");
+        return;
+    }
+
     const courseDetails = selectedCourses.map(item => ({ 
       name: item.dataset.name, 
       duration: item.dataset.duration, 
@@ -293,19 +195,15 @@
     let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
 
     let discountRate = 0;
-    let courseCount = selectedCourses.length;
+    const courseCount = selectedCourses.length;
 
-    if (courseCount >= 4) {
-      discountRate = 0.15;
-    } else if (courseCount === 3) {
-      discountRate = 0.10;
-    } else if (courseCount === 2) {
-      discountRate = 0.05;
-    }
+    if (courseCount >= 4) discountRate = 0.15;
+    else if (courseCount === 3) discountRate = 0.10;
+    else if (courseCount === 2) discountRate = 0.05;
 
-    let discount = subtotal * discountRate;
-    let vat = 0.15 * (subtotal - discount);
-    let total = subtotal - discount + vat;
+    const discount = subtotal * discountRate;
+    const vat = 0.15 * (subtotal - discount);
+    const total = subtotal - discount + vat;
 
     localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
     localStorage.setItem("subtotal", subtotal.toFixed(2));
@@ -315,30 +213,89 @@
     localStorage.setItem("total", total.toFixed(2));
 
     if (isQuote) {
-      window.location.href = "quotationLink.html"; // ⬅ Go to quotation page
+      window.location.href = "quotationLink.html"; // Placeholder
     } else {
-      window.location.href = "payment.html"; // ⬅ Go to payment page
+      window.location.href = "payment.html"; // Placeholder
     }
   }
 
-    // Modal Logic
-    const modal = document.getElementById("infoModal");
-    const openModal = document.getElementById("openModal");
-    const closeModal = document.getElementById("closeModal");
+    // Info Modal Logic
+    const infoModal = document.getElementById("infoModal");
+    const openInfoModalBtn = document.getElementById("openInfoModal");
+    const closeInfoModalBtn = document.getElementById("closeInfoModal");
 
-    openModal.onclick = () => modal.style.display = "block";
-    closeModal.onclick = () => modal.style.display = "none";
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
+    openInfoModalBtn.onclick = () => infoModal.style.display = "flex";
+    closeInfoModalBtn.onclick = () => infoModal.style.display = "none";
+    window.addEventListener('click', (e) => { if (e.target === infoModal) infoModal.style.display = "none"; });
 
     // Accordion Logic
-    const headers = document.querySelectorAll(".accordion-header");
-    headers.forEach(header => {
+    document.querySelectorAll(".accordion-header").forEach(header => {
       header.addEventListener("click", () => {
+        const currentlyActive = document.querySelector(".accordion-header.active");
+        if(currentlyActive && currentlyActive !== header) {
+            currentlyActive.classList.remove("active");
+            currentlyActive.nextElementSibling.style.display = "none";
+        }
+
         header.classList.toggle("active");
         const content = header.nextElementSibling;
         content.style.display = content.style.display === "block" ? "none" : "block";
       });
     });
+
+    // ChatBot Functions
+    document.getElementById("chatbotBtn").onclick = () => {
+        const modal = document.getElementById("chatbotModal");
+        if (modal.style.display !== "flex") {
+            modal.style.display = "flex";
+            if (!document.getElementById("chat-log").hasChildNodes()) {
+                addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
+            }
+        }
+    };
+    document.getElementById("closeChatModal").onclick = () => { document.getElementById("chatbotModal").style.display = "none"; };
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+    function sendMessage() {
+        const input = document.getElementById("user-input");
+        const message = input.value.trim();
+        if (!message) return;
+        addMessage("user", message);
+        input.value = "";
+        setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+    function addMessage(sender, text) {
+        const log = document.getElementById("chat-log");
+        const div = document.createElement("div");
+        div.className = sender;
+        div.innerHTML = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    function handleBotResponse(userMessage) {
+        if (userMessage.includes("hi") || userMessage.includes("hello")) {
+            addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+        } else if (userMessage.includes("faq")) {
+            addMessage("bot", `
+            Please select a category:<br>
+            <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+            <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+            <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+            <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+            `);
+        } else {
+            addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq' for options.");
+        }
+    }
+    function showFAQ(category) {
+        let faqs = {
+            locations: `<div class="accordion"><details open><summary>Where are your locations?</summary><p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br><a href='contact-us.html'>📍 View on map</a></p></details></div>`,
+            payments: `<div class="accordion"><details open><summary>How do I pay?</summary><p>You can pay online via EFT or card. <a href='getqoute.html'>💳 Go to payment page</a></p></details></div>`,
+            contact: `<div class="accordion"><details open><summary>How can I contact you?</summary><p>You can reach us via our <a href='contact-us.html'>Contact Page</a> or call 011-123-4567.</p></details></div>`,
+            courses: `<div class="accordion"><details open><summary>What courses do you offer?</summary><p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br><a href='Courses.html'>📚 View all courses</a></p></details></div>`
+        };
+        addMessage("bot", faqs[category]);
+    }
   </script>
 </body>
 </html>

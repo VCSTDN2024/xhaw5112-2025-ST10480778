@@ -2,31 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quotation | Empowering the Nation</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
+    /* Global Variables and Aesthetics from home.html */
+    :root {
+      --primary-color: #FFBF00; /* Yellow */
+      --accent-color: #4CAF50; /* Green for buttons */
+      --secondary-color: #7FA75D; /* Greenish-gray */
+      --text-dark: #333;
+      --bg-light-gray: #f4f6f9;
+      --brand-dark-green: #006600; /* Slightly darker green for borders/accents */
+      --brand-light-green: #d4edda; /* Light green for table headers */
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f9;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light-gray);
       margin: 0;
       padding: 20px;
+      color: var(--text-dark);
     }
+    
+    /* Quotation Document Style */
     .quotation {
       background: #fff;
       max-width: 900px;
       margin: auto;
-      padding: 30px;
-      border: 2px solid #004d00;
+      padding: 40px;
+      border: 3px solid var(--primary-color); /* Updated to brand primary color */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      border-radius: 8px;
     }
+    
+    /* Letterhead */
     .letterhead {
       display: flex;
       align-items: center;
-      border-bottom: 2px solid #004d00;
-      margin-bottom: 20px;
-      padding-bottom: 10px;
+      border-bottom: 3px solid var(--accent-color); /* Updated to brand accent color */
+      margin-bottom: 25px;
+      padding-bottom: 15px;
     }
     .letterhead img {
-      height: 80px;
+      height: 60px; /* Slightly reduced size for modern look */
       margin-right: 20px;
     }
     .letterhead div {
@@ -34,62 +58,247 @@
     }
     .letterhead h1 {
       margin: 0;
-      font-size: 26px;
-      color: #004d00;
+      font-size: 28px;
+      color: var(--brand-dark-green);
+      font-weight: 800;
     }
     .letterhead p {
       margin: 2px 0;
-      font-size: 14px;
-      color: #333;
+      font-size: 13px;
+      color: #555;
     }
-    .client-details, .footer {
+    
+    /* Client Details */
+    .client-details {
       margin: 20px 0;
+      line-height: 1.8;
+      font-size: 15px;
     }
+    
+    /* Table Styling */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 20px 0;
+      margin: 25px 0;
+      font-size: 15px;
     }
     table, th, td {
-      border: 1px solid #004d00;
+      border: 1px solid #ccc; /* Lighter border for clean look */
     }
     th {
-      background: #e6ffe6;
+      background: var(--brand-light-green); /* Light accent color */
+      color: var(--brand-dark-green);
+      font-weight: 700;
     }
     th, td {
-      padding: 10px;
+      padding: 12px;
       text-align: left;
     }
+
+    /* Totals */
+    h2, h3 {
+      text-align: right;
+      padding-right: 10px;
+      margin: 8px 0;
+    }
+    h2 {
+      color: var(--accent-color);
+      font-size: 24px;
+      margin-top: 15px;
+      border-top: 2px solid var(--bg-light-gray);
+      padding-top: 10px;
+    }
+
+    /* Signatures */
+    .signatures {
+      margin-top: 60px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+    }
+    .sign-box {
+      width: 45%; /* Increased width */
+      text-align: center;
+      border-top: 1px solid var(--text-dark);
+      padding-top: 10px;
+    }
+    
+    /* Footer */
     .footer {
       text-align: center;
       font-size: 14px;
       color: #555;
-      margin-top: 30px;
+      margin-top: 40px;
     }
+    
+    /* Download Button - Polished to match enroll button style */
     .download-btn {
       display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
+      margin: 40px auto 20px auto;
+      padding: 12px 30px;
       font-size: 16px;
-      background: #004d00;
+      background: var(--accent-color);
       color: #fff;
       border: none;
       cursor: pointer;
-      border-radius: 4px;
+      border-radius: 30px; /* Fully rounded */
+      font-weight: 600;
+      transition: background 0.3s, transform 0.3s;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .download-btn:hover {
-      background: #006600;
+      background: #3e8e41; /* Darker shade of accent color */
+      transform: translateY(-2px);
     }
-    .signatures {
-      margin-top: 50px;
-      display: flex;
-      justify-content: space-between;
+
+    /* ------------------- */
+    /* Chatbot Modal Styling (Added for functionality) */
+    /* ------------------- */
+    #chatbotBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--brand-dark-green);
+        color: white;
+        font-size: 24px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        z-index: 1000;
     }
-    .sign-box {
-      width: 40%;
-      text-align: center;
-      border-top: 1px solid #333;
-      padding-top: 10px;
+
+    .modal-chat {
+        display: none;
+        position: fixed;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.4);
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal-content-chat {
+        background-color: #fefefe;
+        width: 350px;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .chat-header {
+        background-color: var(--primary-color);
+        color: var(--text-dark);
+        padding: 15px;
+        font-weight: 700;
+        text-align: center;
+        position: relative;
+    }
+
+    #closeModal {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-dark);
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #chat-window {
+        flex-grow: 1;
+        padding: 15px;
+        overflow-y: auto;
+        background: var(--bg-light-gray);
+    }
+
+    #chat-log {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .user, .bot {
+        max-width: 80%;
+        padding: 8px 12px;
+        border-radius: 15px;
+        margin: 5px 0;
+        line-height: 1.4;
+    }
+
+    .user {
+        background-color: var(--brand-dark-green);
+        color: white;
+        align-self: flex-end;
+    }
+
+    .bot {
+        background-color: white;
+        color: var(--text-dark);
+        align-self: flex-start;
+        border: 1px solid #ddd;
+    }
+
+    #chat-input {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ddd;
+    }
+
+    #user-input {
+        flex-grow: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 10px;
+        font-family: inherit;
+    }
+
+    #send-btn {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 600;
+    }
+    
+    /* FAQ Buttons and Accordion */
+    .faq-btn {
+        background-color: var(--primary-color);
+        border: 1px solid var(--secondary-color);
+        padding: 5px 10px;
+        margin: 5px 5px 5px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 14px;
+    }
+    .accordion details {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 8px;
+        background: #fff;
+    }
+    .accordion summary {
+        padding: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        color: var(--brand-dark-green);
+    }
+    .accordion p {
+        padding: 10px;
+        margin: 0;
+        border-top: 1px solid #eee;
     }
   </style>
 </head>
@@ -148,6 +357,7 @@
   </div>
 
   <button class="download-btn" onclick="downloadPDF()">Download Quotation</button>
+  
   <button id="chatbotBtn">💬</button>
   <div id="chatbotModal" class="modal-chat">
     <div class="modal-content-chat">
@@ -162,62 +372,186 @@
       </div>
     </div>
   </div>
+
   <script>
-     // Load saved client data
-  const clientName = localStorage.getItem("name");
-  const clientPhone = localStorage.getItem("number");
-  const clientEmail = localStorage.getItem("email");
-  const clientAddress = localStorage.getItem("address");
-  const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
-  const subtotal = localStorage.getItem("subtotal");
-  const discount = localStorage.getItem("discount");
-  const discountRate = localStorage.getItem("discountRate");
-  const vat = localStorage.getItem("vat");
-  const total = localStorage.getItem("total");
-
-  // ✅ Quotation Number Auto-Increment
-  let lastQuoteNo = localStorage.getItem("lastQuoteNo") || 0;
-  let newQuoteNo = parseInt(lastQuoteNo) + 1;
-  localStorage.setItem("lastQuoteNo", newQuoteNo);
-
-  // Format as QTN-001, QTN-002, ...
-  let formattedQuoteNo = "QTN-" + String(newQuoteNo).padStart(3, "0");
-
-  // Fill client details
-  document.getElementById("clientName").innerText = clientName || "________";
-  document.getElementById("clientPhone").innerText = clientPhone || "________";
-  document.getElementById("clientEmail").innerText = clientEmail || "________";
-  document.getElementById("clientAddress").innerText = clientAddress || "________";
-  document.getElementById("quotationDate").innerText = new Date().toLocaleDateString();
-  document.getElementById("quotationNo").innerText = formattedQuoteNo;
 
 
-  // Fill table with courses
-  const tbody = document.getElementById("quotationBody");
-  courseDetails.forEach(course => {
-    const row = `<tr>
-        <td>${course.name}</td>
-        <td>${course.duration}</td>
-        <td>R${course.price.toFixed(2)}</td>
-      </tr>`;
-    tbody.innerHTML += row;
+
+    // Load saved client data
+    const clientName = localStorage.getItem("name");
+    const clientPhone = localStorage.getItem("number");
+    const clientEmail = localStorage.getItem("email");
+    const clientAddress = localStorage.getItem("address");
+    const courseDetails = JSON.parse(localStorage.getItem("courseDetails")) || [];
+    const subtotal = localStorage.getItem("subtotal");
+    const discount = localStorage.getItem("discount");
+    const discountRate = localStorage.getItem("discountRate");
+    const vat = localStorage.getItem("vat");
+    const total = localStorage.getItem("total");
+
+    // Quotation Number Auto-Increment
+    let lastQuoteNo = localStorage.getItem("lastQuoteNo") || 0;
+    let newQuoteNo = parseInt(lastQuoteNo) + 1;
+    localStorage.setItem("lastQuoteNo", newQuoteNo);
+
+    // Format as QTN-001, QTN-002, ...
+    let formattedQuoteNo = "QTN-" + String(newQuoteNo).padStart(3, "0");
+
+    // Fill client details
+    document.getElementById("clientName").innerText = clientName || "________";
+    document.getElementById("clientPhone").innerText = clientPhone || "________";
+    document.getElementById("clientEmail").innerText = clientEmail || "________";
+    document.getElementById("clientAddress").innerText = clientAddress || "________";
+    document.getElementById("quotationDate").innerText = new Date().toLocaleDateString();
+    document.getElementById("quotationNo").innerText = formattedQuoteNo;
+
+
+    // Fill table with courses
+    const tbody = document.getElementById("quotationBody");
+    courseDetails.forEach(course => {
+      const row = `<tr>
+          <td>${course.name}</td>
+          <td>${course.duration}</td>
+          <td>R${course.price.toFixed(2)}</td>
+        </tr>`;
+      tbody.innerHTML += row;
+    });
+
+
+    // Fill totals
+    document.getElementById("subtotal").innerText = subtotal || "0.00";
+    document.getElementById("discount").innerText = discount || "0.00";
+    document.getElementById("discountRate").innerText = discountRate || "0%";
+    document.getElementById("vat").innerText = vat || "0.00";
+    document.getElementById("total").innerText = total || "0.00";
+
+
+    // PDF download function
+    // PDF download function - UPDATED
+function downloadPDF() {
+  const element = document.getElementById("quotation");
+  
+  // Define options for html2pdf to ensure proper rendering and scale
+  const pdfOptions = {
+    margin: 10,
+    filename: `Quotation-${formattedQuoteNo}.pdf`,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2, // Increase scale for better resolution and full content capture
+      logging: true, 
+      scrollY: 0, // Start capture from the top of the element
+      useCORS: true 
+    },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+  
+  // Hide non-quotation elements before generating
+  document.getElementById("chatbotBtn").style.display = 'none';
+  document.querySelector('.download-btn').style.display = 'none';
+
+  // Generate the PDF
+  html2pdf().from(element).set(pdfOptions).save().then(() => {
+     // Show buttons again after download is complete
+     document.getElementById("chatbotBtn").style.display = 'block';
+     document.querySelector('.download-btn').style.display = 'block';
   });
+}
 
+// Make downloadPDF globally accessible
+window.downloadPDF = downloadPDF;
 
+    // ChatBot Modal open/close and logic (unchanged)
+    document.getElementById("chatbotBtn").onclick = () => {
+      document.getElementById("chatbotModal").style.display = "flex";
+      addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
+    };
 
-  // Fill totals
-  document.getElementById("subtotal").innerText = subtotal || "0.00";
-  document.getElementById("discount").innerText = discount || "0.00";
-  document.getElementById("discountRate").innerText = discountRate || "0%";
-  document.getElementById("vat").innerText = vat || "0.00";
-  document.getElementById("total").innerText = total || "0.00";
+    document.getElementById("closeModal").onclick = () => {
+      document.getElementById("chatbotModal").style.display = "none";
+    };
 
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") sendMessage();
+    });
 
-  // ✅ PDF download
-  function downloadPDF() {
-    const element = document.getElementById("quotation");
-    html2pdf().from(element).save(`Quotation-${formattedQuoteNo}.pdf`);
-  }
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const message = input.value.trim();
+      if (!message) return;
+      addMessage("user", message);
+      input.value = "";
+      setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+
+    function addMessage(sender, text) {
+      const log = document.getElementById("chat-log");
+      const div = document.createElement("div");
+      div.className = sender;
+      div.innerHTML = text;
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleBotResponse(userMessage) {
+      if (userMessage.includes("hi") || userMessage.includes("hello")) {
+        addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+      } else if (userMessage.includes("faq")) {
+        addMessage("bot", `
+          Please select a category:<br>
+          <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+          <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+          <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+          <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+        `);
+      } else {
+        addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq'.");
+      }
+    }
+
+    // Note: showFAQ must be a global function for the buttons to work
+    window.showFAQ = function(category) {
+      let faqs = {
+        locations: `
+          <div class="accordion">
+            <details>
+              <summary>Where are your locations?</summary>
+              <p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br>
+              <a href='/contact'>📍 View on map</a></p>
+            </details>
+          </div>
+        `,
+        payments: `
+          <div class="accordion">
+            <details>
+              <summary>How do I pay?</summary>
+              <p>You can pay online via EFT or card. <a href='/payment'>💳 Go to payment page</a></p>
+            </details>
+          </div>
+        `,
+        contact: `
+          <div class="accordion">
+            <details>
+              <summary>How can I contact you?</summary>
+              <p>You can reach us via <a href='/contact'>Contact Page</a> or call 011-123-4567.</p>
+            </details>
+          </div>
+        `,
+        courses: `
+          <div class="accordion">
+            <details>
+              <summary>What courses do you offer?</summary>
+              <p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br>
+              <a href='/courses'>📚 View all courses</a></p>
+            </details>
+          </div>
+        `
+      };
+      addMessage("bot", faqs[category]);
+    }
+    
+    // Make downloadPDF globally accessible
+    window.downloadPDF = downloadPDF;
   </script>
 
 </body>

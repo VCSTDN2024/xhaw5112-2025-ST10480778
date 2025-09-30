@@ -123,25 +123,472 @@
         <li class="dropdown">
       <a href="Courses.html">Courses</a>
       <ul class="dropdown-content">
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
-          </ul>
-        </li>
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
-             <li><a href="faq.html" target="blank">FAQ</a></li>
-          </ul>
-        </li>
-      </ul>
+  <li class="sub-dropdown">
+    <a href="#">6 Weeks ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
+      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
+      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
+    </ul>
+  </li>
+  <li class="sub-dropdown">
+    <a href="#">6 Months ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
+      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
+      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
+      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
+    </ul><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get Quote & Apply - Empowering The Nation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ------------------- */
+    /* Global Styles & Variables */
+    /* ------------------- */
+    :root {
+      --primary-color: #FFBF00;
+      --secondary-color: #7FA75D;
+      --accent-color: #4CAF50;
+      --button-color: #a97421;
+      --button-hover-color: #8a5e1b;
+      --text-dark: #333;
+      --text-light-gray: #555;
+      --bg-white: #fff;
+      --bg-light-gray: #f4f6f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* ------------------- */
+    /* Navigation (Consistent with other pages) */
+    /* ------------------- */
+    nav { display: flex; justify-content: space-between; align-items: center; background: var(--primary-color); padding: 10px 30px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    nav .brand { display: flex; align-items: center; gap: 15px; font-weight: 700; font-size: 1.1rem; }
+    nav .brand img { height: 40px; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: var(--secondary-color); text-decoration: none; font-weight: bold; }
+    
+    /* ------------------- */
+    /* Page Header */
+    /* ------------------- */
+    .page-header { background-color: var(--bg-white); text-align: center; padding: 50px 20px; border-bottom: 1px solid #e0e0e0; }
+    .page-header h1 { font-size: 2.8rem; font-weight: 800; color: var(--text-dark); margin-bottom: 10px; }
+    .page-header p { font-size: 1.2rem; color: var(--text-light-gray); max-width: 600px; margin: 0 auto; }
+    
+    /* ------------------- */
+    /* Form Container & Elements */
+    /* ------------------- */
+    .form-container {
+      background: var(--bg-white);
+      max-width: 600px;
+      margin: 0 auto; /* Centered inside .container */
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      border: 1px solid #e0e0e0;
+    }
+    .form-container h2 { text-align: center; margin-bottom: 30px; font-size: 1.8rem; }
+    label { font-weight: 600; display: block; margin-bottom: 8px; }
+    input[type="text"], input[type="email"], input[type="number"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      font-size: 1rem;
+      font-family: 'Inter', sans-serif;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(255, 191, 0, 0.3); outline: none; }
+    
+    .course-section h3 { font-size: 1.2rem; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 20px;}
+    .courses { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .courses label { font-weight: normal; display: flex; align-items: center; gap: 8px; padding: 5px; border-radius: 5px; cursor: pointer; transition: background-color 0.2s; }
+    .courses label:hover { background-color: #f9f9f9; }
+    .courses input[type="checkbox"] { width: auto; margin-bottom: 0; }
+    
+    .btn-group { display: flex; justify-content: space-between; margin-top: 30px; gap: 15px; }
+    .btn { border: none; padding: 12px 15px; border-radius: 8px; color: white; font-weight: bold; cursor: pointer; width: 100%; font-size: 1rem; transition: all 0.3s ease; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.15); }
+    .btn-primary { background: var(--accent-color); }
+    .btn-primary:hover { background: #3e8e41; }
+    .btn-secondary { background: var(--button-color); }
+    .btn-secondary:hover { background: var(--button-hover-color); }
+
+    /* ------------------- */
+    /* Info Modal & Floating Button */
+    /* ------------------- */
+    .icon-btn {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: var(--primary-color);
+      color: var(--text-dark);
+      border: none;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.6); align-items: center; justify-content: center; }
+    .modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 500px; position: relative; box-shadow: 0 5px 25px rgba(0,0,0,0.2); }
+    .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; color: #888; }
+    .close-btn:hover { color: #000; }
+    .accordion { margin-top: 20px; }
+    .accordion-item { border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+    .accordion-header { padding: 15px; background: #f7f7f7; cursor: pointer; font-weight: bold; }
+    .accordion-content { display: none; padding: 15px; background: #fff; border-top: 1px solid #eee; }
+    .accordion-header.active { background: #e9e9e9; }
+    
+    /* ------------------- */
+    /* Chatbot & Footer (Consistent with other pages) */
+    /* ------------------- */
+    #chatbotBtn { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    .modal-chat { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); flex-direction: column; z-index: 1000; }
+    .modal-content-chat { display: flex; flex-direction: column; height: 100%; }
+    .chat-header { background: var(--accent-color); color: white; padding: 12px; text-align: center; font-weight: bold; border-radius: 12px 12px 0 0; position: relative; }
+    #closeChatModal { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 24px; cursor: pointer; color: white; }
+    #chat-window { flex: 1; overflow-y: auto; padding: 15px; }
+    #chat-log div { margin-bottom: 12px; font-size: 14px; max-width: 80%; }
+    .user { text-align: right; color: #333; margin-left: auto; background: #e0f7fa; padding: 8px 12px; border-radius: 12px 12px 0 12px; }
+    .bot { text-align: left; color: #444; background: #f1f8e9; padding: 8px 12px; border-radius: 12px 12px 12px 0; }
+    #chat-input { display: flex; padding: 10px; border-top: 1px solid #eee; }
+    #user-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #ccc; border-radius: 20px; margin-right: 10px; }
+    #send-btn { background: var(--accent-color); color: white; border: none; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
+    .faq-btn { margin: 4px; padding: 8px 12px; background: var(--accent-color); color: white; border: none; border-radius: 6px; cursor: pointer; }
+    
+    .footer { background-color: var(--primary-color); border-top: 1px solid #e0e0e0; padding: 30px 5%; margin-top: 60px; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-top span strong { font-size: 1.1rem; }
+    .bottom-nav a { margin: 0 10px; font-size: 0.9rem; text-decoration: none; color: black; transition: color 0.3s; font-weight: 600; }
+    .bottom-nav a:hover { color: var(--bg-white); }
+    .footer-top .socials a img { width: 34px; height: 34px; margin-left: 12px; transition: transform 0.3s; }
+    .footer-top .socials a img:hover { transform: scale(1.15); }
+    .footer-bottom { display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; flex-wrap: wrap; gap: 15px; }
+    .footer-bottom a { margin-left: 15px; text-decoration: none; color: #060606; transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--bg-white); }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="brand">
+      <img src="Media1/Emplogo.png" alt="Empowering the nation logo">
+      <span>Empowering The Nation</span>
+    </div>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li class="dropdown">
+      <a href="Courses.html">Courses</a>
+      <ul class="dropdown-content">
+  <li class="sub-dropdown">
+    <a href="#">6 Weeks ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
+      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
+      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
+    </ul>
+  </li>
+  <li class="sub-dropdown">
+    <a href="#">6 Months ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
+      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
+      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
+      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
+    </ul>
+  </li>
+</ul>
+    </li>
+      <li><a href="getqoute.html">Get Quote</a></li>
+      <li><a href="about us.html">About Us</a></li>
+      <li><a href="contact us.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>Checkout</h1>
+    <p>Complete your details below to get a quote or proceed to payment.</p>
+  </header>
+
+  <main class="container">
+    <div class="form-container">
+      <h2>Your Details</h2>
+      <form onsubmit="event.preventDefault();">
+        <label for="name">Full Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email Address:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="number">Phone Number:</label>
+        <input type="number" id="number" name="number" required>
+        
+        <label for="address">Residential Address:</label>
+        <input type="text" id="address" name="address">
+
+        <div class="course-section">
+          <h3>Select Your Courses:</h3>
+          <div class="courses">
+            <label><input type="checkbox" class="course" value="750" data-name="Child-minding" data-duration="6 Weeks"> Child-minding [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="First Aid" data-duration="6 Months"> First Aid [R1500]</label>
+            <label><input type="checkbox" class="course" value="750" data-name="Cooking" data-duration="6 Weeks"> Cooking [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Sewing" data-duration="6 Months"> Sewing [R1500]</label>
+            <label><input type="checkbox" class="course" value="750" data-name="Gardening" data-duration="6 Weeks"> Gardening [R750]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Landscaping" data-duration="6 Months"> Landscaping [R1500]</label>
+            <label><input type="checkbox" class="course" value="1500" data-name="Life Skills" data-duration="6 Months"> Life Skills [R1500]</label>
+          </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary" onclick="calculateTotal(true)">Get Quotation</button>
+            <button type="button" class="btn btn-primary" onclick="calculateTotal(false)">Pay Now</button>
+        </div>
+      </form>
+    </div>
+  </main>
+  
+  <button class="icon-btn" id="openInfoModal">?</button>
+  
+  <div class="modal" id="infoModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeInfoModal">&times;</span>
+      <h3>Important Information</h3>
+      <div class="accordion">
+        <div class="accordion-item">
+          <div class="accordion-header">Discount Policy</div>
+          <div class="accordion-content">
+            <p><strong>5% discount</strong> for 2 courses.<br>
+               <strong>10% discount</strong> for 3 courses.<br>
+               <strong>15% discount</strong> for 4 or more courses.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Payment Info</div>
+          <div class="accordion-content">
+            <p>You can pay securely online or visit us to pay in person. A standard VAT of 15% is added at checkout.</p>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header">Course Durations</div>
+          <div class="accordion-content">
+            <p><strong>6 Weeks:</strong> Child-minding, Cooking, Gardening<br>
+               <strong>6 Months:</strong> First Aid, Sewing, Landscaping, Life Skills</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button id="chatbotBtn">💬</button>
+  <div id="chatbotModal" class="modal-chat">
+    <div class="modal-content-chat">
+      <div class="chat-header">
+        Empowering The Nation Bot
+        <span id="closeChatModal">&times;</span>
+      </div>
+      <div id="chat-window"><div id="chat-log"></div></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <span><strong>Empowering The Nation</strong></span>           
+      <div class="bottom-nav">
+        <a href="home.html">Home</a>
+        <a href="Courses.html">Courses</a>
+        <a href="getqoute.html">Get Quote</a>
+        <a href="about us.html">About Us</a>
+        <a href="contact us.html">Contact Us</a>
+      </div>      
+      <div class="socials">
+        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2022 Empowering The Nation. All rights reserved.</span>
+      <div>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Cookies Settings</a>
+      </div>
+    </div>
+  </footer>
+
+ <script>
+  function calculateTotal(isQuote = false) {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const phone = document.getElementById("number").value;
+    const address = document.getElementById("address").value; 
+
+    if (!name || !email || !phone) {
+        alert("Please fill in your Name, Email, and Phone Number.");
+        return;
+    }
+
+    localStorage.setItem("name", name);
+    localStorage.setItem("email", email);
+    localStorage.setItem("number", phone);
+    localStorage.setItem("address", address);
+
+    const selectedCourses = [...document.querySelectorAll(".course:checked")];
+    if (selectedCourses.length === 0) {
+        alert("Please select at least one course.");
+        return;
+    }
+
+    const courseDetails = selectedCourses.map(item => ({ 
+      name: item.dataset.name, 
+      duration: item.dataset.duration, 
+      price: parseFloat(item.value) 
+    })); 
+
+    let subtotal = courseDetails.reduce((sum, c) => sum + c.price, 0);
+
+    let discountRate = 0;
+    const courseCount = selectedCourses.length;
+
+    if (courseCount >= 4) discountRate = 0.15;
+    else if (courseCount === 3) discountRate = 0.10;
+    else if (courseCount === 2) discountRate = 0.05;
+
+    const discount = subtotal * discountRate;
+    const vat = 0.15 * (subtotal - discount);
+    const total = subtotal - discount + vat;
+
+    localStorage.setItem("courseDetails", JSON.stringify(courseDetails));
+    localStorage.setItem("subtotal", subtotal.toFixed(2));
+    localStorage.setItem("discount", discount.toFixed(2));
+    localStorage.setItem("discountRate", (discountRate * 100) + "%");
+    localStorage.setItem("vat", vat.toFixed(2));
+    localStorage.setItem("total", total.toFixed(2));
+
+    if (isQuote) {
+      window.location.href = "quotationLink.html"; // Placeholder
+    } else {
+      window.location.href = "payment.html"; // Placeholder
+    }
+  }
+
+    // Info Modal Logic
+    const infoModal = document.getElementById("infoModal");
+    const openInfoModalBtn = document.getElementById("openInfoModal");
+    const closeInfoModalBtn = document.getElementById("closeInfoModal");
+
+    openInfoModalBtn.onclick = () => infoModal.style.display = "flex";
+    closeInfoModalBtn.onclick = () => infoModal.style.display = "none";
+    window.addEventListener('click', (e) => { if (e.target === infoModal) infoModal.style.display = "none"; });
+
+    // Accordion Logic
+    document.querySelectorAll(".accordion-header").forEach(header => {
+      header.addEventListener("click", () => {
+        const currentlyActive = document.querySelector(".accordion-header.active");
+        if(currentlyActive && currentlyActive !== header) {
+            currentlyActive.classList.remove("active");
+            currentlyActive.nextElementSibling.style.display = "none";
+        }
+
+        header.classList.toggle("active");
+        const content = header.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+      });
+    });
+
+    // ChatBot Functions
+    document.getElementById("chatbotBtn").onclick = () => {
+        const modal = document.getElementById("chatbotModal");
+        if (modal.style.display !== "flex") {
+            modal.style.display = "flex";
+            if (!document.getElementById("chat-log").hasChildNodes()) {
+                addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
+            }
+        }
+    };
+    document.getElementById("closeChatModal").onclick = () => { document.getElementById("chatbotModal").style.display = "none"; };
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+    function sendMessage() {
+        const input = document.getElementById("user-input");
+        const message = input.value.trim();
+        if (!message) return;
+        addMessage("user", message);
+        input.value = "";
+        setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+    function addMessage(sender, text) {
+        const log = document.getElementById("chat-log");
+        const div = document.createElement("div");
+        div.className = sender;
+        div.innerHTML = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    function handleBotResponse(userMessage) {
+        if (userMessage.includes("hi") || userMessage.includes("hello")) {
+            addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+        } else if (userMessage.includes("faq")) {
+            addMessage("bot", `
+            Please select a category:<br>
+            <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+            <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+            <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+            <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+            `);
+        } else {
+            addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq' for options.");
+        }
+    }
+    function showFAQ(category) {
+        let faqs = {
+            locations: `<div class="accordion"><details open><summary>Where are your locations?</summary><p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br><a href='contact-us.html'>📍 View on map</a></p></details></div>`,
+            payments: `<div class="accordion"><details open><summary>How do I pay?</summary><p>You can pay online via EFT or card. <a href='getqoute.html'>💳 Go to payment page</a></p></details></div>`,
+            contact: `<div class="accordion"><details open><summary>How can I contact you?</summary><p>You can reach us via our <a href='contact-us.html'>Contact Page</a> or call 011-123-4567.</p></details></div>`,
+            courses: `<div class="accordion"><details open><summary>What courses do you offer?</summary><p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br><a href='Courses.html'>📚 View all courses</a></p></details></div>`
+        };
+        addMessage("bot", faqs[category]);
+    }
+  </script>
+</body>
+</html>
+  </li>
+</ul>
     </li>
         <li><a href="apply.html"target="_blank">Apply</a></li>
         <li><a href="about us.html"target="_blank">About Us</a></li>

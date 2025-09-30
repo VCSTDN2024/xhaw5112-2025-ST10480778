@@ -3,318 +3,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Courses</title>
+  <title>Our Courses - Empowering The Nation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* ------------------- */
+    /* Global Styles & Variables */
+    /* ------------------- */
+    :root {
+      --primary-color: #FFBF00;
+      --secondary-color: #7FA75D;
+      --accent-color: #4CAF50;
+      --button-color: #a97421;
+      --button-hover-color: #8a5e1b;
+      --text-dark: #333;
+      --text-light-gray: #555;
+      --bg-white: #fff;
+      --bg-light-gray: #f4f6f9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0; padding: 0;
-      background: #f4f6f9;
-      color: #333;
-    }
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      background:#FFBF00; padding: 10px 20px; color: white;
-    }
-    nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li a:hover{
-  
-  background-color: red;
-}
-    nav ul li a { color: #7FA75D; text-decoration: none; font-weight: bold; }
-    .brand { display: flex; align-items: center; gap: 10px; }
-    .brand img { height: 40px; width: auto; }
-    .dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-}
-
-    * { box-sizing: border-box; }
-
-header {
-  background: #FFBF00;
-  padding: 20px;
-  text-align: center;
-  color: #fff;
-}
-header h1 { margin: 0; }
-
-.courses-section {
-  padding: 50px 10%;
-}
-.section-title{
-  text-align: center;
-  
-}
-.courses-section h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #FFBF00;
-  text-align: center;
-}
-.course-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-.course-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s;
-}
-.course-card:hover { transform: translateY(-5px); }
-.course-card h3 {
-  margin-top: 0;
-  color: #FFBF00;
-}
-.course-card p { font-size: 0.95rem; }
-.course-card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 20px;
-  border-radius: 25px;
-  background: #FFBF00;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-.course-card a:hover { background: #e0aa00; }
-
-    .course-card img {
-      width: 100%; height: 180px; border-radius: 6px; margin-bottom: 1rem; object-fit: cover;
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
     }
     
-    .duration { font-weight: bold; color: #2f4f2f; margin: 0.5rem 0 1rem; }
-    .btn-course {
-      display: inline-block; padding: 0.7rem 1.5rem;
-      background: #a97421; color: white;
-      text-decoration: none; border-radius: 20px; transition: 0.3s;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
     }
-    .btn-course:hover { background: #8a5e1b; }
 
-   
+    /* ------------------- */
+    /* Navigation (Consistent with other pages) */
+    /* ------------------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary-color);
+      padding: 10px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav .brand img { height: 40px; }
+    nav ul { list-style: none; display: flex; gap: 5px; }
+    nav ul li { position: relative; }
+    nav ul li a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    nav ul li a:hover { background-color: rgba(255, 255, 255, 0.2); color: #5d7c44; }
+    
+    /* Dropdowns */
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--bg-white);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 99;
+      padding: 5px 0;
+      border: 1px solid #eee;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { color: var(--text-dark); background: var(--bg-white); font-size: 0.9rem;}
+    .dropdown-content a:hover { background-color: var(--bg-light-gray); }
+
+    .sub-dropdown .sub-dropdown-content {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: -5px;
+      background-color: var(--bg-white);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 100;
+      padding: 5px 0;
+      border: 1px solid #eee;
+    }
+    .sub-dropdown:hover .sub-dropdown-content { display: block; }
+
+    /* ------------------- */
+    /* Page Header */
+    /* ------------------- */
+    .page-header {
+      background-color: var(--bg-white);
+      text-align: center;
+      padding: 50px 20px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .page-header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 10px;
+    }
+    .page-header p {
+      font-size: 1.2rem;
+      color: var(--text-light-gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    /* ------------------- */
+    /* Courses Section */
+    /* ------------------- */
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      padding-bottom: 15px;
+      border-bottom: 3px solid var(--primary-color);
+      display: inline-block;
+    }
+    .section-title-wrapper {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .course-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .course-card {
+      background: var(--bg-white);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      border: 1px solid #e0e0e0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .course-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .course-card-content {
+        padding: 25px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    .course-card h2 {
+      font-size: 1.5rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: var(--text-dark);
+    }
+    .course-card .duration {
+      font-weight: 600;
+      color: var(--text-light-gray);
+      margin-bottom: 15px;
+    }
+    .course-card .btn-course {
+      display: inline-block;
+      padding: 10px 25px;
+      background: var(--button-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      margin-top: auto; /* Pushes button to the bottom */
+      text-align: center;
+    }
+    .course-card .btn-course:hover {
+      background: var(--button-hover-color);
+    }
+
+    /* ------------------- */
+    /* Course Modal */
+    /* ------------------- */
     .modal {
       display: none; position: fixed; z-index: 999;
       left: 0; top: 0; width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6); justify-content: center; align-items: center;
+      background: rgba(0,0,0,0.6);
+      display: none; /* Re-declared to ensure it's hidden */
+      align-items: center; justify-content: center;
       padding: 20px;
     }
     .modal-content {
-      background: #fff; border-radius: 10px;
+      background: #fff; border-radius: 12px;
       width: 100%; max-width: 650px;
-      padding: 20px; text-align: center; position: relative;
+      padding: 30px; text-align: center; position: relative;
       max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.2);
     }
-    .modal-content img.course-img {
+    .modal-content .logo { width: 80px; margin-bottom: 15px; }
+    .modal-content h2 { margin-bottom: 15px; font-size: 2rem; }
+    .modal-content .course-img {
       width: 100%; max-height: 250px; object-fit: cover;
-      border-radius: 8px; margin-bottom: 15px;
+      border-radius: 8px; margin-bottom: 20px;
     }
-    .modal-content img.logo { width: 100px; margin: 10px auto; }
-    .modal-content h2 { margin: 10px 0; color: #333; }
-    .modal-content p { margin: 10px 0; color: #444; }
+    .modal-content p { color: var(--text-light-gray); font-size: 1.1rem; }
+    .modal-content h3 { margin-top: 25px; margin-bottom: 15px; border-top: 1px solid #eee; padding-top: 20px;}
     .modal-content ul {
-      text-align: left; margin: 15px auto; padding-left: 20px;
+      text-align: left; margin: 0 auto 20px auto; padding-left: 20px; display: inline-block;
     }
-    .modal-content ul li { margin-bottom: 8px; color: #333; }
-    .price {
-      font-size: 1.2rem; font-weight: bold;
-      color: #a97421; margin: 15px 0;
+    .modal-content ul li { margin-bottom: 8px; }
+    .modal-content .price {
+      font-size: 1.5rem; font-weight: bold;
+      color: var(--button-color); margin: 20px 0;
     }
     .btn-enroll {
-      display: inline-block; padding: 0.8rem 2rem;
-      background: #28a745; color: white;
-      border-radius: 25px; font-size: 1rem;
-      text-decoration: none; transition: 0.3s;
+      display: inline-block; padding: 12px 35px;
+      background: var(--accent-color); color: white;
+      border-radius: 30px; font-size: 1.1rem;
+      text-decoration: none; font-weight: 600;
+      transition: background-color 0.3s;
     }
-    .btn-enroll:hover { background: #1e7e34; }
+    .btn-enroll:hover { background: #3e8e41; }
     .close {
-      position: absolute; top: 10px; right: 15px;
-      font-size: 1.5rem; cursor: pointer; color: #555;
+      position: absolute; top: 15px; right: 20px;
+      font-size: 1.8rem; cursor: pointer; color: #888;
     }
+    .close:hover { color: #000; }
 
+    /* ------------------- */
+    /* Chatbot & Footer (Consistent with other pages) */
+    /* ------------------- */
+    #chatbotBtn { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    .modal-chat { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); flex-direction: column; z-index: 1000; }
+    .modal-content-chat { display: flex; flex-direction: column; height: 100%; }
+    .chat-header { background: var(--accent-color); color: white; padding: 12px; text-align: center; font-weight: bold; border-radius: 12px 12px 0 0; position: relative; }
+    #closeModalBtn { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 24px; cursor: pointer; color: white; }
+    #chat-window { flex: 1; overflow-y: auto; padding: 15px; }
+    #chat-log div { margin-bottom: 12px; font-size: 14px; max-width: 80%; }
+    .user { text-align: right; color: #333; margin-left: auto; background: #e0f7fa; padding: 8px 12px; border-radius: 12px 12px 0 12px; }
+    .bot { text-align: left; color: #444; background: #f1f8e9; padding: 8px 12px; border-radius: 12px 12px 12px 0; }
+    #chat-input { display: flex; padding: 10px; border-top: 1px solid #eee; }
+    #user-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #ccc; border-radius: 20px; margin-right: 10px; }
+    #send-btn { background: var(--accent-color); color: white; border: none; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
+    .faq-btn { margin: 4px; padding: 8px 12px; background: var(--accent-color); color: white; border: none; border-radius: 6px; cursor: pointer; }
+    details summary { cursor: pointer; padding: 8px; font-weight: bold; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 5px; background: #f9f9f9; }
+    details p { padding: 8px; margin: 0; border-top: 1px solid #eee; }
 
-    .footer {
-       background-color: #FFBF00;
-        padding: 25px 5%; 
-      }
-    .footer-top { 
-      display: flex; 
-      justify-content:space-between; 
-       flex-wrap: wrap; 
-      }
-    .bottom-nav a {
-       margin-right: 15px; 
-       font-size: 0.9rem; 
-       text-decoration: none; 
-       color: black; 
-      }
-    .bottom-nav a:hover { 
-      color: #FFEA00; 
-    }
-    .socials a img { width: 34px;
-       height: 34px;
-        margin-left: 12px;
-       }
-    .footer-bottom { display: flex; 
-      justify-content: space-between; 
-      margin-top: 20px; 
-      font-size: 0.8rem; 
-      flex-wrap: wrap; 
-    }
+    .footer { background-color: var(--primary-color); border-top: 1px solid #e0e0e0; padding: 30px 5%; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-top span strong { font-size: 1.1rem; }
+    .bottom-nav a { margin: 0 10px; font-size: 0.9rem; text-decoration: none; color: black; transition: color 0.3s; font-weight: 600; }
+    .bottom-nav a:hover { color: var(--bg-white); }
+    .footer-top .socials a img { width: 34px; height: 34px; margin-left: 12px; transition: transform 0.3s; }
+    .footer-top .socials a img:hover { transform: scale(1.15); }
+    .footer-bottom { display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; flex-wrap: wrap; gap: 15px; }
+    .footer-bottom a { margin-left: 15px; text-decoration: none; color: #060606; transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--bg-white); }
   </style>
 </head>
 <body>
      
   <nav>
     <div class="brand">
-      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo">
+      <img src="Media1/Emplogo.png" alt="Logo">
       <span>Empowering The Nation</span>
     </div>
     <ul>
       <li><a href="home.html">Home</a></li>
       <li class="dropdown">
-      <a href="Courses.html" target="_blank">Courses</a>
+      <a href="Courses.html">Courses</a>
       <ul class="dropdown-content">
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
-          </ul>
-        </li>
-        <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
-          <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
-             <li><a href="faq.html" target="blank">FAQ</a></li>
-          </ul>
-        </li>
-      </ul>
+  <li class="sub-dropdown">
+    <a href="#">6 Weeks ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#childminding" class="course-link">Childminding</a></li>
+      <li><a href="detailed Courses.html#cooking" class="course-link">Cooking</a></li>
+      <li><a href="detailed Courses.html#garden-maintenance" class="course-link">Garden Maintenance</a></li>
+    </ul>
+  </li>
+  <li class="sub-dropdown">
+    <a href="#">6 Months ▸</a>
+    <ul class="sub-dropdown-content">
+      <li><a href="detailed Courses.html#landscaping" class="course-link">Landscaping</a></li>
+      <li><a href="detailed Courses.html#first-aid" class="course-link">First Aid</a></li>
+      <li><a href="detailed Courses.html#life-skills" class="course-link">Life Skills</a></li>
+      <li><a href="detailed Courses.html#sewing" class="course-link">Sewing</a></li>
+    </ul>
+  </li>
+</ul>
     </li>
-      <li><a href="getqoute.html">Get Qoute</a></li>
+      <li><a href="getqoute.html">Get Quote</a></li>
       <li><a href="about us.html">About Us</a></li>
       <li><a href="contact us.html">Contact Us</a></li>
-      <li><a href="faq.html">FAQ</a></li>
     </ul>
   </nav>
 
-  <header>
-  <h1>Our Courses</h1>
-  <p>Explore our Six-Month and Six-Week Skills Programmes</p>
-</header>
+  <header class="page-header">
+    <h1>Our Courses</h1>
+    <p>Explore our practical skills programmes designed for real-world success.</p>
+  </header>
 
-  <section class="courses-section" id="six-month">
-    <h1 class="section-title">6 Months Courses</h1>
+  <main class="container">
+    <div class="section-title-wrapper">
+        <h2 class="section-title">6 Month Programmes</h2>
+    </div>
     <div class="course-list">
-      <div class="course-card">
+      <div class="course-card" id="firstaid">
         <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid">
-        <h2>First Aid</h2>
-        <div class="duration">⏰ 6 Months</div>
-        <a href="#" class="btn-course" onclick="openModal('firstaid')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>First Aid</h2>
+            <div class="duration">⏰ 6 Months</div>
+            <a href="#" class="btn-course" onclick="openModal('firstaid')">View Course Details</a>
+        </div>
       </div>
-      <div class="course-card">
+      <div class="course-card" id="lifeskills">
         <img src="Media1/lifeskills.jpg" alt="Life Skills">
-        <h2>Life Skills</h2>
-        <div class="duration">⏰ 6 Months</div>
-        <a href="#" class="btn-course" onclick="openModal('lifeskills')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Life Skills</h2>
+            <div class="duration">⏰ 6 Months</div>
+            <a href="#" class="btn-course" onclick="openModal('lifeskills')">View Course Details</a>
+        </div>
       </div>
-      <div class="course-card">
+      <div class="course-card" id="sewing">
         <img src="Media1/sewingimage.webp" alt="Sewing">
-        <h2>Sewing</h2>
-        <div class="duration">⏰ 6 Months</div>
-        <a href="#" class="btn-course" onclick="openModal('sewing')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Sewing</h2>
+            <div class="duration">⏰ 6 Months</div>
+            <a href="#" class="btn-course" onclick="openModal('sewing')">View Course Details</a>
+        </div>
       </div>
-      <div class="course-card">
+      <div class="course-card" id="landscaping">
         <img src="Media1/R.jpeg" alt="Landscaping">
-        <h2>Landscaping</h2>
-        <div class="duration">⏰ 6 Months</div>
-        <a href="#" class="btn-course" onclick="openModal('landscaping')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Landscaping</h2>
+            <div class="duration">⏰ 6 Months</div>
+            <a href="#" class="btn-course" onclick="openModal('landscaping')">View Course Details</a>
+        </div>
       </div>
     </div>
 
-    <h1 class="section-title">6 Weeks Courses</h1>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">6 Week Programmes</h2>
+    </div>
     <div class="course-list">
-      <div class="course-card">
+      <div class="course-card" id="childminding">
         <img src="Media1/childminding.png" alt="Child Minding">
-        <h2>Child Minding</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('childminding')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Child Minding</h2>
+            <div class="duration">⏰ 6 Weeks</div>
+            <a href="#" class="btn-course" onclick="openModal('childminding')">View Course Details</a>
+        </div>
       </div>
-      <div class="course-card">
+      <div class="course-card" id="gardening">
         <img src="Media1/gardening-skills.png" alt="Gardening">
-        <h2>Garden Maintenance</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('gardening')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Garden Maintenance</h2>
+            <div class="duration">⏰ 6 Weeks</div>
+            <a href="#" class="btn-course" onclick="openModal('gardening')">View Course Details</a>
+        </div>
       </div>
-      <div class="course-card">
+      <div class="course-card" id="cooking">
         <img src="Media1/ck.png" alt="Cooking">
-        <h2>Cooking</h2>
-        <div class="duration">⏰ 6 Weeks</div>
-        <a href="#" class="btn-course" onclick="openModal('cooking')">View Course Details</a>
+        <div class="course-card-content">
+            <h2>Cooking</h2>
+            <div class="duration">⏰ 6 Weeks</div>
+            <a href="#" class="btn-course" onclick="openModal('cooking')">View Course Details</a>
+        </div>
       </div>
     </div>
-  </section>
+  </main>
 
  
  <div id="courseModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="closeModal()">&times;</span>
-      <img src="Media1/empowering-the-nation-high-resolution-logo-transparent.png" alt="Logo" class="logo">
+      <img src="Media1/Emplogo.png" alt="Logo" class="logo">
       <h2 id="modalTitle">Course Title</h2>
       <img src="" alt="Course Image" class="course-img" id="modalImg">
       <p id="modalDesc">Course details will appear here...</p>
       <h3>What You'll Learn</h3>
       <ul id="modalLearn"></ul>
       <div class="price" id="modalPrice">Price: R0</div>
-      <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+      <a href="getqoute.html" class="btn-enroll">Enroll Now</a>
     </div>
   </div>
 
-    <button id="chatbotBtn">💬</button>
+  <button id="chatbotBtn">💬</button>
   <div id="chatbotModal" class="modal-chat">
     <div class="modal-content-chat">
       <div class="chat-header">
         Empowering The Nation Bot
-        <span id="closeModal">&times;</span>
+        <span id="closeModalBtn">&times;</span>
       </div>
       <div id="chat-window"><div id="chat-log"></div></div>
       <div id="chat-input">
@@ -326,23 +426,19 @@ header h1 { margin: 0; }
 
   <footer class="footer">
     <div class="footer-top">
-      <span><strong>Empowering the nation</strong></span>           
+      <span><strong>Empowering The Nation</strong></span>           
       <div class="bottom-nav">
-        <a href="home.html"target="_blank">Home</a>
-        <a href="Courses.html" target="_blank">Course</a>
-        <a href="apply.html" target="_blank">Apply</a>
-        <a href="about us.html"target="_blank">About Us</a>
-        <a href="contact us.html" target="_blank">Contact Us</a>
+        <a href="home.html">Home</a>
+        <a href="Courses.html">Courses</a>
+        <a href="getqoute.html">Get Quote</a>
+        <a href="about us.html">About Us</a>
+        <a href="contact us.html">Contact Us</a>
       </div>      
       <div class="socials">
-        <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
-</a>
-<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
-</a>
-<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
-</a>
-<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
-</a>
+        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -356,7 +452,8 @@ header h1 { margin: 0; }
   </footer>
 
   <script>
-   function openModal(course) {
+    // ===== Course Modal Functions =====
+    function openModal(course) {
       const modal = document.getElementById("courseModal");
       const title = document.getElementById("modalTitle");
       const img = document.getElementById("modalImg");
@@ -365,71 +462,29 @@ header h1 { margin: 0; }
       const price = document.getElementById("modalPrice");
 
       const courses = {
-        childminding: {
-          title: "Child Minding",
-          img: "Media1/childminding.png",
-          desc: "Learn to provide quality childcare with safety in mind.",
-          learn: ["Child safety & first aid basics", "Nutrition for children", "Creating fun activities"],
-          price: "R750"
-        },
-        gardening: {
-          title: "Garden Maintenance",
-          img: "Media1/gardening-skills.png",
-          desc: "Essential garden care and landscaping skills.",
-          learn: ["Soil preparation", "Planting techniques", "Garden design basics"],
-          price: "R750"
-        },
-        cooking: {
-          title: "Cooking",
-          img: "Media1/ck.png",
-          desc: "Learn to prepare delicious and healthy meals.",
-          learn: ["Basic cooking techniques", "Nutrition & meal planning", "Food safety & hygiene"],
-          price: "R750"
-        },
-        firstaid: {
-          title: "First Aid",
-          img: "Media1/first-aid-training-course-instructor.png",
-          desc: "Gain lifesaving first aid knowledge and skills.",
-          learn: ["CPR techniques", "Wound treatment", "Emergency response"],
-          price: "R1500"
-        },
-        lifeskills: {
-          title: "Life Skills",
-          img: "Media1/lifeskills.jpg",
-          desc: "Develop essential personal and social skills.",
-          learn: ["Communication skills", "Financial literacy", "Time management"],
-          price: "R1500"
-        },
-        sewing: {
-          title: "Sewing",
-          img: "Media1/sewingimage.webp",
-          desc: "Learn sewing and tailoring for clothes & crafts.",
-          learn: ["Using a sewing machine", "Pattern cutting", "Garment construction"],
-          price: "R1500"
-        },
-        landscaping: {
-          title: "Landscaping",
-          img: "Media1/R.jpeg",
-          desc: "Professional landscaping and outdoor design skills.",
-          learn: ["Landscape planning", "Irrigation systems", "Hardscaping techniques"],
-          price: "R1500"
-        }
+        childminding: { title: "Child Minding", img: "Media1/childminding.png", desc: "Learn to provide quality childcare, focusing on safety, nutrition, and creating engaging, educational activities for children.", learn: ["Child Safety & First Aid Basics", "Age-Appropriate Nutrition", "Developing Fun Activities"], price: "R750" },
+        gardening: { title: "Garden Maintenance", img: "Media1/gardening-skills.png", desc: "Master the essentials of garden care, from soil preparation and planting to seasonal maintenance and basic design.", learn: ["Soil Preparation & Health", "Correct Planting Techniques", "Basic Garden Design Principles"], price: "R750" },
+        cooking: { title: "Cooking", img: "Media1/ck.png", desc: "Discover how to prepare delicious, healthy, and budget-friendly meals with foundational cooking techniques and meal planning skills.", learn: ["Basic & Advanced Cooking Techniques", "Nutrition & Meal Planning", "Food Safety & Kitchen Hygiene"], price: "R750" },
+        firstaid: { title: "First Aid", img: "Media1/first-aid-training-course-instructor.png", desc: "Gain certified, life-saving first aid knowledge and practical skills to confidently handle emergency situations.", learn: ["Certified CPR Techniques", "Wound & Injury Treatment", "Emergency Scene Management"], price: "R1500" },
+        lifeskills: { title: "Life Skills", img: "Media1/lifeskills.jpg", desc: "Develop crucial personal and professional skills to improve communication, manage finances, and boost your confidence.", learn: ["Effective Communication Skills", "Personal Financial Literacy", "Time Management & Goal Setting"], price: "R1500" },
+        sewing: { title: "Sewing", img: "Media1/sewingimage.webp", desc: "Learn everything from basic stitches to garment construction, enabling you to create, alter, and repair clothing and crafts.", learn: ["Mastering a Sewing Machine", "Pattern Cutting & Interpretation", "Complete Garment Construction"], price: "R1500" },
+        landscaping: { title: "Landscaping", img: "Media1/R.jpeg", desc: "Acquire professional landscaping skills, including design, irrigation, and hardscaping to create beautiful outdoor spaces.", learn: ["Comprehensive Landscape Planning", "Installing Irrigation Systems", "Hardscaping & Construction Techniques"], price: "R1500" }
       };
 
       if (courses[course]) {
-        title.textContent = courses[course].title;
-        img.src = courses[course].img;
-        desc.textContent = courses[course].desc;
-        price.textContent = "Price: " + courses[course].price;
+        const data = courses[course];
+        title.textContent = data.title;
+        img.src = data.img;
+        desc.textContent = data.desc;
+        price.textContent = "Price: " + data.price;
 
         learnList.innerHTML = "";
-        courses[course].learn.forEach(item => {
+        data.learn.forEach(item => {
           const li = document.createElement("li");
           li.textContent = item;
           learnList.appendChild(li);
         });
       }
-
       modal.style.display = "flex";
     }
 
@@ -440,20 +495,77 @@ header h1 { margin: 0; }
     window.onclick = function(event) {
       const modal = document.getElementById("courseModal");
       if (event.target === modal) {
-        modal.style.display = "none";
+        closeModal();
       }
     }
-
-    //for the course link
-    document.querySelectorAll(".course-link").forEach(link => {
-      link.addEventListener("click", function(e) {
-        e.preventDefault(); 
-        const sectionId = this.getAttribute("data-section");
-        if (sectionId) {
-          window.location.href = "detailed Courses.html#" + sectionId; 
-        }
-      });
+    
+    // Smooth scroll for internal links
+    document.querySelectorAll('.course-link').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if(targetElement) {
+                // Open modal if it's a valid course ID
+                openModal(targetId.substring(1));
+            }
+        });
     });
+
+    // ===== ChatBot Functions =====
+    document.getElementById("chatbotBtn").onclick = () => {
+        const modal = document.getElementById("chatbotModal");
+        if (modal.style.display !== "flex") {
+            modal.style.display = "flex";
+            if (!document.getElementById("chat-log").hasChildNodes()) {
+                addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
+            }
+        }
+    };
+    document.getElementById("closeModalBtn").onclick = () => { document.getElementById("chatbotModal").style.display = "none"; };
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+
+    function sendMessage() {
+        const input = document.getElementById("user-input");
+        const message = input.value.trim();
+        if (!message) return;
+        addMessage("user", message);
+        input.value = "";
+        setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+    function addMessage(sender, text) {
+        const log = document.getElementById("chat-log");
+        const div = document.createElement("div");
+        div.className = sender;
+        div.innerHTML = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    function handleBotResponse(userMessage) {
+        if (userMessage.includes("hi") || userMessage.includes("hello")) {
+            addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+        } else if (userMessage.includes("faq")) {
+            addMessage("bot", `
+            Please select a category:<br>
+            <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+            <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+            <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+            <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+            `);
+        } else {
+            addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq' for options.");
+        }
+    }
+    function showFAQ(category) {
+        let faqs = {
+            locations: `<div class="accordion"><details open><summary>Where are your locations?</summary><p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br><a href='contact-us.html'>📍 View on map</a></p></details></div>`,
+            payments: `<div class="accordion"><details open><summary>How do I pay?</summary><p>You can pay online via EFT or card. <a href='getqoute.html'>💳 Go to payment page</a></p></details></div>`,
+            contact: `<div class="accordion"><details open><summary>How can I contact you?</summary><p>You can reach us via our <a href='contact-us.html'>Contact Page</a> or call 011-123-4567.</p></details></div>`,
+            courses: `<div class="accordion"><details open><summary>What courses do you offer?</summary><p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br><a href='Courses.html'>📚 View all courses</a></p></details></div>`
+        };
+        addMessage("bot", faqs[category]);
+    }
   </script>
 </body>
 </html>

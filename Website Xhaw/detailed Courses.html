@@ -1,464 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-      /* ===== General Reset ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f9f9f9;
-}
-
-/* ===== Hero / Navbar ===== */
-.hero {
-  background-size: cover;
-  background-position: center;
-  min-height: 50vh;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #ffbf00;
-  padding: 15px 30px;
-}
-
-nav .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-nav .brand img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-nav ul li a:hover {
-  color: #ffbf00;
-}
-
-.dropdown .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 99;
-}
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.dropdown-content li {
-  position: relative;
-}
-.dropdown-content a {
-  color: #333;
-  padding: 10px 16px;
-  background: #fff;
-  text-decoration: none;
-}
-.dropdown-content a:hover {
-  background-color: #f2f2f2;
-}
-.sub-dropdown .sub-dropdown-content {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: 0;
-  background-color: #fff;
-  min-width: 180px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-  z-index: 100;
-}
-.sub-dropdown:hover .sub-dropdown-content {
-  display: block;
-}
-
-/* ===== Headings ===== */
-h1 {
-  text-align: center;
-  margin: 30px 0 10px;
-  font-size: 2.5rem;
-  color: #222;
-}
-
-h2 {
-  margin: 20px 0 15px;
-  font-size: 1.8rem;
-  color: #222;
-}
-
-/* ===== Sections ===== */
-section {
-  padding: 50px;
-  border-bottom: 1px solid #ddd;
-  background: #fff;
-}
-
-section img {
-  max-width: 300px;
-  width: 100%;
-  display: block;
-  margin-bottom: 15px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-section ul {
-  margin: 15px 0;
-  padding-left: 20px;
-}
-
-section ul li {
-  margin-bottom: 8px;
-  list-style: disc;
-}
-
-/* ===== Buttons ===== */
-.btn-enroll {
-  display: inline-block;
-  margin-top: 15px;
-  padding: 12px 20px;
-  background: #ffbf00;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 6px;
-  transition: 0.3s ease;
-}
-
-.btn-enroll:hover {
-  background: #e0a800;
-}
-
-/* ===== Footer ===== */
-.footer {
-  background: #F4BB44;
-  color: #ddd;
-  padding: 30px 20px;
-  margin-top: 40px;
-}
-
-.footer-top {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.footer-top span {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.bottom-nav a {
-  color: #ddd;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.bottom-nav a:hover {
-  color: #ffbf00;
-}
-
-.socials a img {
-  width: 25px;
-  margin: 0 8px;
-  filter: brightness(0) invert(1);
-  transition: 0.3s;
-}
-
-.socials a img:hover {
-  filter: brightness(0) invert(0.6);
-}
-
-.footer-bottom {
-  border-top: 1px solid #444;
-  padding-top: 15px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.footer-bottom a {
-  color: #bbb;
-  margin-left: 10px;
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.footer-bottom a:hover {
-  color: #ffbf00;
-}
-
-      section {
-      padding: 50px;
-      border-bottom: 1px solid #ccc;
-      height: 100vh; 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Courses - Empowering The Nation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+    /* ------------------- */
+    /* Global Styles & Variables (From home.html) */
+    /* ------------------- */
+    :root {
+      --primary-color: #FFBF00;
+      --secondary-color: #7FA75D;
+      --accent-color: #4CAF50;
+      --text-dark: #333;
+      --text-light-gray: #555;
+      --bg-white: #fff;
+      --bg-light-gray: #f4f6f9;
+      --course-color-1: #F4BB44; /* Old #F4BB44 */
+      --course-color-2: #C9CC3F; /* Old #C9CC3F */
     }
-    section img {
-      max-width: 300px;
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-light-gray);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    /* ------------------- */
+    /* Navigation (From home.html) */
+    /* ------------------- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary-color);
+      padding: 10px 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    nav .brand {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+    nav .brand img { height: 40px; }
+    nav ul { list-style: none; display: flex; gap: 5px; }
+    nav ul li { position: relative; }
+    nav ul li a {
+      color: var(--secondary-color);
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
       display: block;
-      margin-bottom: 15px;
+      border-radius: 6px;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
+    nav ul li a:hover { background-color: rgba(255, 255, 255, 0.2); color: #5d7c44; }
+    
+    /* Dropdowns */
+    .dropdown .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--bg-white);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 99;
+      padding: 5px 0;
+      border: 1px solid #eee;
+    }
+    .dropdown:hover .dropdown-content { display: block; }
+    .dropdown-content a { color: var(--text-dark); background: var(--bg-white); font-size: 0.9rem;}
+    .dropdown-content a:hover { background-color: var(--bg-light-gray); }
+
+    .sub-dropdown .sub-dropdown-content {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: -5px; /* Align with parent item */
+      background-color: var(--bg-white);
+      min-width: 200px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      z-index: 100;
+      padding: 5px 0;
+      border: 1px solid #eee;
+    }
+    .sub-dropdown:hover .sub-dropdown-content { display: block; }
+    
+    /* ------------------- */
+    /* Course Content */
+    /* ------------------- */
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
+      font-size: 2.5rem;
+      color: var(--text-dark);
+      font-weight: 800;
+    }
+
     h2 {
-      margin-top: 0;
+      font-size: 1.8rem;
+      color: var(--text-dark);
+      margin: 10px 0 15px;
+      padding-top: 20px; /* Space above section title */
+      font-weight: 700;
     }
+    
+    h3 { /* For course titles */
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 15px;
+        color: var(--text-dark);
+        font-weight: 600;
+    }
+
+    section {
+      padding: 60px 50px;
+      border-bottom: 1px solid #ddd;
+      min-height: 80vh; /* Adjusted for better content flow */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    
+    /* Alternating background colors */
+    #childminding, #garden-maintenance, #landscaping, #life-skills, #sewing { background: var(--course-color-1); }
+    #cooking, #first-aid { background: var(--course-color-2); }
+
+    section img {
+      max-width: 350px;
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border: 3px solid var(--bg-white);
+    }
+
+    section p {
+      max-width: 700px;
+      margin: 0 auto 15px;
+      color: var(--text-dark);
+    }
+
+    section ul {
+      margin: 15px auto;
+      padding-left: 20px;
+      text-align: left;
+      max-width: 650px;
+    }
+
+    section ul li {
+      margin-bottom: 8px;
+      list-style: disc;
+    }
+
+    /* Buttons (Updated from home.html) */
     .btn-enroll {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background: #333;
-      color: #fff;
+      margin-top: 20px;
+      padding: 12px 30px;
+      background: var(--accent-color);
+      color: var(--bg-white);
+      font-weight: bold;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 30px;
+      transition: 0.3s ease;
+      border: 2px solid var(--accent-color);
     }
+
     .btn-enroll:hover {
-      background: #555;
+      background: #3e8e41;
+      border-color: #3e8e41;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     }
     
-    
-    #section1 { background: #F4BB44; }
-    #section2 { background: #C9CC3F; }
-    #section3 { background: #F4BB44; }
-    #section4 { background: #C9CC3F; }
-    #section5 { background: #F4BB44; }
-    #section6 { background: #C9CC3F; }
-    #section7 { background: #F4BB44; }
-    </style>
+    /* ------------------- */
+    /* Footer (From home.html) */
+    /* ------------------- */
+    .footer { background-color: var(--primary-color); border-top: 1px solid #e0e0e0; padding: 30px 5%; }
+    .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-top span strong { font-size: 1.1rem; }
+    .bottom-nav a { margin: 0 10px; font-size: 0.9rem; text-decoration: none; color: black; transition: color 0.3s; font-weight: 600; }
+    .bottom-nav a:hover { color: var(--bg-white); }
+    .footer-top .socials a img { width: 34px; height: 34px; margin-left: 12px; transition: transform 0.3s; }
+    .footer-top .socials a img:hover { transform: scale(1.15); }
+    .footer-bottom { display: flex; justify-content: space-between; margin-top: 25px; padding-top: 20px; border-top: 1px solid rgba(0,0,0,0.1); font-size: 0.85rem; flex-wrap: wrap; gap: 15px; }
+    .footer-bottom a { margin-left: 15px; text-decoration: none; color: #060606; transition: color 0.3s; }
+    .footer-bottom a:hover { color: var(--bg-white); }
+</style>
 </head>
 <body>
-        <div class="hero" style="background-image: url(Media1/);">
-    <nav>
-      <div class="brand">
-        <img src="Media1/Emplogo.png" alt="Empowering the nation">
-        <span>Empowering The Nation</span>
-      </div>
-      <ul>
-        <li><a href="home.html">Home</a></li>
-       <li class="dropdown">
+
+<nav>
+  <div class="brand">
+    <img src="Media1/Emplogo.png" alt="Empowering the nation logo">
+    <span>Empowering The Nation</span>
+  </div>
+  <ul>
+    <li><a href="home.html">Home</a></li>
+    <li class="dropdown">
       <a href="Courses.html">Courses</a>
       <ul class="dropdown-content">
         <li class="sub-dropdown">
-          <a href="Courses.html">6 Weeks</a>
+          <a href="#">6 Weeks ▸</a>
           <ul class="sub-dropdown-content">
-            <li><a href="Courses.html"class="course-link" data-section="section1">Childminding</a></li>
-            <li><a href="Courses.html"class="course-link" data-section="section2">Cooking</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section3">Garden Maintenance</a></li>
+            <li><a href="#childminding" class="course-link">Childminding</a></li>
+            <li><a href="#cooking" class="course-link">Cooking</a></li>
+            <li><a href="#garden-maintenance" class="course-link">Garden Maintenance</a></li>
           </ul>
         </li>
         <li class="sub-dropdown">
-          <a href="Courses.html">6 Months</a>
+          <a href="#">6 Months ▸</a>
           <ul class="sub-dropdown-content">
-            <li><a href="Courses.html" class="course-link" data-section="section4">Landscaping</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section5">First Aid</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section6">Life Skills</a></li>
-            <li><a href="Courses.html" class="course-link" data-section="section7">Sewing</a></li>
+            <li><a href="#landscaping" class="course-link">Landscaping</a></li>
+            <li><a href="#first-aid" class="course-link">First Aid</a></li>
+            <li><a href="#life-skills" class="course-link">Life Skills</a></li>
+            <li><a href="#sewing" class="course-link">Sewing</a></li>
           </ul>
         </li>
       </ul>
     </li>
-        <li><a href="apply.html">Apply</a></li>
-        <li><a href="about us.html">About Us</a></li>
-        <li><a href="contact us.html">Contact Us</a></li>
-      </ul>
-    </nav>
+    <li><a href="getquote.html">Get Quote</a></li>
+    <li><a href="about us.html">About Us</a></li>
+    <li><a href="contact-us.html">Contact Us</a></li>
+  </ul>
+</nav>
 
- <h1>Courses Page</h1>
-<h2> 6 Week Courses </h2>
-  <section id="section1">
-    <img src="Media1/childminding.png" alt="Childminding">
-    <h2>Childminding</h2>
-    <p>This course equips you with the knowledge and confidence to provide safe, nurturing, and developmentally appropriate care for children of different ages. Perfect for aspiring childminders, au pairs, and caregivers.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Child safety, supervision, and first aid basics</li>
-      <li>Age-appropriate nutrition and healthy meal preparation</li>
-      <li>Creating fun, educational, and stimulating activities</li>
-      <li>Understanding child development stages and needs</li>
-      <li>Building positive relationships with children and parents</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Parents, babysitters, nannies, au pairs, and anyone interested in starting a child care service.</p>
-    <p><strong>Career opportunities:</strong> Work as a nanny, au pair, daycare assistant, or start your own childminding business.</p>
-    <p><strong>Price:</strong> R750</p>
+<main>
+    <h1>Our Courses</h1>
+
+    <div class="container">
+        <h2>6 Week Courses</h2>
+    </div>
+
+    <section id="childminding">
+        <img src="Media1/childminding.png" alt="Childminding">
+        <h3>Childminding</h3>
+        <p>This course equips you with the knowledge and confidence to provide safe, nurturing, and developmentally appropriate care for children of different ages. Perfect for aspiring childminders, au pairs, and caregivers.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Child safety, supervision, and first aid basics</li>
+            <li>Age-appropriate nutrition and healthy meal preparation</li>
+            <li>Creating fun, educational, and stimulating activities</li>
+            <li>Understanding child development stages and needs</li>
+            <li>Building positive relationships with children and parents</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Parents, babysitters, nannies, au pairs, and anyone interested in starting a child care service.</p>
+        <p><strong>Career opportunities:</strong> Work as a nanny, au pair, daycare assistant, or start your own childminding business.</p>
+        <p><strong>Price:</strong> R750</p>
+        
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
     
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-  
+    <section id="cooking">
+        <img src="Media1/ck.png" alt="Cooking">
+        <h3>Cooking</h3>
+        <p>Master the art of preparing healthy, tasty meals for yourself, your family, or as a stepping stone into the food industry. This hands-on course builds confidence in the kitchen.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Basic cooking techniques (boiling, frying, baking, grilling)</li>
+            <li>Nutrition and balanced meal planning</li>
+            <li>Food safety, hygiene, and kitchen organization</li>
+            <li>Cooking on a budget and reducing food waste</li>
+            <li>Introduction to traditional and modern recipes</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Beginners, parents, domestic workers, and those passionate about cooking.</p>
+        <p><strong>Career opportunities:</strong> Work in restaurants, catering, or start a food business from home.</p>
+        <p><strong>Price:</strong> R750</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
 
-  <section id="section2">
-    <h2>Cooking</h2>
-    <img src="Media1/ck.png" alt="Cooking">
-    <p>Master the art of preparing healthy, tasty meals for yourself, your family, or as a stepping stone into the food industry. This hands-on course builds confidence in the kitchen.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Basic cooking techniques (boiling, frying, baking, grilling)</li>
-      <li>Nutrition and balanced meal planning</li>
-      <li>Food safety, hygiene, and kitchen organization</li>
-      <li>Cooking on a budget and reducing food waste</li>
-      <li>Introduction to traditional and modern recipes</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Beginners, parents, domestic workers, and those passionate about cooking.</p>
-    <p><strong>Career opportunities:</strong> Work in restaurants, catering, or start a food business from home.</p>
-    <p><strong>Price:</strong> R750</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
+    <section id="garden-maintenance">
+        <img src="Media1/gardening-skills.png" alt="Garden Maintenance">
+        <h3>Garden Maintenance</h3>
+        <p>Learn essential garden maintenance and landscaping techniques to keep outdoor spaces beautiful and sustainable. This course covers practical skills for both home gardens and small-scale landscaping jobs.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Soil preparation and composting techniques</li>
+            <li>Planting, watering, and seasonal care routines</li>
+            <li>Pruning, trimming, and pest management</li>
+            <li>Basics of garden design and layout</li>
+            <li>Sustainable gardening practices for long-term growth</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Homeowners, hobby gardeners, or anyone wanting to start a garden services business.</p>
+        <p><strong>Career opportunities:</strong> Garden maintenance worker, landscaper assistant, or small business owner in garden care.</p>
+        <p><strong>Price:</strong> R750</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
 
-  <section id="section3">
-    <h2>Garden Maintenance</h2>
-    <img src="Media1/gardening-skills.png" alt="Garden Maintenance">
-    <p>Learn essential garden maintenance and landscaping techniques to keep outdoor spaces beautiful and sustainable. This course covers practical skills for both home gardens and small-scale landscaping jobs.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Soil preparation and composting techniques</li>
-      <li>Planting, watering, and seasonal care routines</li>
-      <li>Pruning, trimming, and pest management</li>
-      <li>Basics of garden design and layout</li>
-      <li>Sustainable gardening practices for long-term growth</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Homeowners, hobby gardeners, or anyone wanting to start a garden services business.</p>
-    <p><strong>Career opportunities:</strong> Garden maintenance worker, landscaper assistant, or small business owner in garden care.</p>
-    <p><strong>Price:</strong> R750</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-
-<h2> 6 Months Courses</h2>
-  <section id="section4">
-    <h2>Landscaping</h2>
-    <img src="Media1/R.jpeg" alt="Landscaping">
-    <p>Learn how to transform outdoor spaces into functional and visually appealing environments. This course is ideal for aspiring landscapers, garden designers, or homeowners looking to upgrade their space.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Landscape planning, sketching, and design concepts</li>
-      <li>Irrigation systems and water-efficient planting</li>
-      <li>Hardscaping techniques (pathways, patios, edging)</li>
-      <li>Soil management and plant selection for different climates</li>
-      <li>Sustainable and eco-friendly landscaping solutions</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Homeowners, small business owners, or those interested in outdoor design.</p>
-    <p><strong>Career opportunities:</strong> Landscape assistant, garden designer, or run your own landscaping business.</p>
-    <p><strong>Price:</strong> R1500</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-
-  <section id="section5">
-    <h2>First Aid</h2>
-    <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid Training">
-    <p>Gain the knowledge and practical skills to respond confidently to medical emergencies at home, work, or in the community. This accredited course is ideal for parents, caregivers, and professionals.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>CPR techniques for adults, children, and infants</li>
-      <li>Wound treatment and bleeding control</li>
-      <li>Emergency response to burns, fractures, and choking</li>
-      <li>Recognizing and managing common medical conditions (asthma, seizures, allergic reactions)</li>
-      <li>How to stay calm and provide assistance until professional help arrives</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Teachers, security staff, caregivers, parents, and community leaders.</p>
-    <p><strong>Career opportunities:</strong> Health & safety officer, first aid volunteer, workplace first aid provider.</p>
-    <p><strong>Price:</strong> R1500</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-
-  <section id="section6">
-   <h2>Life Skills</h2>
-    <img src="Media1/lifeskills.jpg" alt="Life Skills">
-    <p>Build personal, social, and practical skills to thrive in everyday life. This course is designed to empower learners with tools for better decision-making, relationships, and productivity.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Effective communication and interpersonal skills</li>
-      <li>Financial literacy, budgeting, and saving strategies</li>
-      <li>Time management and goal-setting techniques</li>
-      <li>Problem-solving and decision-making skills</li>
-      <li>Building self-confidence and resilience</li>
-    </ul>
-    <p><strong>Ideal for:</strong> School leavers, job seekers, or anyone wanting to improve personal development.</p>
-    <p><strong>Career opportunities:</strong> Helps prepare for any job by developing essential soft skills employers look for.</p>
-    <p><strong>Price:</strong> R1500</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-
-  <section id="section7">
-    <h2>Sewing</h2>
-    <img src="Media1/sewingimage.webp" alt="Sewing">
-    <p>Unlock your creativity with sewing and tailoring skills. Whether for personal use, fashion design, or small business, this course provides the foundation to turn fabric into finished garments and crafts.</p>
-    <p><strong>What you will learn:</strong></p>
-    <ul>
-      <li>Using and maintaining a sewing machine</li>
-      <li>Pattern drafting, measuring, and fabric cutting</li>
-      <li>Garment construction and finishing techniques</li>
-      <li>Repairing and altering clothes</li>
-      <li>Creative sewing projects and accessories</li>
-    </ul>
-    <p><strong>Ideal for:</strong> Beginners, aspiring designers, or anyone looking to start a sewing business.</p>
-    <p><strong>Career opportunities:</strong> Tailor, fashion designer, alterations specialist, or craft entrepreneur.</p>
-    <p><strong>Price:</strong> R1500</p>
-    <a href="checkout.html" class="btn-enroll">Enroll Now</a>
-  </section>
-
-
-    <footer class="footer">
-    <div class="footer-top">
-      <span><strong>Empowering the nation</strong></span>           
-      <div class="bottom-nav">
-        <a href="home.html">Home</a>
-        <a href="Courses.html">Course</a>
-        <a href="apply.html">Apply</a>
-        <a href="about us.html">About Us</a>
-        <a href="contact us.html">Contact Us</a>
-      </div>      
-      <div class="socials">
-        <a href="https://www.tiktok.com/@empowering.the.na5" target="_blank" aria-label="TikTok"><img src="Media1/tiktok-icon.png" alt="Instagram">
-</a>
-<a href="https://www.facebook.com/EmpoweringNation" target="_blank" aria-label="Facebook"><img src="Media1/facebook-icon.png" alt="Instagram">
-</a>
-<a href="https://www.linkedin.com/in/empowering-the-nation" target="_blank" aria-label="LinkedIn"><img src="Media1/linkedin-icon.png" alt="Instagram">
-</a>
-<a href="https://www.instagram.com/empow.eringthenation" target="_blank" aria-label="Instagram"><img src="Media1/Insta-icon.png" alt="Instagram">
-</a>
-      </div>
+    <div class="container">
+        <h2>6 Months Courses</h2>
     </div>
-    <div class="footer-bottom">
-      <span>© 2022 Empowering The Nation. All rights reserved.</span>
-      <div>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookies Settings</a>
-      </div>
+
+    <section id="landscaping">
+        <img src="Media1/R.jpeg" alt="Landscaping">
+        <h3>Landscaping</h3>
+        <p>Learn how to transform outdoor spaces into functional and visually appealing environments. This course is ideal for aspiring landscapers, garden designers, or homeowners looking to upgrade their space.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Landscape planning, sketching, and design concepts</li>
+            <li>Irrigation systems and water-efficient planting</li>
+            <li>Hardscaping techniques (pathways, patios, edging)</li>
+            <li>Soil management and plant selection for different climates</li>
+            <li>Sustainable and eco-friendly landscaping solutions</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Homeowners, small business owners, or those interested in outdoor design.</p>
+        <p><strong>Career opportunities:</strong> Landscape assistant, garden designer, or run your own landscaping business.</p>
+        <p><strong>Price:</strong> R1500</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
+
+    <section id="first-aid">
+        <img src="Media1/first-aid-training-course-instructor.png" alt="First Aid Training">
+        <h3>First Aid</h3>
+        <p>Gain the knowledge and practical skills to respond confidently to medical emergencies at home, work, or in the community. This accredited course is ideal for parents, caregivers, and professionals.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>CPR techniques for adults, children, and infants</li>
+            <li>Wound treatment and bleeding control</li>
+            <li>Emergency response to burns, fractures, and choking</li>
+            <li>Recognizing and managing common medical conditions (asthma, seizures, allergic reactions)</li>
+            <li>How to stay calm and provide assistance until professional help arrives</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Teachers, security staff, caregivers, parents, and community leaders.</p>
+        <p><strong>Career opportunities:</strong> Health & safety officer, first aid volunteer, workplace first aid provider.</p>
+        <p><strong>Price:</strong> R1500</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
+
+    <section id="life-skills">
+        <img src="Media1/lifeskills.jpg" alt="Life Skills">
+        <h3>Life Skills</h3>
+        <p>Build personal, social, and practical skills to thrive in everyday life. This course is designed to empower learners with tools for better decision-making, relationships, and productivity.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Effective communication and interpersonal skills</li>
+            <li>Financial literacy, budgeting, and saving strategies</li>
+            <li>Time management and goal-setting techniques</li>
+            <li>Problem-solving and decision-making skills</li>
+            <li>Building self-confidence and resilience</li>
+        </ul>
+        <p><strong>Ideal for:</strong> School leavers, job seekers, or anyone wanting to improve personal development.</p>
+        <p><strong>Career opportunities:</strong> Helps prepare for any job by developing essential soft skills employers look for.</p>
+        <p><strong>Price:</strong> R1500</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
+
+    <section id="sewing">
+        <img src="Media1/sewingimage.webp" alt="Sewing">
+        <h3>Sewing</h3>
+        <p>Unlock your creativity with sewing and tailoring skills. Whether for personal use, fashion design, or small business, this course provides the foundation to turn fabric into finished garments and crafts.</p>
+        <p><strong>What you will learn:</strong></p>
+        <ul>
+            <li>Using and maintaining a sewing machine</li>
+            <li>Pattern drafting, measuring, and fabric cutting</li>
+            <li>Garment construction and finishing techniques</li>
+            <li>Repairing and altering clothes</li>
+            <li>Creative sewing projects and accessories</li>
+        </ul>
+        <p><strong>Ideal for:</strong> Beginners, aspiring designers, or anyone looking to start a sewing business.</p>
+        <p><strong>Career opportunities:</strong> Tailor, fashion designer, alterations specialist, or craft entrepreneur.</p>
+        <p><strong>Price:</strong> R1500</p>
+        <a href="checkout.html" class="btn-enroll">Enroll Now</a>
+    </section>
+</main>
+
+
+<footer class="footer">
+  <div class="footer-top">
+    <span><strong>Empowering The Nation</strong></span>
+    <div class="bottom-nav">
+      <a href="home.html">Home</a>
+      <a href="Courses.html">Courses</a>
+      <a href="getquote.html">Get Quote</a>
+      <a href="about-us.html">About Us</a>
+      <a href="contact-us.html">Contact Us</a>
     </div>
-  </footer>
+    <div class="socials">
+        <a href="https://www.facebook.com/"><img src="Media1/facebook-icon.png" alt="Facebook"></a>
+        <a href="https://www.instagram.com/"><img src="Media1/Insta-icon.png" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/"><img src="Media1/linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="https://www.tiktok.com/explore"><img src="Media1/tiktok-icon.png" alt="TikTok"></a>
+    </div>
   </div>
+  <div class="footer-bottom">
+    <span>© 2022 Empowering The Nation. All rights reserved.</span>
+    <div>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookies Settings</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+    // Function to handle smooth scrolling
+    document.addEventListener("DOMContentLoaded", function() {
+        const courseLinks = document.querySelectorAll('.course-link');
+
+        courseLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Only prevent default if the hash is present and a target element exists
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    e.preventDefault();
+                    
+                    // Smooth scroll to the target section
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+
+                    // Optional: Update URL hash without jumping
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
