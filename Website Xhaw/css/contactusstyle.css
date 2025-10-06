@@ -65,7 +65,7 @@ a:hover {
 }
 
 .brand img { height: 40px; }
-.brand span { font-size: 1.2em; font-weight: 800; color: var(--text-dark); }
+.brand span { font-size: 1.1em; font-weight: 700; color: var(--text-dark); }
 
 .navbar-links {
   list-style: none;
@@ -111,7 +111,7 @@ a:hover {
 .dropdown-content a:hover { background-color: var(--bg-light-gray); }
 
 /* ------------------- */
-/* Contact Us Specific Styles (Cleaned up) */
+/* Contact Us  Styles */
 /* ------------------- */
 .main-section-spacing {
     margin-top: 60px;

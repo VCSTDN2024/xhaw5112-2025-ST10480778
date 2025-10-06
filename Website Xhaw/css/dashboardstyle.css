@@ -1,0 +1,330 @@
+
+        /* ------------------- */
+        /* Global Styles & Variables (Matching Brand) */
+        /* ------------------- */
+        :root {
+            --primary-color: #FFBF00; /* Yellow */
+            --secondary-color: #7FA75D; /* Greenish-gray for links */
+            --accent-color: #4CAF50; /* Green for success/buttons */
+            --text-dark: #333;
+            --bg-white: #fff;
+            --bg-light-gray: #f4f6f9;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* ------------------- */
+        /* Navigation & Profile */
+        /* ------------------- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-color);
+            padding: 10px 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .brand img { height: 40px; }
+
+        nav ul { 
+            list-style: none; 
+            display: flex; 
+            gap: 20px;
+        }
+        nav ul li a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: background-color 0.3s ease;
+        }
+        nav ul li a:hover { 
+            background-color: rgba(255, 255, 255, 0.2); 
+            color: var(--text-dark);
+        }
+
+        .profile-menu {
+            position: relative;
+        }
+
+        .profile-icon {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--text-dark);
+            transition: transform 0.2s;
+        }
+        .profile-icon:hover {
+            transform: scale(1.05);
+        }
+        .profile-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-white);
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            min-width: 150px;
+            z-index: 99;
+            margin-top: 10px;
+            padding: 5px 0;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: background-color 0.2s;
+            font-weight: 400;
+        }
+        .dropdown-menu a:hover {
+            background-color: var(--bg-light-gray);
+            color: var(--accent-color);
+        }
+
+        /* ------------------- */
+        /* Dashboard Layout & Cards */
+        /* ------------------- */
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr; /* Smaller left column for calendar/summary */
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+             box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            grid-column: 2 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar {
+            grid-column: 1 / 2;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        
+        h2 {
+            font-size: 1.6rem;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        /* ------------------- */
+        /* Progress Bar (Interactive) */
+        /* ------------------- */
+        .course-progress-item {
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            cursor: pointer; /* Suggests clickability */
+            transition: background-color 0.2s;
+        }
+        .course-progress-item:hover {
+            background-color: var(--bg-light-gray);
+        }
+        .course-progress-item:last-child {
+            border-bottom: none;
+        }
+        
+        .course-progress-item p {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 5px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-fill {
+            height: 100%;
+            line-height: 20px;
+            text-align: center;
+            color: var(--bg-white);
+            font-weight: 700;
+            transition: width 0.8s ease-out; /* Smooth animation on load/update */
+        }
+
+        .green { background: var(--accent-color); }
+        .yellow { background: var(--primary-color); }
+        .red { background: #E74C3C; }
+
+        /* ------------------- */
+        /* Calendar (Interactive) */
+        /* ------------------- */
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .calendar-header button {
+            background: var(--secondary-color);
+            color: var(--bg-white);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+        }
+        .calendar-header button:hover {
+            background: #6a904e;
+        }
+        
+        #month-year {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        #calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+
+        .day-name, .day-cell {
+            text-align: center;
+            padding: 8px 5px;
+            border-radius: 5px;
+        }
+
+        .day-name {
+            font-weight: 700;
+            color: var(--brand-dark-green);
+        }
+
+        .day-cell {
+            background: var(--bg-light-gray);
+            cursor: pointer;
+            position: relative;
+            transition: background 0.2s;
+            font-size: 0.9rem;
+        }
+        
+        .day-cell:hover:not(.empty) {
+            background: #e0e0e0;
+        }
+
+        .empty {
+            background: transparent;
+            cursor: default;
+        }
+
+        .today {
+            background: var(--primary-color);
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .event-day {
+            border: 2px solid var(--accent-color);
+        }
+
+        .event {
+            position: absolute;
+            bottom: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 4px;
+            width: 80%;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* ------------------- */
+        /* Announcements */
+        /* ------------------- */
+        .announcement-item {
+            border-left: 5px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+            background: #fffdf2;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .announcement-item h4 {
+            margin-top: 0;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+        .announcement-item p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-top: 5px;
+        }
+        
+        /* ------------------- */
+        /* Responsive Design */
+        /* ------------------- */
+        @media (max-width: 900px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+            .main-content, .sidebar {
+                grid-column: 1 / 2;
+            }
+            nav ul {
+                display: none; /* Hide main navigation on mobile */
+            }
+        }

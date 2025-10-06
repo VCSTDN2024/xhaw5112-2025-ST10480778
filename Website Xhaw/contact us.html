@@ -40,7 +40,7 @@
             <li><a href="getqoute.html">Apply</a></li>
             <li><a href="about us.html">About Us</a></li>
             <li><a href="contact-us.html">Contact Us</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            
         </ul>
     </nav>
 
@@ -49,7 +49,7 @@
             <h1 class="title">We're Here For You</h1>
             <h5>Feel free to reach out to us!</h5>
             <div class="contact-info">
-                <a href="tel:0117569345" class="contact-number-link">
+                <a href="tel:0117569345" class="contact-number-link"> 
                     <h5 class="contact-number">011-756-9345</h5>
                 </a>
             </div>
@@ -111,20 +111,20 @@
         </section>
     </main>
 
-    <button id="chatbotBtn">💬</button>
-    <div id="chatbotModal" class="modal-chat">
-        <div class="modal-content-chat">
-            <div class="chat-header">
-                Empowering The Nation Bot
-                <span id="closeModal">×</span>
-            </div>
-            <div id="chat-window"><div id="chat-log"></div></div>
-            <div id="chat-input">
-                <input type="text" id="user-input" placeholder="Type a message...">
-                <button id="send-btn">Send</button>
-            </div>
-        </div>
+     <button id="chatbotBtn">💬</button>
+  <div id="chatbotModal" class="modal-chat">
+    <div class="modal-content-chat">
+      <div class="chat-header">
+        Empowering The Nation Bot
+        <span id="closeChatModal">&times;</span>
+      </div>
+      <div id="chat-window"><div id="chat-log"></div></div>
+      <div id="chat-input">
+        <input type="text" id="user-input" placeholder="Type a message...">
+        <button id="send-btn">Send</button>
+      </div>
     </div>
+  </div>
 
     <footer class="footer">
         <div class="footer-top">
@@ -155,24 +155,58 @@
     
     <script src="script.js"></script>
     <script>
-        // Chatbot Modal Toggle Logic
         document.getElementById("chatbotBtn").onclick = () => {
-            document.getElementById("chatbotModal").style.display = "flex";
-            // Initial message can be added here if 'addMessage' is defined in script.js
-        };
-
-        document.getElementById("closeModal").onclick = () => {
-            document.getElementById("chatbotModal").style.display = "none";
-        };
-        
-        // Ensure clicking outside closes the modal
-        document.addEventListener('click', (event) => {
-            const modal = document.getElementById('chatbotModal');
-            const button = document.getElementById('chatbotBtn');
-            if (modal.style.display === 'flex' && !modal.contains(event.target) && !button.contains(event.target)) {
-                modal.style.display = 'none';
+        const modal = document.getElementById("chatbotModal");
+        if (modal.style.display !== "flex") {
+            modal.style.display = "flex";
+            if (!document.getElementById("chat-log").hasChildNodes()) {
+                addMessage("bot", "Hi 👋! How can I help you today?<br>Type 'faq' to see our help menu.");
             }
-        });
+        }
+    };
+    document.getElementById("closeChatModal").onclick = () => { document.getElementById("chatbotModal").style.display = "none"; };
+    document.getElementById("send-btn").onclick = sendMessage;
+    document.getElementById("user-input").addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
+    function sendMessage() {
+        const input = document.getElementById("user-input");
+        const message = input.value.trim();
+        if (!message) return;
+        addMessage("user", message);
+        input.value = "";
+        setTimeout(() => handleBotResponse(message.toLowerCase()), 500);
+    }
+    function addMessage(sender, text) {
+        const log = document.getElementById("chat-log");
+        const div = document.createElement("div");
+        div.className = sender;
+        div.innerHTML = text;
+        log.appendChild(div);
+        log.scrollTop = log.scrollHeight;
+    }
+    function handleBotResponse(userMessage) {
+        if (userMessage.includes("hi") || userMessage.includes("hello")) {
+            addMessage("bot", "Hello! 😊 How can I help you today? Type 'faq' to see the menu.");
+        } else if (userMessage.includes("faq")) {
+            addMessage("bot", `
+            Please select a category:<br>
+            <button class="faq-btn" onclick="showFAQ('locations')">📍 Locations</button>
+            <button class="faq-btn" onclick="showFAQ('payments')">💳 Payments</button>
+            <button class="faq-btn" onclick="showFAQ('contact')">📞 Contact</button>
+            <button class="faq-btn" onclick="showFAQ('courses')">📚 Courses</button>
+            `);
+        } else {
+            addMessage("bot", "Sorry, I didn’t quite get that. Try typing 'faq' for options.");
+        }
+    }
+    function showFAQ(category) {
+        let faqs = {
+            locations: `<div class="accordion"><details open><summary>Where are your locations?</summary><p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br><a href='contact-us.html'>📍 View on map</a></p></details></div>`,
+            payments: `<div class="accordion"><details open><summary>How do I pay?</summary><p>You can pay online via EFT or card. <a href='getqoute.html'>💳 Go to payment page</a></p></details></div>`,
+            contact: `<div class="accordion"><details open><summary>How can I contact you?</summary><p>You can reach us via our <a href='contact-us.html'>Contact Page</a> or call 011-123-4567.</p></details></div>`,
+            courses: `<div class="accordion"><details open><summary>What courses do you offer?</summary><p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br><a href='Courses.html'>📚 View all courses</a></p></details></div>`
+        };
+        addMessage("bot", faqs[category]);
+    }
     </script>
 </body>
 </html>
