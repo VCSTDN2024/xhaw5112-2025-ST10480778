@@ -21,14 +21,14 @@ body.dark-mode {
   --primary-color: #e0a800;
   --secondary-color: #6a8c4f;
   --accent-color: #4CAF50; /* Accent can often stay the same */
-  --text-dark: #f0f2f5;    /* Light text on dark background */
+  --text-dark: #ffffff;    /* Light text on dark background */
   --text-light: #2c303a;   /* Dark background */
   --bg-white: #373c49;     /* Darker card/element backgrounds */
   --bg-light-gray: #2c303a;/* Even darker background */
 }
 
 /* Apply the smooth transition to elements */
-body, .card, .modal-content, nav, footer, .app-section,.h1,.p {
+body, .card, .modal-content, nav, footer, .app-section,.h1,.p,.course-card-content {
     transition: var(--theme-transition);
     background-color: var(--text-light); /* Use a variable that changes */
     color: var(--text-dark);

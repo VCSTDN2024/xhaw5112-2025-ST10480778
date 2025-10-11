@@ -1,37 +1,80 @@
 
-    /* ------------------- */
-    /* Global Styles & Variables */
-    /* ------------------- */
-    :root {
-      --primary-color: #FFBF00;
-      --secondary-color: #7FA75D;
-      --accent-color: #4CAF50;
-      --text-dark: #333;
-      --text-light-gray: #555;
-      --bg-white: #fff;
-      --bg-light-gray: #f4f6f9;
-    --theme-transition: all 0.3s ease;
+/* ------------------- */
+/* Global Styles & Variables */
+/* ------------------- */
+:root {
+  --primary-color: #FFBF00;
+  --secondary-color: #7FA75D;
+  --accent-color: #4CAF50;
+  --text-dark: #333;           /* Default (Light Mode) text color */
+  --text-light-gray: #555;
+  --bg-white: #fff;           /* Default (Light Mode) main background */
+  --bg-light-gray: #f4f6f9;
+  --theme-transition: all 0.3s ease;
 }
 
 /* ADD THESE DARK MODE STYLES */
 body.dark-mode {
   --primary-color: #e0a800;
   --secondary-color: #6a8c4f;
-  --accent-color: #4CAF50; /* Accent can often stay the same */
-  --text-dark: #f0f2f5;    /* Light text on dark background */
-  --text-light: #2c303a;   /* Dark background */
-  --bg-white: #373c49;     /* Darker card/element backgrounds */
-  --bg-light-gray: #2c303a;/* Even darker background */
+  --accent-color: #4CAF50;
+  --text-dark: #f0f2f5;        /* Dark Mode text color (light) */
+  --text-light-gray: #aaa;     /* Adjust light gray for dark mode */
+  --bg-white: #373c49;         /* Darker card/element backgrounds */
+  --bg-light-gray: #2c303a;    /* Main dark background */
 }
 
-/* Apply the smooth transition to elements */
-body, .card, .modal-content, nav, footer, .app-section,.h1,.p {
+/* Apply the smooth transition and BASE COLORS to elements */
+/* Note: body should use the main background variable */
+body {
+  transition: var(--theme-transition);
+  background-color: var(--bg-white); /* Start with white/card background */
+  color: var(--text-dark); /* Apply text color to body for inheritance */
+  font-family: 'Inter', sans-serif; /* Keep your font if defined */
+}
+
+/* Elements that need explicit text/background changes */
+body, .card, .modal-content, nav, footer, .app-section, .course-card {
+  transition: var(--theme-transition);
+  background-color: var(--bg-white); 
+  color: var(--text-dark); /* Ensure explicit text elements are covered */
+}
+
+/* Apply color to specific text and link elements to ensure inheritance */
+h1, h2, h3, h4, h5, p, span, dl, dt, dd, summary {
+  color: var( --text-dark);
+}
+
+/* Links (Anchor tags) need special handling to maintain theme color */
+a {
+  color: var(--text-dark); /* Default link text color */
+  transition: var(--theme-transition);
+}
+
+a:hover, .course-link:hover, .btn-course:hover {
+  color: var(--primary-color); /* Hover color should be primary/accent */
+}
+
+/* Set the main background for the full page (using the darker variable) */
+main, .container, .page-header {
+    background-color: var(--bg-light-gray);
     transition: var(--theme-transition);
-    background-color: var(--text-light); /* Use a variable that changes */
-    color: var(--text-dark);
 }
 
-/* Style for the new toggle button */
+/* Navbar and Footer backgrounds might be different */
+nav, footer {
+    background-color: var(--bg-white); /* Use the card background color */
+}
+
+/* Input/Form text color */
+input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
+    background-color: var(--bg-light-gray); /* Darker input background in dark mode */
+    color: var(--text-dark);
+    border-color: var(--text-light-gray);
+}
+
+
+/* Style for the new toggle button (as provided) */
 .theme-btn {
   background: none;
   border: 2px solid var(--text-dark);
@@ -42,12 +85,12 @@ body, .card, .modal-content, nav, footer, .app-section,.h1,.p {
   font-size: 1.2rem;
   cursor: pointer;
   transition: var(--theme-transition);
-  margin-left: 20px; /* Add some space */
+  margin-left: 20px; 
 }
 
 .theme-btn:hover {
   background-color: var(--text-dark);
-  color: var(--text-light);
+  color: var(--bg-light-gray); /* Change to background color for better contrast */
   transform: scale(1.1);
 }
 
@@ -187,6 +230,7 @@ body, .card, .modal-content, nav, footer, .app-section,.h1,.p {
       font-weight: 800;
       margin-bottom: 15px;
       text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      color: var(--bg-white)
     }
     .hero-text p { font-size: 1.2rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; color: #f0f0f0; }
 
