@@ -85,7 +85,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: var(--bg-white);
+  color: var(--secondary-color);
 }
 
 /* Dropdown Styles */

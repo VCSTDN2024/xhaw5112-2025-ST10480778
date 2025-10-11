@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #FFBF00; /* Yellow */
+  --primary-color: #FFBF00; /* Yellow for the navigation*/
   --secondary-color: #7FA75D; /* Greenish-gray for links/accents */
   --accent-color: #4CAF50; /* Green for success/buttons */
-  --text-dark: #333;
-  --text-light-gray: #555;
-  --bg-white: #fff;
-  --bg-light-gray: #f4f6f9;
+  --text-dark: #333;/* dark gray for the logo and links*/
+  --text-light-gray: #555;/* light gray for text*/
+  --bg-white: #fff;/*white for the background*/
+  --bg-light-gray: #f4f6f9;/*light grey for background*/
   --brand-dark-green: #006600; /* Darker green for contrast */
 }
 
@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg-light-gray); /* Match home.html background */
+  background: var(--bg-white); 
   color: var(--text-dark);
   line-height: 1.6;
   display: flex;
@@ -76,7 +76,7 @@ a:hover {
 }
 
 .navbar-links a {
-  color: var(--brand-dark-green);
+  color: var(--text-dark);
   font-weight: 600;
   padding: 5px 8px;
   border-radius: 4px;
@@ -292,7 +292,7 @@ a:hover {
 .bottom-nav a {
   margin-right: 20px;
   font-size: 0.9rem;
-  color: var(--brand-dark-green);
+  color: var(--text-dark);
   font-weight: 600;
 }
 
@@ -377,7 +377,7 @@ a:hover {
 }
 
 .chat-header {
-    background-color: var(--primary-color);
+    background-color: var(--accent-color);
     color: var(--text-dark);
     padding: 15px;
     font-weight: 700;
@@ -412,7 +412,7 @@ a:hover {
 }
 
 .user {
-    background-color: var(--brand-dark-green);
+    background-color: var(--accent-color);
     color: white;
     align-self: flex-end;
 }

@@ -43,7 +43,20 @@
             
         </ul>
     </nav>
+<div class="profile-icon" id="profileIcon" onclick="openNav()">
+    <img src="Media1/Yenzi.jpg" alt="Profile">
+</div>
 
+<div id="sideNav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="Profile.html">My Profile</a>
+  <a href="faq.html">FAQ</a>
+  <a href="#" onclick="logout()">Logout</a>
+</div>
+
+<div id="authModal" class="modal">
+  </div>
     <main class="container"> 
         <section class="page-intro">
             <h1 class="title">We're Here For You</h1>
@@ -96,16 +109,16 @@
             <p class="section-subtitle">Find an Empowering The Nation center near you.</p>
             <div class="map-grid">
                 <div class="location-card interactive-card">
-                    <iframe src="https://maps.google.com/maps?q=Nelson+Mandela+Square,+Sandton&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="address">📍 Nelson Mandela Square, West St, Rivonia Rd, &, Sandton, 2146</div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d229309.37025270643!2d27.904549378124994!3d-26.100259951416927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950ea1742c8d13%3A0x87e4889ff846f15e!2sLibrary%20Gardens!5e0!3m2!1sen!2sza!4v1760163140854!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="address">📍 Corner of Market Street & Fraser Street (Library Gardens), Johannesburg, Gauteng</div>
                 </div>
                 <div class="location-card interactive-card">
-                    <iframe src="https://maps.google.com/maps?q=Soweto+Towers,+Orlando+East&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="address">📍 Soweto Towers, Old Potchefstroom Rd, Orlando East, Soweto, 1804</div>
+                   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.4262306440187!2d27.99965807519804!3d-26.182809577089817!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950b939eb70dad%3A0x2b04eb5c20d77c03!2sUniversity%20Rd%20%26%20Kingsway%20Ave%2C%20Auckland%20Park%2C%20Johannesburg%2C%202092!5e0!3m2!1sen!2sza!4v1760163213084!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="address">📍 Cnr Kingsway and University Road, Auckland Park, Johannesburg, 2006.</div>
                 </div>
                 <div class="location-card interactive-card">
-                    <iframe src="https://maps.google.com/maps?q=Roodepoort+City+Hall,+Christiaan+de+Wet+Rd&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    <div class="address">📍 Roodepoort City Hall, Christiaan de Wet Rd, Roodepoort, 1724</div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.251352919213!2d28.02574847519829!3d-26.188500577086284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e950c0fb3a9cff7%3A0x1b322c95985f4b1d!2sPlanetarium%2C%201%20Jan%20Smuts%20Ave%2C%20Braamfontein%2C%20Johannesburg%2C%202017!5e0!3m2!1sen!2sza!4v1760163263049!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <div class="address">📍 1 Jan Smuts Avenue, Braamfontein, Johannesburg, Gauteng, 2001.</div>
                 </div>
             </div>
         </section>
@@ -132,7 +145,7 @@
             <div class="bottom-nav">
                 <a href="home.html">Home</a>
                 <a href="Courses.html">Courses</a>
-                <a href="apply.html">Apply</a>
+                <a href="apply.html">Get Qoute</a>
                 <a href="about us.html">About Us</a>
                 <a href="contact-us.html">Contact Us</a>
             </div>
