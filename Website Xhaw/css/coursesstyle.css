@@ -23,6 +23,7 @@ body.dark-mode {
   --accent-color: #4CAF50; /* Accent can often stay the same */
   --text-dark: #ffffff;    /* Light text on dark background */
   --text-light: #2c303a;   /* Dark background */
+  --text-light-gray: #FFBF00;
   --bg-white: #373c49;     /* Darker card/element backgrounds */
   --bg-light-gray: #2c303a;/* Even darker background */
 }
@@ -256,7 +257,7 @@ body, .card, .modal-content, nav, footer, .app-section,.h1,.p,.course-card-conte
       padding: 20px;
     }
     .modal-content {
-      background: #fff; border-radius: 12px;
+      background: var(--bg-white); border-radius: 12px;
       width: 100%; max-width: 650px;
       padding: 30px; text-align: center; position: relative;
       max-height: 90vh; overflow-y: auto;
