@@ -1,6 +1,8 @@
   /* ------------------- */
-    /* Global Styles & Variables */
+    /* Global Styles and  var() Function */
     /* ------------------- */
+
+    /*Global styles [color]*/
     :root {
       --primary-color: #FFBF00;
       --secondary-color: #7FA75D;
@@ -21,6 +23,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
+      /* CSS Variables - var() Function*/ /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
       background: var(--bg-light-gray);
       color: var(--text-dark);
       line-height: 1.6;
@@ -39,6 +42,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      /* CSS Variables - var() Function*/ /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
       background: var(--primary-color);
       padding: 10px 30px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -54,7 +58,7 @@
     nav ul { list-style: none; display: flex; gap: 5px; }
     nav ul li { position: relative; }
     nav ul li a {
-      color: var(--secondary-color);
+      color: var(--text-dark);
       text-decoration: none;
       font-weight: bold;
       padding: 10px 15px;
@@ -174,6 +178,7 @@
     }
     .course-card .duration {
       font-weight: 600;
+      /* CSS Variables - var() Function*/ /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
       color: var(--text-light-gray);
       margin-bottom: 15px;
     }
@@ -227,6 +232,7 @@
       font-size: 1.5rem; font-weight: bold;
       color: var(--button-color); margin: 20px 0;
     }
+    /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
     .btn-enroll {
       display: inline-block; padding: 12px 35px;
       background: var(--accent-color); color: white;
@@ -243,10 +249,12 @@
 
     /* ------------------- */
     /* Chatbot & Footer (Consistent with other pages) */
+    /* CSS Variables - var() Function*/ /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
     /* ------------------- */
     #chatbotBtn { position: fixed; bottom: 20px; right: 20px; background: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 24px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; }
     .modal-chat { display: none; position: fixed; bottom: 90px; right: 20px; width: 350px; height: 500px; background: #fff; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); flex-direction: column; z-index: 1000; }
     .modal-content-chat { display: flex; flex-direction: column; height: 100%; }
+    /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
     .chat-header { background: var(--accent-color); color: white; padding: 12px; text-align: center; font-weight: bold; border-radius: 12px 12px 0 0; position: relative; }
     #closeModalBtn { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); font-size: 24px; cursor: pointer; color: white; }
     #chat-window { flex: 1; overflow-y: auto; padding: 15px; }
@@ -255,6 +263,7 @@
     .bot { text-align: left; color: #444; background: #f1f8e9; padding: 8px 12px; border-radius: 12px 12px 12px 0; }
     #chat-input { display: flex; padding: 10px; border-top: 1px solid #eee; }
     #user-input { flex-grow: 1; padding: 10px 15px; border: 1px solid #ccc; border-radius: 20px; margin-right: 10px; }
+    /*W3Schools,2025.CSS Variables - var() Function[online].Availiable at<https://www.w3schools.com/css/css3_variables.asp.[Accessed 17 september 2025]>*/
     #send-btn { background: var(--accent-color); color: white; border: none; border-radius: 20px; padding: 8px 16px; cursor: pointer; font-weight: 600; }
     .faq-btn { margin: 4px; padding: 8px 12px; background: var(--accent-color); color: white; border: none; border-radius: 6px; cursor: pointer; }
     details summary { cursor: pointer; padding: 8px; font-weight: bold; border: 1px solid #ddd; border-radius: 6px; margin-bottom: 5px; background: #f9f9f9; }
