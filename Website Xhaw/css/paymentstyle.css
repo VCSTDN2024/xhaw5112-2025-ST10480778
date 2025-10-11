@@ -28,7 +28,7 @@
     .brand { display: flex; align-items: center; gap: 10px; font-weight: bold; }
     .brand img { height: 40px; width: auto; }
     nav ul { list-style: none; display: flex; gap: 20px; }
-    nav ul li a { color: var(--secondary-color); text-decoration: none; font-weight: bold; }
+    nav ul li a { color: var(--text-dark); text-decoration: none; font-weight: bold; }
     .dropdown { position: relative; }
     .dropdown .dropdown-content { display: none; position: absolute; top: 100%; left: 0; background-color: var(--bg-white); min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 99; }
     .dropdown:hover .dropdown-content { display: block; }
