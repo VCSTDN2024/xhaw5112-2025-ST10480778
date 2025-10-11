@@ -63,7 +63,7 @@ function checkLoginStatus() {
         }
         // And make sure the main login button is visible if it exists
         if (primaryButton) {
-            primaryButton.style.display = "block";
+    primaryButton.style.display = "inline-block";
         }
     }
 }
