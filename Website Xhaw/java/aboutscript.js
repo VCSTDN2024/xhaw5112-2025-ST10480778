@@ -135,7 +135,7 @@ function closeNav() { document.getElementById("sideNav").style.width = "0"; }
             <details open>
               <summary>Where are your locations?</summary>
               <p>We are in Johannesburg South, Soweto, Roodepoort, and Sandton.<br>
-              <a href='/contact'>📍 View on map</a></p>
+              <a href='contact us.html'>📍 View on map</a></p>
             </details>
           </div>
         `,
@@ -143,7 +143,7 @@ function closeNav() { document.getElementById("sideNav").style.width = "0"; }
           <div class="accordion">
             <details open>
               <summary>How do I pay?</summary>
-              <p>You can pay online via EFT or card. <a href='/payment'>💳 Go to payment page</a></p>
+              <p>You can pay online via EFT or card. <a href='checkout.html'>💳 Go to checkout</a></p>
             </details>
           </div>
         `,
@@ -151,7 +151,7 @@ function closeNav() { document.getElementById("sideNav").style.width = "0"; }
           <div class="accordion">
             <details open>
               <summary>How can I contact you?</summary>
-              <p>You can reach us via our <a href='/contact'>Contact Page</a> or call 011-123-4567.</p>
+              <p>You can reach us via our <a href='contact us.html'>Contact page</a> or call 011-123-4567.</p>
             </details>
           </div>
         `,
@@ -160,7 +160,7 @@ function closeNav() { document.getElementById("sideNav").style.width = "0"; }
             <details open>
               <summary>What courses do you offer?</summary>
               <p>We offer First Aid, Sewing, Cooking, Landscaping, Child Minding, Life Skills, and Garden Maintenance.<br>
-              <a href='/courses'>📚 View all courses</a></p>
+              <a href='Courses.html'>📚 View all courses</a></p>
             </details>
           </div>
         `

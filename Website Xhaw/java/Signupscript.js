@@ -45,7 +45,23 @@ function login(e) {
   }
 }
 function logout() {
+  // Remove user login status
   localStorage.removeItem("username");
+  
+  // 🔥🔥🔥 NEW CODE TO RESET TO LIGHT MODE ON LOGOUT 🔥🔥🔥
+  // 1. Remove the theme preference from localStorage
+  localStorage.removeItem("theme"); 
+  
+  // 2. Ensure the 'dark-mode' class is removed from the body
+  document.body.classList.remove('dark-mode'); 
+
+  // 3. Update the theme toggle button icon to 'moon' (light mode)
+  const themeToggleButton = document.getElementById('theme-toggle');
+  if (themeToggleButton) {
+    themeToggleButton.textContent = '🌙'; 
+  }
+  // 🔥🔥🔥 END OF NEW CODE 🔥🔥🔥
+
   checkLoginStatus();
   closeNav();
   alert("You have been logged out.");
@@ -81,25 +97,32 @@ const currentTheme = localStorage.getItem('theme');
 // On page load, apply the saved theme
 if (currentTheme === 'dark') {
     document.body.classList.add('dark-mode');
-    themeToggleButton.textContent = '☀️'; // Sun icon for dark mode
+    if (themeToggleButton) {
+        themeToggleButton.textContent = '☀️'; // Sun icon for dark mode
+    }
+} else if (themeToggleButton) {
+    // Ensure the icon is correct if light mode is active or no preference is saved
+    themeToggleButton.textContent = '🌙';
 }
 
 // Add click listener to the button
-themeToggleButton.addEventListener('click', () => {
-    // Toggle the .dark-mode class on the body
-    document.body.classList.toggle('dark-mode');
+if (themeToggleButton) {
+    themeToggleButton.addEventListener('click', () => {
+        // Toggle the .dark-mode class on the body
+        document.body.classList.toggle('dark-mode');
 
-    let theme = 'light';
-    // If dark mode is now active...
-    if (document.body.classList.contains('dark-mode')) {
-        theme = 'dark';
-        themeToggleButton.textContent = '☀️'; // Change icon to sun
-    } else {
-        themeToggleButton.textContent = '🌙'; // Change icon to moon
-    }
-    // Save the user's preference to localStorage
-    localStorage.setItem('theme', theme);
-});
+        let theme = 'light';
+        // If dark mode is now active...
+        if (document.body.classList.contains('dark-mode')) {
+            theme = 'dark';
+            themeToggleButton.textContent = '☀️'; // Change icon to sun
+        } else {
+            themeToggleButton.textContent = '🌙'; // Change icon to moon
+        }
+        // Save the user's preference to localStorage
+        localStorage.setItem('theme', theme);
+    });
+}
 
 // ===== EVENT LISTENERS (Runs after the page is loaded) =====
 document.addEventListener("DOMContentLoaded", function() {
@@ -136,10 +159,27 @@ document.addEventListener("DOMContentLoaded", function() {
   if(userInput) userInput.addEventListener("keypress", (e) => { if (e.key === "Enter") sendMessage(); });
 });
 
+// Helper function for the storage event listener (for other tabs)
+function applyTheme() {
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    
+    document.body.classList.remove('dark-mode'); // Reset
+    if (themeToggleButton) themeToggleButton.textContent = '🌙'; // Default icon
+
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        if (themeToggleButton) themeToggleButton.textContent = '☀️';
+    }
+}
+
 // ===== Listen for logout/login events from OTHER tabs =====
 window.addEventListener('storage', function(event) {
   if (event.key === 'username') {
     checkLoginStatus(); // Update the UI on this page
-    applyTheme();
+    applyTheme(); // Re-apply theme based on new login status/storage
+  }
+  if (event.key === 'theme') {
+      applyTheme(); // Also check if theme was changed in another tab
   }
 });

@@ -544,9 +544,7 @@
       padding: 60px 20px;
     }
 
-    /* ------------------- */
-    /* Navigation (From home.html) */
-    /* ------------------- */
+    
     nav {
       display: flex;
       justify-content: space-between;
@@ -566,7 +564,7 @@
     nav ul { list-style: none; display: flex; gap: 5px; }
     nav ul li { position: relative; }
     nav ul li a {
-      color: var(--secondary-color);
+      color: var(--text-dark);
       text-decoration: none;
       font-weight: bold;
       padding: 10px 15px;
