@@ -20,6 +20,11 @@
             flex-direction: column;
             min-height: 100vh;
         }
+        nav span{
+            font-size: 1.1em; font-weight: 700; color: var(--text-dark); 
+        }
+
+        
 
         main {
             flex: 1; /* Pushes the footer down */
@@ -59,7 +64,7 @@
         }
 
         .navbar-links a {
-            color: var(--accent-color);
+            color: var(--text-dark);
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease;
