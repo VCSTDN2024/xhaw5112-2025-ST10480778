@@ -116,7 +116,7 @@ git clone git@github.com:VCSTDN2024/xhaw5112-2025-ST10480778.git
 - **Filter Selection UI**: Final decision pending on whether to use a slide-in panel or a full-screen modal for the course filter interface. Current version uses `react-native-dropdown-select-list` as a temporary solution.
 - **Backend & Payments**: Quote generation and payment processing flow in `CheckoutScreen.tsx` are placeholders and require complete backend integration before production deployment.
 - **Styling Consistency**: Global and local style files require a final pass to ensure uniform spacing, typography, and UI alignment across all screens and breakpoints.
-
+```
 ---
 # XHAW5112 TIMESHEET / ACTIVITY LOG
 
