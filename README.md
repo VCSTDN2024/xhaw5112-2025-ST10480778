@@ -12,7 +12,6 @@
 [![Expo Go](https://img.shields.io/badge/Expo_Go-000000?style=flat&logo=expo&logoColor=white)](https://expo.dev/)
 
 
-> A brief description of your website. Explain its purpose, what problem it solves, and its target audience.
 
 ---
 
