@@ -149,11 +149,19 @@ git clone git@github.com:VCSTDN2024/xhaw5112-2025-ST10480778.git
 ## 🔗 References
 Adobe (n.d.) Serif vs sans serif. Available at: https://www.adobe.com/uk/creativecloud/design/discover/serif-vs-sans-serif.html (Accessed: 30 October 2025).
 
+Expo (n.d.) @expo/vector-icons. Available at: https://docs.expo.dev/guides/icons/ (Accessed: 30 October 2025).
+
+Expo (n.d.) Assets. Available at: https://docs.expo.dev/workflow/assets/ (Accessed: 30 October 2025).
+
+Expo (n.d.) Troubleshooting. Available at: https://docs.expo.dev/workflow/troubleshooting/ (Accessed: 30 October 2025).
+
 Forbes Advisor (n.d.) How long does it take to build a website?. Available at: https://www.forbes.com/advisor/business/software/how-long-build-website/ (Accessed: 30 October 2025).
 
 Mozilla Developer Network (MDN) (n.d.) CSS background-color property. Available at: https://developer.mozilla.org/en-US/docs/Web/CSS/background-color (Accessed: 30 October 2025).
 
 Mozilla Developer Network (MDN) (n.d.) HTML forms guide. Available at: https://developer.mozilla.org/en-US/docs/Learn/Forms (Accessed: 30 October 2025).
+
+Mozilla Developer Network (MDN) (n.d.) Intl.NumberFormat. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat (Accessed: 30 October 2025).
 
 Mozilla Developer Network (MDN) (n.d.) JavaScript if...else statement. Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else (Accessed: 30 October 2025).
 
@@ -167,6 +175,12 @@ Octet Design (n.d.) Gray color meaning. Available at: https://octet.design/journ
 
 Octet Design (n.d.) Orange color meaning. Available at: https://octet.design/journal/orange-color-meaning/ (Accessed: 30 October 2025).
 
+React (n.d.) Using the Context API. Available at: https://react.dev/learn/passing-data-deeply-with-context (Accessed: 30 October 2025).
+
+React Native (n.d.) Core Components. Available at: https://reactnative.dev/docs/components-and-apis (Accessed: 30 October 2025).
+
+React Native (n.d.) TypeScript. Available at: https://reactnative.dev/docs/typescript (Accessed: 30 October 2025).
+
 React Navigation (n.d.) Custom Drawer Content. Available at: https://reactnavigation.org/docs/drawer-navigator/#providing-a-custom-drawercontent (Accessed: 30 October 2025).
 
 React Navigation (n.d.) Nested Navigation (Stacks inside Drawers). Available at: https://reactnavigation.org/docs/nesting-navigators (Accessed: 30 October 2025).
@@ -177,6 +191,8 @@ React Navigation (n.d.) React Navigation Drawer. Available at: https://reactnavi
 
 Reddit (n.d.) Explore this post and more from the web_design community. Available at: https://www.reddit.com/r/web_design/comments/arezp4/how_long_does_it_take_you_to_design_and_develop_a/ (Accessed: 30 October 2025).
 
+Software Mansion (n.d.) React Native Reanimated. Available at: https://docs.swmansion.com/react-native-reanimated/ (Accessed: 30 October 2025).
+
 W3Schools (n.d.) CSS styling forms. Available at: https://www.w3schools.com/css/css_form.asp (Accessed: 30 October 2025).
 
 W3Schools (n.d.) HTML forms. Available at: https://www.w3schools.com/html/html_forms.asp (Accessed: 30 October 2025).
@@ -184,6 +200,4 @@ W3Schools (n.d.) HTML forms. Available at: https://www.w3schools.com/html/html_f
 W3Schools (n.d.) JavaScript functions. Available at: https://www.w3schools.com/js/js_functions.asp (Accessed: 30 October 2025).
 
 Whitepeak (n.d.) Website Timeline: What to Expect and How to Plan For Success. Available at: https://whitepeak.io/website-timeline-what-expect/?utm_source=google.com (Accessed: 30 October 2025).
-
 ---
-
