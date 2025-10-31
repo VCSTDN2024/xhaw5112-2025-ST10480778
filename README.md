@@ -219,5 +219,16 @@ iStock by Getty Images (2025). Happy African man cutting bushes with petrol hedg
 
 African Impact Foundation (2025). Life Skills - Reproductive Health Program. [image online] Available at: < https://www.africanimpactfoundation.org/life-skills/ > [Accessed 30 October 2025]. 
 
-Broward College (2025). Early Childhood Education. [image online] Available at:< https://www.broward.edu/academics/education/as-early-childhood-ed/ > [Accessed 30 October 2025]. 
+Broward College (2025). Early Childhood Education. [image online] Available at:< https://www.broward.edu/academics/education/as-early-childhood-ed/ > [Accessed 30 October 2025].
+W3Schools (2025). How TO - CSS/JS Modal- How to Create a Modal Box. Available at: < https://www.w3schools.com/howto/howto_css_modals.asp > [Accessed 30 October 2025]. 
+
+W3Schools (2025). How TO – CSS Calendar- How to Create a Calendar Layout. Available at: < https://www.w3schools.com/howto/howto_css_calendar.asp > [Accessed 30 October 2025]. 
+
+W3Schools,2025. How TO – 3D Flip Box- How to Create a Flip Box. Available at: < https://www.w3schools.com/howto/howto_css_flip_box.asp > [Accessed 30 October 2025]. 
+
+Geeksforgeeks(2025). Create Working Chatbot in HTML CSS & Javascript.[Online] Available at: <https://www.geeksforgeeks.org/javascript/create-working-chatbot-in-html-css-javascript/ > [Accessed 30 October 2025r]. 
+
+The Independent Institute of Education, 2025. Mobile App Scripting –Module Manual 2025 [MAST5112]. nt. [online via internal VLE] The Independent Institute of Education. Available at: [Accessed 30 October 2025]. 
+
+The Independent Institute of Education, 2025. Web Development –Module Manual 2025 [WEDE5020]. nt. [online via internal VLE] The Independent Institute of Education. Available at: [Accessed 30 October 2025]. 
 ---
