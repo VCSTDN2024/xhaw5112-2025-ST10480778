@@ -200,4 +200,24 @@ W3Schools (n.d.) HTML forms. Available at: https://www.w3schools.com/html/html_f
 W3Schools (n.d.) JavaScript functions. Available at: https://www.w3schools.com/js/js_functions.asp (Accessed: 30 October 2025).
 
 Whitepeak (n.d.) Website Timeline: What to Expect and How to Plan For Success. Available at: https://whitepeak.io/website-timeline-what-expect/?utm_source=google.com (Accessed: 30 October 2025).
+
+The Sewing Cafe (2025). CMT & Sewing Training Center. [image online] Available at:< https://thesewingcafe.co.za/ > [Accessed 30 October 2025]. 
+
+Landscapingtownsvillesolutions (2021). Landscaping and Garden Maintenance [image online] Available at: <https://www.landscapingtownsvillesolutions.com.au/category/gardening/ > [Accessed 30 October 2025]. 
+
+Mytunbridgewells (2025). 3 Gardening Skills That Will Serve You Forever [image online] Available at: < https://mytunbridgewells.com/gardening-skills/ > [Accessed 30 October 2025]. 
+
+Cprclassesnearme(). First Aid vs CPR: What’s the Difference and Why You Need Both [image online] Available at: < https://cprclassesnearme.com/first-aid-vs-cpr-difference-why-you-need-both/ > [Accessed 30 October 2025]. 
+
+Snowwhitecleaners(2023). Garden Maintenance. [image online] Available at:< https://www.snowwhitecleaners.co.uk/garden-maintenance.html > [Accessed 30 October 2025]. 
+
+Snowwhitecleaners(2023). Snow White Cleaners – Cleaning and Gardening Services in London. [image online] Available at:< https://www.snowwhitecleaners.co.uk > [Accessed 30 October 2025]. 
+
+Kepner-Tregoe (2025). 5 Tips for getting the most out of a training course. [image online] Available at:< https://kepner-tregoe.com/blogs/5-tips-for-getting-the-most-out-of-a-training-course/ > [Accessed 30 October 2025]. 
+
+iStock by Getty Images (2025). Happy African man cutting bushes with petrol hedge trimmer stock photo. [image online] Available at: < https://www.istockphoto.com/photo/happy-african-man-cutting-bushes-with-petrol-hedge-trimmer-gm1204832562-346831638 > [Accessed 30 October 2025]. 
+
+African Impact Foundation (2025). Life Skills - Reproductive Health Program. [image online] Available at: < https://www.africanimpactfoundation.org/life-skills/ > [Accessed 30 October 2025]. 
+
+Broward College (2025). Early Childhood Education. [image online] Available at:< https://www.broward.edu/academics/education/as-early-childhood-ed/ > [Accessed 30 October 2025]. 
 ---
